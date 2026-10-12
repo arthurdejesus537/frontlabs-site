@@ -61,7 +61,8 @@ Rodada de 12/10/2026 (runway.com + ploy.ai → default → Front Labs).
 - `data-section` em toda seção: os scripts de QA (seções, vazio, estouro) ficam genéricos.
 - Tokens primeiro: a Front Labs saiu trocando `tokens.css` + `site.ts`; só 2 componentes novos (Steps, Faq) e um nav próprio. Onde faltou token (peso do título de card, caixa do rótulo, tamanho ótico, recuo das molduras), o token entrou no default antes da cópia.
 - Placeholders de instrução no default deixam óbvio o que cada bloco pede.
-- Revisor externo (subagente sem contexto) para a versão da marca.
+- Revisor externo (subagente sem contexto) para a versão da marca: achou foco invisível no rodapé escuro e texto sobre o Horizonte abaixo de AA, que os scripts não pegavam. Valeu a pena; manter.
+- Medir contraste sobre imagem amostrando o fundo com o texto escondido (`tools/contrast-media.mjs`): o contraste "de token" não diz nada quando o fundo é foto ou gradiente.
 
 **O que mudar no prompt da próxima vez**
 1. Fase 0: "escolha portas livres e confirme o processo que responde antes de qualquer screenshot".
