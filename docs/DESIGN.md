@@ -306,6 +306,17 @@ Três por linha no desktop, um embaixo do outro no celular. Dados de data e dom�
 
 Três colunas com os círculos 01, 02, 03 ligados por um traço preto de 1px; o último círculo preenchido. Abaixo de cada um, título 23px e frase curta. Usada na página 3 do Referral.
 
+### 6.11 Órbita de etapas
+
+Carrossel 3D para mostrar etapas ou peças em sequência, adaptado de uma galeria de referência.
+
+- Moldura de raio 24 com o **gradiente Horizonte** escurecendo até um "chão" quase preto embaixo, com grão. Sem estrelas, sem verde-esmeralda: a cor vem do Horizonte.
+- Cards em retrato (altura = largura × 1,57, de 135 a 168px), raio 18, num arco 3D raso: o do meio fica reto; os das pontas avançam, sobem e giram um pouco. Cada card é o fundo borrado da etapa (4.2.2) ou o Horizonte, com o número em mono no topo e o nome em Inter 550 embaixo, em branco.
+- Rótulo mono da etapa acima de cada card (`/01 code`). Embaixo, o **reflexo**: o próprio card invertido, apagando até sumir.
+- Rodapé centralizado: contador mono (`03 / 05`), setas em círculo contornado branco, nome e frase da etapa atual, pontos (o ativo vira pílula) e "/drag to explore · pause".
+- Gira sem fim (cards reciclados), deriva bem devagar sozinho, para quando o mouse ou o foco estão nela e volta 4,5s depois de qualquer navegação. Arrastar, setas do teclado e pontos. Com reduced-motion fica parada.
+- Uso hoje: página How it works, logo abaixo do herói, com as 5 etapas.
+
 ---
 
 ## 7. Fotografia
@@ -540,6 +551,7 @@ Nos documentos e posts, o card vai **sobre o fundo borrado do venue** (raio 24, 
 | 27 | Passos da landing como cards com imagem do momento | Lista com círculos | A lista ficava crua |
 | 28 | FAQ em duas colunas com card do Arch e pílula de veredito | Lista simples | Resposta direta e um contato humano |
 | 29 | Barra de navegador só no card de preview | "Janela" em todo conteúdo | Ficou exagerado |
+| 30 | Órbita de etapas no How it works (6.11) | Só as linhas por etapa | Mostra as 5 etapas de uma vez, com movimento; a galeria de referência foi refeita com o Horizonte e os fundos borrados no lugar do verde-esmeralda e das estrelas |
 
 ## 13. Em aberto
 

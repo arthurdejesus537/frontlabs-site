@@ -3,17 +3,19 @@ import { site } from "@/content/site";
 import { PageHero } from "@/components/sections/PageHero";
 import { FeatureRow } from "@/components/sections/FeatureRow";
 import { Steps } from "@/components/sections/Steps";
+import { StepOrbit } from "@/components/sections/StepOrbit";
 import { FinalCta } from "@/components/sections/FinalCta";
 import styles from "../pages.module.css";
 
 const page = site.pages.howItWorks;
 export const metadata: Metadata = { title: page.meta.title, description: page.meta.description };
 
-/** /how-it-works — página de feature da Ploy: uma linha por etapa (mídia alternando lados) + passos + CTA. */
+/** /how-it-works — página de feature da Ploy: órbita das 5 etapas + uma linha por etapa (mídia alternando lados) + passos + CTA. */
 export default function HowItWorks() {
   return (
     <main id="conteudo">
       <PageHero data={page.hero} />
+      <StepOrbit data={page.orbit} />
       <section data-section="feature-rows" className="section" aria-labelledby="rows-title">
         <div className="container">
           <h2 id="rows-title" className={`t-display ${styles.rowsHead}`}>{page.rowsTitle}</h2>

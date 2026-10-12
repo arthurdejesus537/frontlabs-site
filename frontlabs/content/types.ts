@@ -236,6 +236,24 @@ export type HeroFilmContent = Base & {
 /** Linha que preenche ao rolar (Ploy "Your website launched. Then it stopped."). */
 export type ScrollFillContent = Base & { text: string; note?: string };
 
+/** Órbita de etapas: cards em retrato num arco 3D que gira sem fim (DESIGN §6.11). */
+export type StepOrbitContent = Base & {
+  label: string;
+  title: string;
+  /** rótulos de acessibilidade e da dica; {n}, {total} e {title} são trocados no componente */
+  stageLabel: string;
+  slideLabel: string;
+  dotLabel: string;
+  dotsLabel: string;
+  prevLabel: string;
+  nextLabel: string;
+  hint: string;
+  pause: { label: string; aria: string };
+  play: { label: string; aria: string };
+  /** bg: foto borrada ou "horizon" para o gradiente */
+  items: { label: string; title: string; text: string; bg: string }[];
+};
+
 /** Card "ao vivo": número em odômetro, sparkline, log em rodízio, mini-stats e status. */
 export type LiveCard = {
   pill: string;
@@ -304,6 +322,7 @@ export type PagesContent = {
   howItWorks: {
     meta: { title: string; description: string };
     hero: PageHeroContent;
+    orbit: StepOrbitContent;
     rowsTitle: string;
     rows: FeatureRowContent[];
     steps: StepsContent;

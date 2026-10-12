@@ -185,6 +185,16 @@
   --c-highlight: var(--grey);     /* coluna destacada da tabela */
   --row-h: 64px;                  /* linha da tabela (Ploy 65) */
 
+  /* órbita de etapas (§6.11) */
+  --orbit-h: clamp(700px, calc(100svh - var(--nav-h) - var(--frame-gutter)), 900px);
+  --orbit-perspective: 1100px;
+  --orbit-ratio: 1.57;            /* altura = largura × 1.57 */
+  --orbit-floor: linear-gradient(180deg, rgb(10 10 10 / 0.18) 0%, rgb(10 10 10 / 0.34) 48%, rgb(10 10 10 / 0.78) 100%); /* Horizonte escurecendo em direção ao "chão" do reflexo */
+  --orbit-card-scrim: linear-gradient(180deg, rgb(10 10 10 / 0.05) 40%, rgb(10 10 10 / 0.55) 100%);
+  --orbit-reflection: 0.38;
+  --orbit-dot: rgb(255 255 255 / 0.38);
+  --orbit-quiet: rgb(255 255 255 / 0.7);
+
   --z-header: 50;
   --z-menu: 60;
 }

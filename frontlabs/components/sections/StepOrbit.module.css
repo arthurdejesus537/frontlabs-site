@@ -1,0 +1,123 @@
+/* Órbita de etapas (DESIGN §6.11): moldura de raio 24 com o Horizonte escurecendo até o "chão" do reflexo. */
+.wrap { padding: var(--s-3) var(--frame-gutter) 0; }
+.frame {
+  position: relative; isolation: isolate; overflow: hidden;
+  height: var(--orbit-h); border-radius: var(--r-frame);
+  background: var(--bg-horizonte); color: var(--c-on-media);
+}
+.floor { position: absolute; inset: 0; z-index: -1; background: var(--orbit-floor); pointer-events: none; }
+.floor::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--grain); mix-blend-mode: overlay; opacity: var(--grain-opacity);
+}
+
+.heading { position: relative; z-index: 2; padding: var(--s-8) var(--s-5) 0; text-align: center; pointer-events: none; }
+.label { color: var(--c-on-media-text); margin-bottom: var(--s-3); }
+.title {
+  font-size: var(--t-display); line-height: var(--t-display-lh); letter-spacing: var(--t-display-ls);
+  font-weight: var(--w-title); font-variation-settings: var(--title-fvs); text-wrap: balance;
+}
+
+/* palco 3D: só o gesto horizontal é nosso; rolar a página continua livre */
+.stage {
+  position: absolute; inset: 24% 0 220px; perspective: var(--orbit-perspective);
+  cursor: grab; touch-action: pan-y; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.stage.isDragging { cursor: grabbing; }
+.stage:focus-visible { outline: 1px solid var(--c-on-media); outline-offset: -20px; }
+.orbit {
+  --card-height: calc(var(--card-width) * var(--orbit-ratio));
+  position: absolute; top: 18%; left: 50%; transform-style: preserve-3d;
+}
+
+.card {
+  position: absolute; top: 0; left: 0;
+  width: var(--card-width); height: var(--card-height);
+  transform-style: preserve-3d; will-change: transform;
+}
+.cardLabel {
+  position: absolute; bottom: calc(100% + var(--s-3)); left: -20%; width: 140%;
+  font-family: var(--f-mono); font-size: var(--t-micro); font-weight: var(--w-label); line-height: 1.4;
+  color: var(--orbit-quiet); text-align: center; white-space: nowrap;
+}
+/* a "foto" do card: fundo borrado da etapa, número e nome em branco */
+.face {
+  position: relative; display: flex; flex-direction: column; justify-content: space-between;
+  width: 100%; height: 100%; padding: var(--s-4); border-radius: var(--r-media-lg); overflow: hidden;
+  pointer-events: none;
+}
+.face::before { content: ""; position: absolute; inset: 0; background: var(--orbit-card-scrim); }
+.faceNumber, .faceTitle { position: relative; }
+.faceNumber { font-family: var(--f-mono); font-size: var(--t-micro); color: var(--c-on-media-text); }
+.faceTitle {
+  font-size: var(--t-title); line-height: var(--t-title-lh); letter-spacing: var(--t-title-ls);
+  font-weight: var(--w-title);
+}
+/* reflexo: o próprio card, invertido e apagando até sumir */
+.reflection {
+  position: absolute; top: calc(100% + var(--s-2)); left: 0; width: 100%; height: 100%;
+  opacity: var(--orbit-reflection); pointer-events: none;
+  -webkit-mask-image: linear-gradient(#000 0%, #0009 36%, transparent 96%);
+  mask-image: linear-gradient(#000 0%, #0009 36%, transparent 96%);
+}
+.reflection .face { transform: scaleY(-1); filter: brightness(0.7); }
+
+/* rodapé: contador, etapa atual, pontos e pausa */
+.info {
+  position: absolute; z-index: 4; left: 50%; bottom: var(--s-6); transform: translateX(-50%);
+  width: min(520px, 92%); text-align: center;
+}
+.counter {
+  display: flex; justify-content: center; gap: var(--s-2); margin-bottom: var(--s-2);
+  font-family: var(--f-mono); font-size: var(--t-micro); color: var(--orbit-quiet);
+}
+.counterNow { color: var(--c-on-media); }
+.selection { display: flex; align-items: center; justify-content: center; gap: var(--s-4); }
+.currentTitle {
+  min-width: 10ch; font-size: var(--t-feature); line-height: var(--t-feature-lh); letter-spacing: var(--t-title-ls);
+  font-weight: var(--w-title);
+}
+.currentText {
+  min-height: calc(2 * var(--t-small-lh) * var(--t-small)); margin-top: var(--s-1);
+  font-size: var(--t-small); line-height: var(--t-small-lh); color: var(--c-on-media-text);
+  font-variation-settings: var(--text-fvs); text-wrap: balance;
+}
+.arrow {
+  display: grid; place-items: center; width: var(--icon-circle); height: var(--icon-circle);
+  border: 1px solid var(--c-on-media-line); border-radius: var(--r-pill); background: transparent;
+  color: var(--c-on-media); cursor: pointer; transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+.arrow:hover { background: var(--c-on-media-hover); border-color: var(--c-on-media-border); }
+.arrow:focus-visible, .dot:focus-visible, .playback:focus-visible { outline: 1px solid var(--c-on-media); outline-offset: 4px; }
+
+.dots { display: flex; justify-content: center; gap: 2px; margin-top: var(--s-3); }
+.dot {
+  display: grid; place-items: center; width: 16px; height: 24px;
+  padding: 0; border: 0; background: none; cursor: pointer; transition: width 0.3s var(--ease);
+}
+.dotMark {
+  width: 4px; height: 4px; border-radius: var(--r-pill); background: var(--orbit-dot);
+  transition: width 0.3s var(--ease), background 0.3s var(--ease);
+}
+.dot[aria-current="true"] { width: 25px; }
+.dot[aria-current="true"] .dotMark { width: 20px; background: var(--c-on-media); }
+
+.hint {
+  display: flex; align-items: center; justify-content: center; gap: var(--s-2);
+  margin-top: var(--s-2); color: var(--orbit-quiet); font-size: var(--t-micro);
+}
+.playback {
+  padding: var(--s-1) 0; border: 0; background: none; cursor: pointer;
+  font: inherit; color: var(--c-on-media-text); transition: color var(--dur-fast) var(--ease);
+}
+.playback:hover { color: var(--c-on-media); }
+
+@media (min-height: 950px) { .orbit { top: 22%; } }
+
+@media (max-width: 767px) {
+  .heading { padding-top: var(--s-7); }
+  .title { font-size: var(--t-heading); }
+  .stage { inset: 22% 0 230px; }
+  .faceTitle { font-size: var(--t-subtitle); }
+  .currentTitle { font-size: var(--t-title); }
+}
