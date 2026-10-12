@@ -23,8 +23,8 @@
 .outline:hover { border-color: var(--c-ink); }
 .light { background: var(--c-surface); color: var(--c-ink); }
 .light:hover { background: var(--c-btn-2); }
-.outline-light { background: transparent; color: var(--c-on-media); border-color: rgb(255 255 255 / 0.7); }
-.outline-light:hover { background: rgb(255 255 255 / 0.12); border-color: var(--c-on-media); }
+.outline-light { background: transparent; color: var(--c-on-media); border-color: var(--c-on-media-border); }
+.outline-light:hover { background: var(--c-on-media-hover); border-color: var(--c-on-media); }
 .link {
   height: auto; padding-inline: 0; background: none; color: var(--c-ink);
   text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px;

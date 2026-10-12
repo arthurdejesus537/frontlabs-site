@@ -27,8 +27,17 @@
   --c-dark-line: rgb(255 255 255 / 0.14);
   --c-dark-btn: rgb(255 255 255 / 0.08);
   --c-bar: #141414;              /* faixa de anúncio (A usa a cor da marca) */
+  --bar-bg: var(--c-bar);        /* a marca pode trocar por imagem/gradiente */
   --c-bar-ink: #ffffff;
   --c-on-media: #ffffff;         /* texto sobre mídia escura */
+  --c-on-media-text: rgb(255 255 255 / 0.8);
+  --c-on-media-line: rgb(255 255 255 / 0.45);
+  --c-on-media-border: rgb(255 255 255 / 0.7);
+  --c-on-media-hover: rgb(255 255 255 / 0.12);
+  --c-veil: rgb(0 0 0 / 0.28);   /* véu sobre fundo de mídia para garantir AA */
+  --ph-blur: radial-gradient(60% 80% at 20% 30%, #5a5a52 0%, transparent 70%),
+    radial-gradient(50% 70% at 80% 70%, #8a8a7a 0%, transparent 70%),
+    radial-gradient(40% 60% at 60% 10%, #2c2f33 0%, transparent 70%), #3d3f3a; /* placeholder de "foto borrada" */
   --c-scrim: linear-gradient(180deg, rgb(0 0 0 / 0) 35%, rgb(0 0 0 / 0.55) 100%);
   --c-field-1: #ffb8fc;          /* B campo rosa */
   --c-field-2: #fffa64;          /* B campo amarelo */
@@ -59,6 +68,11 @@
   --w-title: 500;                /* A usa 400; 500 dá presença à Geist */
   --w-medium: 500;
   --w-strong: 600;               /* botões e rótulos (A+B) */
+  --w-card: 400;                 /* título de card (A: 400) */
+  --w-label: 500;
+  --label-case: uppercase;       /* B "ANNOUNCEMENT" */
+  --text-fvs: normal;            /* font-variation-settings do texto (ex.: "opsz" 14) */
+  --title-fvs: normal;
 
   /* ---------- escala tipográfica (desktop; mobile no fim) ---------- */
   --t-shout: 144px;   --t-shout-lh: 0.88;                              /* B */
@@ -74,6 +88,9 @@
   --t-meta: 12px;     --t-meta-lh: 1.4;                                /* A */
   --t-label: 12px;    --t-label-ls: 0.04em;                            /* B "ANNOUNCEMENT" */
   --t-number: 64px;   --t-number-lh: 1;                                /* B número de card */
+  --t-micro: 10px;                                                     /* rótulo do card de anúncio */
+  --t-logo: 20px;     --t-logo-lg: 40px;                               /* marca no nav e no footer */
+  --t-ask: 28px;                                                       /* "versão curta" do footer (B) */
 
   /* ---------- espaço e grid ---------- */
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
@@ -83,6 +100,7 @@
   --container-narrow: 720px;
   --section-y: 96px;             /* medido: vazio entre seções ≈ 2 × 96 */
   --field-gap: 24px;             /* B campos coloridos encostados */
+  --frame-gutter: var(--gutter); /* distância das molduras (hero, campos, footer) até a borda */
   --grid-gap: 16px;              /* A+B */
 
   /* ---------- raios ---------- */

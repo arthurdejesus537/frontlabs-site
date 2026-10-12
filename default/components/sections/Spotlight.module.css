@@ -1,4 +1,4 @@
-.wrap { padding-inline: var(--gutter); }
+.wrap { padding-inline: var(--frame-gutter); }
 .frame {
   position: relative; isolation: isolate; overflow: hidden;
   display: grid; grid-template-columns: 1fr minmax(0, 384px); gap: var(--s-8); align-items: center;
@@ -9,13 +9,13 @@
 .left { display: grid; gap: var(--s-5); justify-items: start; max-width: 460px; }
 .label { font-size: var(--t-meta); font-weight: var(--w-medium); letter-spacing: 0; }
 .text { font-size: var(--t-title); line-height: 1.3; letter-spacing: var(--t-title-ls); font-weight: var(--w-title); }
-.list { border-bottom: 1px solid rgb(255 255 255 / 0.45); }
+.list { border-bottom: 1px solid var(--c-on-media-line); }
 .item {
   position: relative; display: grid; gap: var(--s-2); padding: var(--s-6) var(--s-7) var(--s-6) 0;
-  border-top: 1px solid rgb(255 255 255 / 0.45);
+  border-top: 1px solid var(--c-on-media-line);
 }
 .itemTitle { font-size: var(--t-lead); letter-spacing: -0.01em; }
-.itemText { font-size: var(--t-meta); line-height: 1.5; color: rgb(255 255 255 / 0.8); max-width: 40ch; }
+.itemText { font-size: var(--t-meta); line-height: 1.5; color: var(--c-on-media-text); max-width: 40ch; }
 .arrow { position: absolute; right: 0; top: calc(var(--s-6) + 6px); transition: transform var(--dur-fast) var(--ease); }
 .item:hover .arrow { transform: translate(2px, -2px); }
 
@@ -27,4 +27,4 @@
   .text { font-size: var(--t-lead); }
 }
 /* véu leve sobre o fundo para o texto branco passar AA em qualquer mídia */
-.frame::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgb(0 0 0 / 0.28); pointer-events: none; }
+.frame::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--c-veil); pointer-events: none; }

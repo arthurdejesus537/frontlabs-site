@@ -1,4 +1,4 @@
-.wrap { padding-inline: var(--gutter); }
+.wrap { padding-inline: var(--frame-gutter); }
 .frame {
   position: relative; isolation: isolate; overflow: hidden;
   display: grid; align-content: end; gap: var(--s-6);
@@ -40,7 +40,7 @@
 .card:hover { transform: translateY(-1px); }
 .thumb { width: 56px; flex-shrink: 0; border-radius: calc(var(--r-card-sm) - 2px); }
 .cardText { display: grid; gap: 2px; }
-.cardLabel { color: var(--c-mute); font-size: 10px; }
+.cardLabel { color: var(--c-mute); font-size: var(--t-micro); }
 .cardTitle { font-size: var(--t-small); line-height: 1.25; font-weight: var(--w-strong); letter-spacing: -0.01em; }
 .cardIcon { flex-shrink: 0; align-self: flex-start; margin-top: var(--s-1); }
 

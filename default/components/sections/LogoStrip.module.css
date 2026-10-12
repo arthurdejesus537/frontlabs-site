@@ -7,4 +7,4 @@
   border-radius: var(--r-card-sm); background: var(--c-placeholder); color: var(--c-placeholder-ink);
   font-family: var(--f-mono); font-size: var(--t-meta); white-space: nowrap;
 }
-.word { font-family: var(--f-mono); font-size: var(--t-small); color: var(--c-mute); white-space: nowrap; text-transform: uppercase; letter-spacing: var(--t-label-ls); }
+.word { font-family: var(--f-mono); font-size: var(--t-small); color: var(--c-mute); white-space: nowrap; text-transform: var(--label-case); letter-spacing: var(--t-label-ls); }

@@ -14,6 +14,7 @@ body {
   font-size: var(--t-body);
   line-height: var(--t-body-lh);
   letter-spacing: var(--t-body-ls);
+  font-variation-settings: var(--text-fvs);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -41,20 +42,23 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   color: var(--c-ink);
 }
 .t-hero {
+  font-variation-settings: var(--title-fvs);
   font-size: var(--t-hero); line-height: var(--t-hero-lh); letter-spacing: var(--t-hero-ls);
   font-weight: var(--w-title); color: var(--c-ink); text-wrap: balance;
 }
 .t-display {
+  font-variation-settings: var(--title-fvs);
   font-size: var(--t-display); line-height: var(--t-display-lh); letter-spacing: var(--t-display-ls);
   font-weight: var(--w-title); color: var(--c-ink); text-wrap: balance;
 }
 .t-heading {
+  font-variation-settings: var(--title-fvs);
   font-size: var(--t-heading); line-height: var(--t-heading-lh); letter-spacing: var(--t-heading-ls);
   font-weight: var(--w-title); color: var(--c-ink); text-wrap: balance;
 }
 .t-title {
   font-size: var(--t-title); line-height: var(--t-title-lh); letter-spacing: var(--t-title-ls);
-  font-weight: var(--w-regular); color: var(--c-ink);
+  font-weight: var(--w-card); color: var(--c-ink); font-variation-settings: var(--title-fvs);
 }
 .t-subtitle {
   font-size: var(--t-subtitle); line-height: var(--t-subtitle-lh); letter-spacing: var(--t-subtitle-ls);
@@ -66,7 +70,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .t-meta { font-size: var(--t-meta); line-height: var(--t-meta-lh); letter-spacing: 0; color: var(--c-mute); }
 .t-label {
   font-family: var(--f-mono); font-size: var(--t-label); line-height: 1.4;
-  letter-spacing: var(--t-label-ls); text-transform: uppercase; font-weight: var(--w-medium);
+  letter-spacing: var(--t-label-ls); text-transform: var(--label-case); font-weight: var(--w-label);
 }
 .t-number {
   font-size: var(--t-number); line-height: var(--t-number-lh); font-weight: var(--w-strong);
@@ -78,7 +82,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .wide { width: 100%; padding-inline: var(--gutter); }
 .section { padding-block: var(--section-y); }
 /* campos coloridos (B): a 24px da borda; dois campos seguidos encostam com 24px entre eles */
-.field-wrap { padding: var(--section-y) var(--gutter); }
+.field-wrap { padding: var(--section-y) var(--frame-gutter); }
 .field-wrap + .field-wrap { margin-top: calc(var(--section-y) * -2 + var(--field-gap)); }
 
 .sr-only {
