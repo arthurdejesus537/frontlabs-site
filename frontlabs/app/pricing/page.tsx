@@ -18,6 +18,7 @@ export default function Pricing() {
     <main id="conteudo">
       <PageHero data={page.hero} />
       <section data-section="plans" className={styles.plans} aria-label={page.hero.tag}>
+        <h2 className="sr-only">{page.compare.columns.join(", ")}</h2>
         <ul className={`container ${styles.planGrid}`}>
           {page.plans.map((p) => <li key={p.name}><PlanCard plan={p} /></li>)}
         </ul>

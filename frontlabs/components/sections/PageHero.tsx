@@ -10,6 +10,7 @@ export function PageHero({ data, as: Tag = "h1" }: { data: PageHeroContent; as?:
         <p className={styles.tag}>{data.tag}</p>
         <Tag id="page-title" className={styles.title}>
           {data.title}
+          {" "}
           {data.titleTurn ? <span className={styles.turn}>{data.titleTurn}</span> : null}
         </Tag>
         <p className={styles.lead}>{data.lead}</p>

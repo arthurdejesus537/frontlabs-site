@@ -52,7 +52,7 @@
 
 .pause {
   display: grid; place-items: center; align-self: flex-start;
-  width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--c-line); color: var(--c-mute);
+  width: var(--btn-h-sm); height: var(--btn-h-sm); border-radius: 50%; border: 1px solid var(--c-line); color: var(--c-mute);
 }
 .pause:hover { color: var(--c-ink); border-color: var(--c-line-strong); }
 

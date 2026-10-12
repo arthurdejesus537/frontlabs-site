@@ -124,7 +124,7 @@ export function FeatureTabs() {
                       onClick={() => { stop(); setT(i); }}
                       onKeyDown={(e) => onTabKey(e, i)}
                     >
-                      <span className={`t-label ${styles.num}`}>{String(i + 1).padStart(2, "0")}</span>
+                      <span className={`t-label ${styles.num}`}>{String(i + 1).padStart(2, "0")}</span>{" "}
                       <span className={styles.tabTitle}>{tab.title}</span>
                     </button>
                     <div className={styles.more} aria-hidden={!on}>

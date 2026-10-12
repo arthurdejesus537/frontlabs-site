@@ -44,7 +44,7 @@ export function Faq({ data = site.faq }: { data?: FaqContent }) {
               <li key={it.q} className={styles.item}>
                 <h3 className={styles.qWrap}>
                   <button type="button" className={styles.q} aria-expanded={on} aria-controls={`${data.id}-a-${i}`} onClick={() => setOpen(on ? null : i)}>
-                    <span className={`t-label ${styles.num}`}>{String(i + 1).padStart(2, "0")}</span>
+                    <span className={`t-label ${styles.num}`}>{String(i + 1).padStart(2, "0")}</span>{" "}
                     <span className={styles.qText}>{it.q}</span>
                     <span className={[styles.plus, on ? styles.plusOn : ""].join(" ")} aria-hidden="true"><Icon name="plus" size={16} /></span>
                   </button>

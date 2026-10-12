@@ -36,3 +36,6 @@
   [data-section="hero"] [data-media] img,
 [data-section="hero-film"] [data-media] img { animation: none; transform: scale(1.08); }
 }
+
+/* palco sem overflow: hidden (cresce com o card) → o grão acompanha o raio */
+[data-stage]::after { border-radius: inherit; }

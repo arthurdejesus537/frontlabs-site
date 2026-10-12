@@ -153,3 +153,31 @@ Fonte: apresentação da oferta (10/10/2026), passada no prompt da rodada 2.
 | `Results` | Talvez: é o "Audience" da Ploy simplificado; útil como "benefícios" |
 | Abas com barra de progresso e acordeão no celular | **Sim**: melhora direta do `FeatureTabs` do default |
 | Rotas de página no default | Sim: o default hoje é só a home; vale ter `/pricing` e uma página de feature como modelo |
+
+## R2.7 Revisão externa da rodada 2: o que foi feito com cada apontamento
+Relatório completo: `qa/frontlabs-r2/revisao-externa.md` (2 graves, 10 médios, 22 leves).
+
+| # | Apontamento | O que fiz |
+|---|---|---|
+| 1 | Card de preview cortado no palco a 390 (home e /how-it-works) | **Corrigido**: o palco não usa mais `overflow: hidden` (imagem e grão herdam o raio), então cresce com o card |
+| 2 | Tabela de /pricing com a coluna Signature fora da tela a 390 | **Corrigido**: no celular a tabela tem largura fixa da tela (3 colunas cabem, texto quebra); `caption` para leitor de tela |
+| 3 | H1 de 104px (Display do DESIGN é 72) | **Mantido**: o PROMPT_RODADA2 pede `clamp(48px, 7.2vw, 112px)` no herói e nos títulos de página (clone da Ploy). Vale decidir se entra no DESIGN como "Display XL" |
+| 4 | Linha que preenche com 86px (briefing antigo: 30–34) | **Mantido**: o prompt da rodada 2 pede `clamp(40px, 6vw, 96px)`; ela substitui a frase de destaque antiga |
+| 5 | Horizonte em duas seções (cards ao vivo e CTA) | **Mantido**: pedido do prompt (cards ao vivo "no lugar do rosa"). Se pesar, o CTA final pode voltar ao fundo claro |
+| 6 | Palcos de /how-it-works com raio 10 | **Corrigido**: 24 |
+| 7 | Home diferente do FRONTLABS-HOME (sem `/for local businesses`, card de preview, tipos de negócio, Para quem…) | **Decisão da rodada 2** (prompt): seções desligadas sem apagar código. O FRONTLABS-HOME §2 ficou desatualizado; a lista de segmentos pode voltar como seção se fizer falta |
+| 8 | "Five parts" com 6 cards | **Corrigido**: "Six parts, one site." |
+| 9 | "More people find you" / "built to show up" perto de promessa de Google | **Ajustado**: o pilar Found agora diz "built the right way for Google to read". Os títulos dos cards de resultado vieram do prompt; ficam como copy provisória para o Pedro revisar |
+| 10 | Bloco "How payment works" com 4,47:1 e cinza fora do DESIGN | **Corrigido**: fundo `--grey` (#EFEEEC, do sistema) → 4,72:1 |
+| 11 | "Get my free preview" do nav com 36px no celular | **Mantido**: visual de 36 (§6.1 "Pequeno · Navegação"); a área de toque já é ampliada para 48 por `::after` |
+| 12 | Link "Start with the free preview" com 17px de altura | **Mantido**: mesmo mecanismo, área de toque de 45px por `::after` |
+| L | Rótulo `/example` só no topo dos cards ao vivo | **Corrigido**: cada card mostra `/example` no canto quando `illustrative: true` |
+| L | Foco fraco no campo do CTA | **Corrigido**: anel de 2px preto na pílula |
+| L | H1 → H3 em /pricing | **Corrigido**: h2 oculto antes dos planos |
+| L | Nomes de título grudados ("thing.Fire", "01Do I pay") | **Corrigido**: espaço antes da virada e depois do número |
+| L | Copiar o odômetro sai "0123456789" | **Corrigido**: colunas com `user-select: none` (o número fica no `aria-label`) |
+| L | Pausa das abas com 32px | **Corrigido**: 36 |
+| L | Etiquetas de página em pílula preta com Inter, sem "/" | **Mantido**: é a etiqueta "Pricing" da Ploy pedida no prompt (mesmo padrão de "Who it's for" da rodada 1) |
+| L | "Pay once. Keep it forever." / "No monthly fee, ever" / "takes a minute" | **Copy provisória**: os fatos (sem mensalidade, site do cliente depois do care) têm fonte; "takes a minute" é estilo, revisar |
+| L | `[CONFIRMAR]` do e-mail visível | **Mantido de propósito** até o Pedro confirmar (§1) |
+| L | Rodapé preto, mini card cortado no passo 01, setas em itens sem link, dois CTAs no menu aberto, vazio de 215px depois da linha que preenche | **Mantidos**: rodapé e passo 01 vêm da rodada 1 (já registrados); setas sem link agora em cinza, sem círculo; o respiro da linha que preenche é o `--s-10` (144) entre seções grandes |

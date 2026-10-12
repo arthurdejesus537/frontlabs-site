@@ -181,7 +181,7 @@
   --stage-ratio: 4 / 3;
   --sticky-top: calc(var(--nav-h) + var(--s-6));
   --icon-circle: 44px;            /* círculo de ícone (§6.2) */
-  --c-panel-grey: #e9e8e5;        /* bloco cinza "How payment works" (Ploy #E5E5E5 sobre #F4F4F4) */
+  --c-panel-grey: var(--grey);    /* bloco cinza "How payment works": #EFEEEC do sistema (o #E9E8E5 deixava o texto em 4.47:1) */
   --c-highlight: var(--grey);     /* coluna destacada da tabela */
   --row-h: 64px;                  /* linha da tabela (Ploy 65) */
 

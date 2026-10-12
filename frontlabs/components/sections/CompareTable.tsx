@@ -14,6 +14,7 @@ export function CompareTable({ data, id = "compare" }: { data: CompareContent; i
         </header>
         <div className={styles.scroll} tabIndex={0} role="region" aria-labelledby={`${id}-title`}>
           <table className={styles.table}>
+            <caption className="sr-only">{data.title}</caption>
             <thead>
               <tr>
                 <th scope="col" className={styles.feature}><span className="t-label">/feature</span></th>

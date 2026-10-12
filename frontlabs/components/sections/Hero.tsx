@@ -23,6 +23,7 @@ export function Hero({ data }: { data: HeroContent }) {
           {data.label ? <p className={`t-label ${styles.label}`}>{data.label}</p> : null}
           <h1 id="hero-title" className={shout ? `t-shout ${styles.title}` : `t-hero ${styles.title}`}>
             {data.title}
+            {" "}
             {data.titleTurn ? <span className={styles.turn}>{data.titleTurn}</span> : null}
           </h1>
           <p className={`t-lead ${styles.lead}`}>{data.lead}</p>

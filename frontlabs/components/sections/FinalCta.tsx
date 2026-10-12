@@ -38,6 +38,7 @@ export function FinalCta({ data = site.finalCta }: { data?: FinalCtaContent }) {
         <div className="container">
           <h2 id={`${data.id}-title`} className={shout ? `t-shout ${styles.shout}` : `t-display ${styles.title}`}>
             {data.title}
+            {" "}
             {data.titleTurn ? <span className={styles.turn}>{data.titleTurn}</span> : null}
           </h2>
           <p className={styles.text}>{data.text}</p>

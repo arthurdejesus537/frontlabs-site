@@ -1,9 +1,9 @@
 .stage {
-  position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center;
-  aspect-ratio: var(--stage-ratio); min-height: min-content; padding: var(--s-7); /* cresce se o card for mais alto */ border-radius: var(--r-media-lg);
+  position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center;
+  aspect-ratio: var(--stage-ratio); padding: var(--s-7); /* sem overflow: hidden → cresce se o card for mais alto */ border-radius: var(--r-media-lg);
   background: var(--c-placeholder-dark);
 }
-.bg { object-fit: cover; z-index: -2; }
+.bg { object-fit: cover; z-index: -2; border-radius: inherit; }
 .horizon .bg { filter: brightness(var(--horizon-dim)); }
 .visual { width: 100%; max-width: 480px; }
 

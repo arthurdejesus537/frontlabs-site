@@ -15,6 +15,7 @@
 }
 .top { display: flex; align-items: center; gap: var(--s-2); }
 .brand { font-family: var(--f-logo); font-weight: 800; font-variation-settings: "opsz" 96; letter-spacing: -0.05em; font-size: var(--t-subtitle); color: var(--c-ink); }
+.example { margin-left: auto; color: var(--c-mute); }
 .pill { font-size: var(--t-meta); font-weight: var(--w-strong); line-height: 1; padding: 5px var(--s-2); border-radius: var(--r-pill); background: var(--c-ink); color: var(--c-btn-ink); }
 
 .numRow { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-4); }

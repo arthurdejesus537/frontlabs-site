@@ -357,7 +357,7 @@ export const site: Site = {
     titleTurn: "Four things. We handle all of them.",
     numbered: true,
     items: [
-      { icon: "search", title: "Found", text: "When someone nearby searches for what you do, your site is built to show up." },
+      { icon: "search", title: "Found", text: "When someone nearby searches for what you do, your site is built the right way for Google to read." },
       { icon: "heart", title: "Loved", text: "The first look shows your business as it really is, not a template." },
       { icon: "check", title: "Working", text: "Every page fast, every button where it should go, on any phone." },
       { icon: "calendar", title: "Booked", text: "A clear path from \"just looking\" to a call, a visit or a booking." },
@@ -678,7 +678,7 @@ export const site: Site = {
         enabled: true,
         id: "products",
         label: "/the products",
-        title: "Five parts, one site.",
+        title: "Six parts, one site.",
         titleTurn: "Pick Launch, or get it all with Signature.",
         items: [
           { icon: "code", title: "The site", text: "Clean code, fast pages, made for calls and bookings.", product: "Launch" },

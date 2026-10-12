@@ -16,6 +16,7 @@ export function Results({ data }: { data: ResultsContent }) {
           {data.label ? <p className="t-label">{data.label}</p> : null}
           <h2 id={`${data.id}-title`} className="t-display">
             {data.title}
+            {" "}
             {data.titleTurn ? <span className={styles.turn}>{data.titleTurn}</span> : null}
           </h2>
           {data.text ? <p className={styles.text}>{data.text}</p> : null}

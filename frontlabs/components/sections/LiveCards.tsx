@@ -28,7 +28,7 @@ export function LiveCards({ data }: { data: LiveCardsContent }) {
             <p className={styles.text}>{data.text}</p>
           </header>
           <ul className={styles.cards}>
-            {data.cards.map((c) => <Card key={c.pill} card={c} brand={data.brand} intervalMs={data.intervalMs} />)}
+            {data.cards.map((c) => <Card key={c.pill} card={c} brand={data.brand} intervalMs={data.intervalMs} example={data.illustrative ? site.ui.example : undefined} />)}
           </ul>
         </div>
       </div>
@@ -36,7 +36,7 @@ export function LiveCards({ data }: { data: LiveCardsContent }) {
   );
 }
 
-function Card({ card, brand, intervalMs }: { card: LiveCard; brand: string; intervalMs: number }) {
+function Card({ card, brand, intervalMs, example }: { card: LiveCard; brand: string; intervalMs: number; example?: string }) {
   const ref = useRef<HTMLLIElement>(null);
   const [on, setOn] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -65,6 +65,7 @@ function Card({ card, brand, intervalMs }: { card: LiveCard; brand: string; inte
       <div className={styles.top}>
         <span className={styles.brand}>{brand}</span>
         <span className={styles.pill}>{card.pill}</span>
+        {example ? <span className={`t-label ${styles.example}`}>{example}</span> : null}
       </div>
       <div className={styles.numRow}>
         <div className={styles.num}>

@@ -12,6 +12,9 @@
 .no { color: var(--c-mute); }
 .value { color: var(--c-ink); font-weight: var(--w-strong); }
 @media (max-width: 767px) {
-  .table th, .table td { padding: 0 var(--s-3); }
-  .table .feature { width: 46%; }
+  /* 390: as três colunas cabem na tela (sem rolagem escondida) */
+  .table { min-width: 0; table-layout: fixed; font-size: var(--t-meta); }
+  .table th, .table td { height: auto; padding: var(--s-3) var(--s-2); }
+  .table thead th { font-size: var(--t-small); }
+  .table .feature { width: 48%; padding-left: var(--s-3); }
 }

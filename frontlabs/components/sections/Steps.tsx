@@ -73,6 +73,7 @@ export function Steps({ data = site.steps }: { data?: StepsContent }) {
           {data.label ? <p className="t-label">{data.label}</p> : null}
           <h2 id={`${data.id}-title`} className="t-display">
             {data.title}
+            {" "}
             {data.titleTurn ? <span className={styles.turn}>{data.titleTurn}</span> : null}
           </h2>
         </header>
