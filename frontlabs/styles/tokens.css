@@ -185,6 +185,26 @@
   --c-highlight: var(--grey);     /* coluna destacada da tabela */
   --row-h: 64px;                  /* linha da tabela (Ploy 65) */
 
+  /* rodada 3: movimento nas seções */
+  --dur-tick: 3000ms;             /* cards ao vivo: cada card atualiza a cada 3s */
+  --dur-flash: 600ms;             /* piscada dos mini-stats na atualização */
+  --dur-crossfade: 600ms;         /* troca do fundo em "What changes" */
+  --scrolly-zoom: 1.04;           /* zoom de entrada do fundo novo (1.04 → 1) */
+  --living-1: 26s; --living-2: 32s; --living-3: 19s; /* camadas do Horizonte vivo (18–32s, fases diferentes) */
+  --living-blur: 28px;
+  --living-veil: rgb(10 10 10 / 0.28); /* = Horizonte a 72% (--horizon-dim), atrás de texto branco */
+  --code-bg: var(--ink);
+  --code-bar: #1a1a1a;
+  --code-fs: 13px; --code-lh: 20px;
+  --code-plain: #b8b5b0;          /* tons de cinza + branco; uma cor só (céu claro) para strings */
+  --code-dim: #8a8782;
+  --code-tag: #dedbd6;
+  --code-kw: #ffffff;
+  --code-str: var(--p-ceu-claro);
+  --demo-bg: var(--bg);           /* área visual dos cards (4:3, raio 18) */
+  --demo-fs: 12px;                /* texto dentro das mini telas */
+  --device-r: 18px;               /* celular desenhado em CSS */
+
   --z-header: 50;
   --z-menu: 60;
 }

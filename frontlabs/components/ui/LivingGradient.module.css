@@ -1,0 +1,28 @@
+.root { position: absolute; inset: 0; z-index: -2; overflow: hidden; border-radius: inherit; background: var(--p-mata); pointer-events: none; }
+/* camadas maiores que a moldura: o movimento nunca mostra a borda */
+.layer { position: absolute; inset: -18%; will-change: transform; animation-play-state: paused; }
+.layer img { object-fit: cover; }
+.root[data-on] .layer { animation-play-state: running; }
+
+.base { animation: base var(--living-1) ease-in-out infinite alternate; }
+.mid { opacity: 0.6; mix-blend-mode: soft-light; animation: mid var(--living-2) ease-in-out -9s infinite alternate; }
+.top { opacity: 0.45; filter: blur(var(--living-blur)); animation: top var(--living-3) ease-in-out -5s infinite alternate; }
+.veil { position: absolute; inset: 0; background: var(--living-veil); }
+
+@keyframes base {
+  from { transform: translate3d(-3%, -2%, 0) scale(1.02) rotate(-1.5deg); }
+  to { transform: translate3d(3%, 2.5%, 0) scale(1.1) rotate(1.5deg); }
+}
+/* espelhada: as manchas da camada do meio não coincidem com as de baixo */
+@keyframes mid {
+  from { transform: scaleX(-1) translate3d(4%, 3%, 0) scale(1.12) rotate(3deg); }
+  to { transform: scaleX(-1) translate3d(-4%, -2%, 0) scale(1.02) rotate(-2deg); }
+}
+@keyframes top {
+  from { transform: translate3d(5%, -4%, 0) scale(1.15) rotate(-3deg); opacity: 0.3; }
+  to { transform: translate3d(-5%, 3%, 0) scale(1.04) rotate(2deg); opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer { animation: none !important; }
+}
