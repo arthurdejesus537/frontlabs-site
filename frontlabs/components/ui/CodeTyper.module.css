@@ -6,8 +6,9 @@
 .dots { display: inline-flex; gap: 6px; }
 .dots i { width: 9px; height: 9px; border-radius: 50%; background: rgb(255 255 255 / 0.22); }
 .file { color: var(--code-plain); font-size: var(--t-micro); }
-.body { height: calc(var(--rows) * var(--code-lh) + var(--s-3) * 2); overflow: hidden; padding: var(--s-3) var(--s-4); }
-.code { margin: 0; font: inherit; white-space: pre; transition: transform var(--dur-fade) var(--ease); }
+.editor { --code-pad: var(--s-3); }
+.body { height: calc(var(--rows) * var(--code-lh) + var(--code-pad) * 2); overflow: hidden; padding-inline: var(--s-4); }
+.code { margin: 0; padding-block: var(--code-pad); font: inherit; white-space: pre; transition: transform var(--dur-fade) var(--ease); }
 .line { display: block; min-height: var(--code-lh); }
 .plain { color: var(--code-plain); }
 .dim { color: var(--code-dim); }
@@ -26,8 +27,9 @@
 .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--code-dim); transition: background var(--dur-fade) var(--ease); }
 .dotOn { background: var(--c-live); }
 
-.small { --code-fs: 11px; --code-lh: 17px; }
+.small { --code-fs: 10px; --code-lh: 16px; --code-pad: var(--s-2); }
 .small .bar { padding: 6px var(--s-2); }
 .small .dots i { width: 7px; height: 7px; }
-.small .body { padding: var(--s-2) var(--s-3); }
+.small .body { padding-inline: var(--s-3); }
+@media (max-width: 767px) { .editor:not(.small) { --code-fs: 11px; --code-lh: 18px; } }
 .small .status { padding: 6px var(--s-3); }

@@ -192,7 +192,7 @@
   --scrolly-zoom: 1.04;           /* zoom de entrada do fundo novo (1.04 → 1) */
   --living-1: 26s; --living-2: 32s; --living-3: 19s; /* camadas do Horizonte vivo (18–32s, fases diferentes) */
   --living-blur: 28px;
-  --living-veil: rgb(10 10 10 / 0.28); /* = Horizonte a 72% (--horizon-dim), atrás de texto branco */
+  --living-veil: rgb(10 10 10 / 0.32); /* Horizonte a ~68%: o fundo se mexe, então um pouco mais escuro que o --horizon-dim para o texto branco nunca cair abaixo de AA */
   --code-bg: var(--ink);
   --code-bar: #1a1a1a;
   --code-fs: 13px; --code-lh: 20px;

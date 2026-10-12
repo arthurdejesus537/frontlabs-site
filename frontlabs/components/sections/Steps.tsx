@@ -4,6 +4,7 @@ import type { StepsContent, StepVisual } from "@/content/types";
 import { Button } from "@/components/ui/Button";
 import { CodeTyper } from "@/components/ui/CodeTyper";
 import { LivingGradient } from "@/components/ui/LivingGradient";
+import { MotionToggle } from "@/components/ui/MotionToggle";
 import { PhotoShuffle } from "@/components/ui/PhotoShuffle";
 import { PreviewCard } from "@/components/ui/PreviewCard";
 import { Reveal } from "@/components/ui/Reveal";
@@ -109,6 +110,7 @@ export function Steps({ data = site.steps }: { data?: StepsContent }) {
   return (
     <section id={data.id} data-section="steps" className="section" aria-labelledby={`${data.id}-title`}>
       <div className="container">
+        <div className={styles.headRow}>
         <header className={styles.head}>
           {data.label ? <p className="t-label">{data.label}</p> : null}
           <h2 id={`${data.id}-title`} className="t-display">
@@ -117,6 +119,8 @@ export function Steps({ data = site.steps }: { data?: StepsContent }) {
             {data.titleTurn ? <span className={styles.turn}>{data.titleTurn}</span> : null}
           </h2>
         </header>
+        {data.items.some((s) => !["preview", "plan", "invite"].includes(s.visual.kind)) ? <MotionToggle /> : null}
+        </div>
         <ol className={[styles.grid, data.items.length > 4 ? styles.five : ""].join(" ")} style={{ "--cols": data.items.length } as React.CSSProperties}>
           {data.items.map((s, i) => (
             <Reveal as="li" key={s.title} delay={i * 120} className={styles.card}>

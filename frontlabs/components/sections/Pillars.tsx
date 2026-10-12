@@ -2,6 +2,7 @@ import type { PillarVisual } from "@/content/types";
 import { site } from "@/content/site";
 import { ChecklistDemo } from "@/components/ui/ChecklistDemo";
 import { Icon } from "@/components/ui/Icon";
+import { MotionToggle } from "@/components/ui/MotionToggle";
 import { SearchDemo } from "@/components/ui/SearchDemo";
 import { VideoWindow } from "@/components/ui/VideoWindow";
 import styles from "./Pillars.module.css";
@@ -28,6 +29,7 @@ export function Pillars() {
     <section id={data.id} data-section="pillars" className={`section ${styles.section}`} aria-labelledby={data.title ? `${data.id}-title` : undefined}>
       <div className="container">
         {data.title ? (
+          <div className={styles.headRow}>
           <header className={styles.head}>
             {data.label ? <p className="t-label">{data.label}</p> : null}
             <h2 id={`${data.id}-title`} className="t-display">
@@ -36,6 +38,8 @@ export function Pillars() {
               {data.titleTurn ? <span className={styles.turn}>{data.titleTurn}</span> : null}
             </h2>
           </header>
+          <MotionToggle />
+          </div>
         ) : null}
         <ul className={styles.grid} style={{ "--cols": data.items.length } as React.CSSProperties}>
           {data.items.map((p, i) => (

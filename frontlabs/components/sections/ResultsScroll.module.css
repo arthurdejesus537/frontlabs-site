@@ -10,8 +10,8 @@
 .on .img { transform: none; }
 
 /* os blocos sobem por cima do fundo: cada um ocupa ~uma tela, o card no meio */
-.blocks { position: relative; margin-top: -100svh; padding-block: 20svh; }
-.block { display: flex; align-items: center; min-height: 80svh; padding-inline: var(--s-7); }
+.blocks { position: relative; margin-top: -100svh; padding-block: 17svh; }
+.block { display: flex; align-items: center; min-height: 65svh; padding-inline: var(--s-7); }
 .card {
   display: flex; flex-direction: column; width: min(440px, 100%); padding: var(--s-6);
   border-radius: var(--r-card); background: var(--c-surface);
@@ -24,7 +24,8 @@
 .product { align-self: flex-start; border: 1px solid var(--c-line-strong); border-radius: var(--r-pill); padding: 3px var(--s-3); color: var(--c-ink); }
 
 @media (max-width: 767px) {
-  .block { padding-inline: var(--s-4); }
+  .block { min-height: 55svh; padding-inline: var(--s-4); }
+  .blocks { padding-block: 22svh; }
   .card { width: 100%; padding: var(--s-5); }
   .title { margin-top: var(--s-6); }
 }

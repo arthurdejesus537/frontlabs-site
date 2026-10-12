@@ -59,22 +59,22 @@ const CODE: CodeSpec = {
   label: "Code being written for a local business homepage, then the build passes",
   writing: "writing…",
   done: "✓ build passed",
+  // linhas de até ~41 caracteres: cabem no editor a 390 sem cortar
   code: `const business = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Your Business",
-  url: "https://yourbusiness.com",
 };
 
 export default function Page() {
   return (
     <main>
-      <title>Your Business · Book a visit</title>
+      <title>Your Business</title>
+      <h1>Your Business</h1>
+      <a href="/book">Book a visit</a>
       <script type="application/ld+json">
         {JSON.stringify(business)}
       </script>
-      <h1>Your Business</h1>
-      <a href="/book">Book a visit</a>
     </main>
   );
 }`,
@@ -83,8 +83,8 @@ const CODE_MINI: CodeSpec = {
   ...CODE,
   code: `<title>Your Business</title>
 <h1>Your Business</h1>
-<a href="/book">Book a visit</a>
-<script type="application/ld+json" />`,
+<a href="/book">Book now</a>
+<link rel="canonical" />`,
 };
 
 /** As 5 etapas (provisórias): usadas nas abas da home e, em versão longa, em /how-it-works. */
@@ -223,6 +223,8 @@ export const site: Site = {
     mediaSpace: "Media",
     step: "Step",
     pauseMarquee: "Pause scrolling list",
+    pauseMotion: "Pause animations",
+    playMotion: "Play animations",
     playMarquee: "Resume scrolling list",
     example: "/example",
     current: "current page",
@@ -312,7 +314,7 @@ export const site: Site = {
     brand: "FrontLabs",
     intervalMs: 3000, // rodada 3: cada card atualiza a cada 3s (o Pedro pediu; a Ploy troca o log a cada ~4s)
     staggerMs: 1000,
-    statsExample: "/example",
+    statsExample: "/example stats",
     cards: [
       {
         pill: "Site",
@@ -446,7 +448,7 @@ export const site: Site = {
         label: "/before you pay",
         title: "See your preview",
         text: "We rebuild it first. You see it before you pay anything.",
-        visual: { kind: "video", video: VIDEO.home, url: "preview.frontlabs.co/your-business", status: "preview ready" },
+        visual: { kind: "video", video: VIDEO.home, url: "preview.frontlabs.co/your-business", status: "a site we built" },
       },
       {
         label: "/your look",

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { VideoSpec } from "@/content/types";
-import { useReducedMotion, useSmallScreen } from "./useMotion";
+import { useMotionPaused, useReducedMotion, useSmallScreen } from "./useMotion";
 import styles from "./LoopVideo.module.css";
 
 /* No máximo 2 vídeos tocando ao mesmo tempo na página: o mais antigo pausa. */
@@ -32,6 +32,7 @@ function stop(v: HTMLVideoElement) {
 export function LoopVideo({ video, allowMobile = true, className }: { video: VideoSpec; allowMobile?: boolean; className?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   const reduced = useReducedMotion();
+  const paused = useMotionPaused();
   const small = useSmallScreen();
   // versão do celular só onde há altura para ela (palcos); nas áreas 4:3 fica a de desktop
   const src = allowMobile && small && video.mobile ? video.mobile : video;
@@ -50,20 +51,24 @@ export function LoopVideo({ video, allowMobile = true, className }: { video: Vid
     return () => io.disconnect();
   }, []);
 
+  // fontes novas (entrou perto da tela ou trocou para a versão do celular): recarrega no mesmo elemento
+  useEffect(() => {
+    if (near) ref.current?.load();
+  }, [near, src]);
+
   useEffect(() => {
     const v = ref.current;
-    if (!v || reduced || !near) return;
+    if (!v || !near || reduced || paused) return;
     const io = new IntersectionObserver(([e]) => (e.isIntersecting ? start(v) : stop(v)), { threshold: 0.5 });
     io.observe(v);
     return () => {
       io.disconnect();
       stop(v);
     };
-  }, [reduced, src, near]);
+  }, [reduced, paused, src, near]);
 
   return (
     <video
-      key={`${src.mp4}${near ? "" : "-poster"}`}
       ref={ref}
       className={[styles.video, className].filter(Boolean).join(" ")}
       style={{ "--ratio": src.ratio } as CSSProperties}
@@ -75,8 +80,8 @@ export function LoopVideo({ video, allowMobile = true, className }: { video: Vid
       disablePictureInPicture
       aria-label={video.label}
     >
-      {near ? <source src={src.webm} type="video/webm" /> : null}
-      {near ? <source src={src.mp4} type="video/mp4" /> : null}
+      {near ? <source key={src.webm} src={src.webm} type="video/webm" /> : null}
+      {near ? <source key={src.mp4} src={src.mp4} type="video/mp4" /> : null}
     </video>
   );
 }

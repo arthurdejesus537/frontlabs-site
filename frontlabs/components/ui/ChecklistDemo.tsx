@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, type CSSProperties } from "react";
-import { useInView, useReducedMotion } from "./useMotion";
+import { useInView, useMotionPaused, useReducedMotion } from "./useMotion";
 import styles from "./ChecklistDemo.module.css";
 
 const STEP_MS = 650;
@@ -14,14 +14,15 @@ const REST_MS = 2000;
 export function ChecklistDemo({ label, items }: { label: string; items: string[] }) {
   const { ref, inView } = useInView<HTMLDivElement>(0.4);
   const reduced = useReducedMotion();
+  const paused = useMotionPaused();
   const [n, setN] = useState(0);
 
   useEffect(() => {
-    if (!inView || reduced) return;
+    if (!inView || reduced || paused) return;
     const full = n >= items.length;
     const id = window.setTimeout(() => setN(full ? 0 : n + 1), full ? REST_MS : STEP_MS);
     return () => window.clearTimeout(id);
-  }, [inView, reduced, n, items.length]);
+  }, [inView, reduced, paused, n, items.length]);
 
   const done = reduced ? items.length : n;
   return (

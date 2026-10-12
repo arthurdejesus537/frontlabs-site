@@ -1,5 +1,5 @@
 "use client";
-import { useInView, useReducedMotion, useTypewriter } from "./useMotion";
+import { useInView, useMotionPaused, useReducedMotion, useTypewriter } from "./useMotion";
 import styles from "./SearchDemo.module.css";
 
 /**
@@ -10,7 +10,8 @@ import styles from "./SearchDemo.module.css";
 export function SearchDemo({ label, queries, result }: { label: string; queries: string[]; result: { name: string; url: string } }) {
   const { ref, inView } = useInView<HTMLDivElement>(0.4);
   const reduced = useReducedMotion();
-  const { text, typed } = useTypewriter(queries, inView && !reduced);
+  const paused = useMotionPaused();
+  const { text, typed } = useTypewriter(queries, inView && !reduced && !paused);
   return (
     <div ref={ref} className={styles.demo} role="img" aria-label={label}>
       <div className={styles.bar} aria-hidden="true">

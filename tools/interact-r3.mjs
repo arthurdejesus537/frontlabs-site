@@ -83,6 +83,8 @@ const tocando = () => p.evaluate(() => [...document.querySelectorAll('video')].f
 let nt = 0; for (let i = 0; i < 16 && nt === 0; i++) { await p.waitForTimeout(250); nt = await tocando(); }
 ok(nt >= 1 && nt <= 2, `vídeos: tocam quando visíveis (${nt} tocando nos pilares)`);
 // cards ao vivo: atualizam a cada 3s com defasagem e param fora da tela
+// (recarrega a página para partir do zero: rolar pelos pilares já pode ter posto a seção na tela)
+await p.goto(base + '/', { waitUntil: 'networkidle' });
 await scrollTo('[data-section="live-cards"]');
 await p.evaluate(() => {
   window.__upd = [0, 0, 0];
@@ -117,6 +119,23 @@ const status = () => p.locator('[data-section="tabs"] [role=tabpanel] [class*="C
 let passou = false, recomecou = false;
 for (let i = 0; i < 50; i++) { const t = await status(); if (t.includes('build passed')) passou = true; else if (passou) { recomecou = true; break; } await p.waitForTimeout(300); }
 ok(passou && recomecou, `código: termina com "build passed" e recomeça (${passou}, ${recomecou})`);
+// pausa global (WCAG 2.2.2): o botão dos cards ao vivo para tudo e retoma
+await scrollTo('[data-section="live-cards"]'); await p.waitForTimeout(3500);
+await p.locator('[data-section="live-cards"] button[aria-label="Pause animations"]').click();
+const pa = await p.evaluate(() => [...window.__upd]); await p.waitForTimeout(4000);
+ok(JSON.stringify(pa) === JSON.stringify(await p.evaluate(() => [...window.__upd])) && (await p.locator('html[data-motion-paused]').count()) === 1, 'pausa: botão para os cards ao vivo e marca a página');
+await scrollTo('[data-section="pillars"]'); await p.waitForTimeout(1500);
+ok((await p.evaluate(() => [...document.querySelectorAll('video')].filter((v) => !v.paused).length)) === 0, 'pausa: vídeos parados');
+await p.locator('[data-section="pillars"] button[aria-label="Play animations"]').click(); await p.waitForTimeout(2500);
+ok((await p.evaluate(() => [...document.querySelectorAll('video')].filter((v) => !v.paused).length)) >= 1, 'pausa: retomar volta a tocar');
+await p.close();
+// celular: o vídeo do agendamento (versão do celular) carrega e toca em /how-it-works
+p = await b.newPage({ viewport: { width: 390, height: 844 } });
+await p.goto(base + '/how-it-works', { waitUntil: 'networkidle' });
+const vb = p.locator('[data-section="feature-rows"] video[aria-label^="Our booking flow"]').first();
+await vb.evaluate((e) => e.scrollIntoView({ block: 'center' }));
+let vok = false; for (let i = 0; i < 20 && !vok; i++) { await p.waitForTimeout(250); vok = await vb.evaluate((v) => !v.paused && v.currentSrc.includes('booking-flow-m')); }
+ok(vok, 'celular: vídeo do agendamento (versão -m) carrega e toca em /how-it-works');
 await p.close();
 // reduced motion: linha cheia, sem barra
 const ctx = await b.newContext({ reducedMotion: 'reduce', viewport: { width: 1440, height: 900 } });
@@ -131,6 +150,7 @@ ok((await p.locator('[data-section="pillars"] [class*="SearchDemo-module"][class
 ok((await p.locator('[data-section="pillars"] li[class*="__on"]').count()) === 5, 'reduced-motion: checklist inteiro marcado');
 ok((await p.evaluate(() => [...document.querySelectorAll('video')].filter((v) => !v.paused).length)) === 0, 'reduced-motion: vídeos parados no poster');
 await p.locator('[data-section="live-cards"]').evaluate((e) => e.scrollIntoView({ block: 'start' }));
+await p.waitForTimeout(1500); // primeira entrada (data-on) já aconteceu
 const r1 = await p.locator('[data-section="live-cards"] ul').innerHTML(); await p.waitForTimeout(4500);
 ok(r1 === (await p.locator('[data-section="live-cards"] ul').innerHTML()), 'reduced-motion: cards ao vivo parados');
 await b.close();

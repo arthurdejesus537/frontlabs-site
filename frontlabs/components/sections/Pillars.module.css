@@ -1,6 +1,7 @@
 /* B: quando vem logo depois do problema, o card cola na frase (sem respiro em cima). */
 :global([data-section="statement"]) + .section { padding-top: 0; }
-.head { display: grid; gap: var(--s-4); margin-bottom: var(--s-7); max-width: 760px; }
+.headRow { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-5); margin-bottom: var(--s-7); }
+.head { display: grid; gap: var(--s-4); max-width: 760px; }
 .turn { display: block; letter-spacing: var(--t-hero-ls); font-size: var(--turn-size); color: var(--turn-color); margin-top: var(--turn-gap); }
 .grid { display: grid; grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)); gap: var(--live-gap); }
 .card { display: flex; flex-direction: column; min-width: 0; padding: var(--s-2); border-radius: var(--r-card); background: var(--c-surface); }

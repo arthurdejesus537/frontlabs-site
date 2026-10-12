@@ -280,7 +280,7 @@ export type LiveCardsContent = Base & {
   intervalMs: number;
   /** defasagem entre os cards (cada um atualiza intervalMs depois do anterior + staggerMs) */
   staggerMs: number;
-  /** rótulo dos mini-stats quando o card tem número real */
+  /** rótulo no topo do card com número real (os mini-stats dele continuam de exemplo) */
   statsExample: string;
   cards: LiveCard[];
 };
@@ -388,6 +388,8 @@ export type Site = {
     mediaSpace: string;
     step: string;
     pauseMarquee: string;
+    pauseMotion: string;
+    playMotion: string;
     playMarquee: string;
     example: string;
     current: string;

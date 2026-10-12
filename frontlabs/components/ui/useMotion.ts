@@ -14,6 +14,24 @@ function media(query: string) {
 const REDUCED = media("(prefers-reduced-motion: reduce)");
 const SMALL = media("(max-width: 767px)");
 
+/*
+ * Pausa global das animações (WCAG 2.2.2): um botão em cada seção com movimento contínuo
+ * (MotionToggle) liga e desliga tudo de uma vez — demos, cards ao vivo, vídeos e o Horizonte vivo.
+ * Marca o <html> com data-motion-paused para o CSS parar o que é só animação.
+ */
+let paused = false;
+const listeners = new Set<() => void>();
+export function toggleMotion() {
+  paused = !paused;
+  document.documentElement.toggleAttribute("data-motion-paused", paused);
+  listeners.forEach((f) => f());
+}
+const subscribePaused = (cb: () => void) => {
+  listeners.add(cb);
+  return () => listeners.delete(cb);
+};
+export const useMotionPaused = () => useSyncExternalStore(subscribePaused, () => paused, () => false);
+
 export const useReducedMotion = () => useSyncExternalStore(REDUCED.subscribe, REDUCED.get, () => false);
 export const useSmallScreen = () => useSyncExternalStore(SMALL.subscribe, SMALL.get, () => false);
 

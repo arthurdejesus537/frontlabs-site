@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import type { CodeSpec } from "@/content/types";
-import { useInView, useReducedMotion } from "./useMotion";
+import { useInView, useMotionPaused, useReducedMotion } from "./useMotion";
 import styles from "./CodeTyper.module.css";
 
 type Tok = { t: string; c: "kw" | "str" | "tag" | "dim" | "plain" };
@@ -34,10 +34,11 @@ export function CodeTyper({ code, rows = 14, small, className }: { code: CodeSpe
   const total = useMemo(() => lines.map((l) => l.reduce((n, t) => n + t.t.length, 0)), [lines]);
   const { ref, inView } = useInView<HTMLDivElement>(0.3);
   const reduced = useReducedMotion();
+  const paused = useMotionPaused();
   const [pos, setPos] = useState({ line: 0, ch: 0, done: false });
 
   useEffect(() => {
-    if (!inView || reduced) return;
+    if (!inView || reduced || paused) return;
     let ms = CHAR_MS;
     let next = pos;
     if (pos.done) {
@@ -57,7 +58,7 @@ export function CodeTyper({ code, rows = 14, small, className }: { code: CodeSpe
     }
     const id = window.setTimeout(() => setPos(next), ms);
     return () => window.clearTimeout(id);
-  }, [inView, reduced, pos, total, lines.length, code.code]);
+  }, [inView, reduced, paused, pos, total, lines.length, code.code]);
 
   const still = reduced;
   const shown = still ? { line: lines.length - 1, ch: total[lines.length - 1], done: true } : pos;
@@ -70,7 +71,8 @@ export function CodeTyper({ code, rows = 14, small, className }: { code: CodeSpe
         <span className={styles.file}>{code.file}</span>
       </div>
       <div className={styles.body} style={{ "--rows": rows } as CSSProperties} aria-hidden="true">
-        <pre className={styles.code} style={{ transform: `translateY(calc(${-scroll} * var(--code-lh)))` }}>
+        {/* rolando, o respiro de cima também sai: a linha anterior some inteira, sem meia linha no topo */}
+        <pre className={styles.code} style={{ transform: scroll ? `translateY(calc(${-scroll} * var(--code-lh) - var(--code-pad)))` : undefined }}>
           {lines.slice(0, shown.line + 1).map((toks, li) => {
             let budget = li < shown.line ? Infinity : shown.ch;
             const cursorHere = li === shown.line && !shown.done;

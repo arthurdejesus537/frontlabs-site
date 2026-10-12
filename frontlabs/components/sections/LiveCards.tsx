@@ -4,7 +4,8 @@ import type { LiveCard, LiveCardsContent } from "@/content/types";
 import { LivingGradient } from "@/components/ui/LivingGradient";
 import { Odometer } from "@/components/ui/Odometer";
 import { Sparkline } from "@/components/ui/Sparkline";
-import { useInView, useReducedMotion } from "@/components/ui/useMotion";
+import { MotionToggle } from "@/components/ui/MotionToggle";
+import { useInView, useMotionPaused, useReducedMotion } from "@/components/ui/useMotion";
 import { site } from "@/content/site";
 import styles from "./LiveCards.module.css";
 
@@ -22,8 +23,9 @@ const jitter = (seed: number) => (((seed * 2654435761) >>> 0) % 3) - 1;
 export function LiveCards({ data }: { data: LiveCardsContent }) {
   const { ref, inView } = useInView<HTMLElement>(0.2);
   const reduced = useReducedMotion();
+  const paused = useMotionPaused();
   const [ticks, setTicks] = useState(() => data.cards.map(() => 0));
-  const running = inView && !reduced;
+  const running = inView && !reduced && !paused;
 
   useEffect(() => {
     if (!running) return;
@@ -49,7 +51,10 @@ export function LiveCards({ data }: { data: LiveCardsContent }) {
               {data.illustrative ? <p className={`t-label ${styles.label}`}>{data.label ?? site.ui.example}</p> : null}
               <h2 id={`${data.id}-title`} className={`t-display ${styles.title}`}>{data.title}</h2>
             </div>
-            <p className={styles.text}>{data.text}</p>
+            <div className={styles.headRight}>
+              <p className={styles.text}>{data.text}</p>
+              <MotionToggle onMedia />
+            </div>
           </header>
           <ul className={styles.cards}>
             {data.cards.map((c, i) => (
@@ -92,7 +97,9 @@ function Card({ card, seed, tick, brand, example, statsExample }: { card: LiveCa
   const n = card.spark.length;
   const top = Math.max(...card.spark);
   const point = (j: number) => (j < n ? card.spark[j] : top * (0.82 + 0.06 * (jitter(j * 7 + seed) + 1)));
-  const spark = Array.from({ length: n }, (_, k) => point(k + tick));
+  // card com número real: a sparkline não inventa pontos novos (o odômetro continua dando a volta)
+  const sparkTick = card.illustrative === false ? 0 : tick;
+  const spark = Array.from({ length: n }, (_, k) => point(k + sparkTick));
   const range: [number, number] = [Math.min(...card.spark), top * 1.05];
   const stat = (v: number, k: number, t: number) => Math.max(0, v + (t ? jitter(t * 13 + k * 5 + seed) : 0));
 
@@ -101,21 +108,19 @@ function Card({ card, seed, tick, brand, example, statsExample }: { card: LiveCa
       <div className={styles.top}>
         <span className={styles.brand}>{brand}</span>
         <span className={styles.pill}>{card.pill}</span>
-        {example ? <span className={`t-label ${styles.example}`}>{example}</span> : null}
+        {example ?? statsExample ? <span className={`t-label ${styles.example}`}>{example ?? statsExample}</span> : null}
       </div>
       <div className={styles.numRow}>
         <div className={styles.num}>
           <Odometer value={card.value} tick={tick} prefix={card.prefix} suffix={card.suffix} className={styles.big} />
           <p className={styles.caption}>{card.caption}</p>
         </div>
-        <Sparkline values={spark} range={range} tick={tick} className={styles.spark} />
+        <Sparkline values={spark} range={range} tick={sparkTick} className={styles.spark} />
       </div>
       <p className={styles.log} aria-live="off">
         <span key={tick} className={styles.logText}>{card.log[tick % card.log.length]}</span>
       </p>
-      <div className={styles.statsWrap}>
-        {statsExample ? <span className={`t-label ${styles.statsExample}`}>{statsExample}</span> : null}
-        <dl className={styles.stats}>
+      <dl className={styles.stats}>
           {card.stats.map((s, k) => (
             <div key={s.label}>
               <dt>{s.label}</dt>
@@ -125,7 +130,6 @@ function Card({ card, seed, tick, brand, example, statsExample }: { card: LiveCa
             </div>
           ))}
         </dl>
-      </div>
       <p className={styles.status}><span className={styles.dot} aria-hidden="true" />{card.status}</p>
     </li>
   );
