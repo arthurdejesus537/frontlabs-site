@@ -254,7 +254,7 @@ export const site: Site = {
     lead: "We build it, launch it and handle it. You go run your business.",
     primary: { label: "Get my free preview", href: PREVIEW },
     secondary: { label: "See how it works", href: R.how },
-    video: null, // quando houver: { src: "/video/hero.mp4", poster: "/img/hero-poster.jpg" }
+    video: { src: "/video/hero.mp4", poster: "/img/hero-poster.jpg" },
     image: { kind: "image", src: "/img/foto-borrada-hero.jpg", alt: "" },
     card: null,
     playLabel: "Play background video",
