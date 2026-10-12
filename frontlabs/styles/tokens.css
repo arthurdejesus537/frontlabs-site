@@ -33,10 +33,10 @@
   --c-dark-ink: #ffffff;
   --c-dark-text: rgb(255 255 255 / 0.72);
   --c-dark-mute: rgb(255 255 255 / 0.6);
-  --c-dark-line: rgb(255 255 255 / 0.14);
-  --c-dark-btn: rgb(255 255 255 / 0.08);
+  --c-dark-line: rgb(255 255 255 / 0.18);
+  --c-dark-btn: transparent;      /* contorno, sem fundo translúcido (vidro em pausa) */
   --c-bar: var(--p-ceu);
-  --bar-bg: var(--bg-horizonte);  /* barra de oferta com o Horizonte (§6.6) */
+  --bar-bg: linear-gradient(rgb(10 10 10 / 0.28), rgb(10 10 10 / 0.28)), var(--bg-horizonte); /* Horizonte (§6.6) com véu para AA */
   --grain-opacity: 0.22;          /* DESIGN §4.3 pede ~60% em overlay; com este grao.png isso apaga o texto. Ver REVISAR */
   --c-bar-ink: #ffffff;
   --c-on-media: #ffffff;
@@ -45,7 +45,9 @@
   --c-on-media-border: #ffffff;   /* contorno branco 1px (§6.1) */
   --c-on-media-hover: rgb(255 255 255 / 0.12);
   --c-veil: rgb(10 10 10 / 0.3);
-  --c-scrim: linear-gradient(180deg, rgb(10 10 10 / 0) 30%, rgb(10 10 10 / 0.45) 100%);
+  --horizon-dim: 0.72;            /* brilho do Horizonte quando há texto branco por cima (AA) */
+  --hero-blur: 14px;              /* foto do herói "bem borrada" (§4.2.2) */
+  --c-scrim: linear-gradient(180deg, rgb(10 10 10 / 0.12) 0%, rgb(10 10 10 / 0.5) 100%);
   --ph-blur: var(--bg-horizonte);
   --stage-bg: url("/img/foto-borrada-hero.jpg") center / cover; /* card sobre o fundo borrado (§4.2.2) */
   /* campos coloridos: legado "em aberto" no DESIGN (§4.2). Na home não há campo de cor;
@@ -62,6 +64,7 @@
   --c-placeholder-ink: var(--mute);
   --c-placeholder-dark: var(--p-mata);
   --c-placeholder-dark-ink: rgb(255 255 255 / 0.6);
+  --c-focus-halo: #ffffff;       /* halo claro: o foco aparece em fundo escuro e em foto */
   --c-focus: var(--ink);
   --c-error: #b42318;
   --c-success: var(--ok);
@@ -77,7 +80,7 @@
 
   --w-regular: 400;
   --w-title: 550;
-  --w-medium: 500;
+  --w-medium: 550;                /* o sistema só tem 400 e 550 */
   --w-strong: 550;
   --w-card: 550;
   --w-label: 400;
@@ -113,7 +116,7 @@
   --gutter: 48px;                 /* margem desktop */
   --container: 1344px;            /* conteúdo máx. 1344 */
   --container-narrow: 640px;      /* texto corrido */
-  --section-y: 96px;              /* padding vertical de seção */
+  --section-y: 72px;              /* 2 × 72 = 144 entre seções (§5.1 "entre seções grandes") */
   --field-gap: 24px;
   --grid-gap: 24px;
   --frame-gutter: 24px;           /* "moldura com raio 24 e 24px de respiro" (§9) */
@@ -138,11 +141,13 @@
   --btn-fs-sm: 14px;
 
   /* ---------- nav e faixa ---------- */
-  --nav-h: 76px;                  /* espaço da pílula de 52px + respiro */
-  --nav-pill-h: 52px;
+  --nav-h: 68px;                  /* pílula de 44px + respiro */
+  --nav-pill-h: 44px;             /* §6.5: 36–44 */
+  --bar-btn-h: var(--btn-h-sm);  /* menor botão do sistema: 36 */
   --bar-h: 44px;
   --nav-link-fs: 15px;
   --tap: 44px;
+  --form-h: var(--btn-h-lg);      /* CTA principal: 52 (§6.1) */
 
   /* ---------- molduras ---------- */
   --hero-h: clamp(620px, 86svh, 820px);
@@ -182,7 +187,10 @@
     --t-logo-lg: 36px;
     --gutter: 16px;
     --frame-gutter: 16px;
-    --section-y: 72px;
+    --section-y: 52px;            /* 104px entre seções: dentro dos 12% de 844 */
+    --c-soft: var(--mute);        /* em 22px o texto não é "grande": precisa de 4.5:1 */
+    --c-scrim: linear-gradient(180deg, rgb(10 10 10 / 0.3) 0%, rgb(10 10 10 / 0.6) 100%); /* copy ocupa mais da moldura no celular */
+    --turn-on-media: rgb(255 255 255 / 0.92); /* virada em ~21px não é texto grande */
     --frame-pad: 24px;
     --hero-h: auto;
     --nav-h: 68px;

@@ -19,7 +19,7 @@
 .pricing .item { background: var(--c-surface); border-radius: var(--r-card); padding: var(--s-6); border: 1px solid var(--c-line); }
 .pricing .featured { border-color: var(--c-ink); }
 .pricing .name { font-weight: var(--w-strong); color: var(--c-ink); font-size: var(--t-subtitle); }
-.badge { font-family: var(--f-mono); font-size: var(--t-meta); color: var(--c-btn-ink); background: var(--c-btn); border-radius: var(--r-pill); padding: 2px var(--s-3); white-space: nowrap; }
+.badge { font-family: var(--f-mono); font-size: var(--t-meta); color: var(--c-ink); border: 1px solid var(--c-ink); border-radius: var(--r-pill); padding: 2px var(--s-3); white-space: nowrap; } /* selo contornado (§3.4) */
 .price { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-2); margin-top: var(--s-6); }
 .priceValue { font-size: var(--t-display); line-height: 1; letter-spacing: var(--t-display-ls); font-weight: var(--w-title); color: var(--c-ink); }
 .priceNote { color: var(--c-mute); font-size: var(--t-small); }

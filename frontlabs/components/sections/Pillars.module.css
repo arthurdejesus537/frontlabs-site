@@ -3,15 +3,15 @@
 .head { display: grid; gap: var(--s-4); margin-bottom: var(--s-7); max-width: 760px; }
 .card {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  background: var(--c-surface); border-radius: var(--r-card-sm); padding: var(--s-5);
+  background: var(--c-surface); border-radius: var(--r-card); padding: var(--s-6);
 }
 .item { display: flex; flex-direction: column; padding-inline: var(--s-5); border-left: 1px solid var(--c-line); }
 .item:first-child { border-left: 0; padding-left: 0; }
 .icon {
-  display: grid; place-items: center; width: 36px; height: 36px; border-radius: var(--r-card-sm);
+  display: grid; place-items: center; width: var(--tap); height: var(--tap); border-radius: 50%; /* círculo de ícone 44 (§6.2) */
   background: var(--c-btn); color: var(--c-btn-ink);
 }
-.title { margin-top: var(--s-9); }
+.title { margin-top: var(--s-8); }
 .text { margin-top: var(--s-3); color: var(--c-text); max-width: 34ch; }
 @media (max-width: 767px) {
   .card { grid-template-columns: minmax(0, 1fr); padding: var(--s-5); }

@@ -1,5 +1,6 @@
 import type { FooterContent } from "@/content/types";
 import { Icon } from "@/components/ui/Icon";
+import { site } from "@/content/site";
 import styles from "./Footer.module.css";
 
 /** Footer (B card escuro raio 20 + A colunas): frase + contato, "versão curta" com pills de IA, colunas, marca grande, linha legal e redes. */
@@ -24,7 +25,7 @@ export function Footer({ data, logo }: { data: FooterContent; logo?: React.React
             </ul>
           </div>
         ) : null}
-        <nav className={styles.cols} aria-label="Rodapé">
+        <nav className={styles.cols} aria-label={site.ui.navFooter}>
           {data.columns.map((c) => (
             <div key={c.title}>
               <h3 className={styles.colTitle}>{c.title}</h3>

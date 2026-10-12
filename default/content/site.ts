@@ -12,7 +12,20 @@ export const site: Site = {
     description: "[Descrição para o Google em até 155 caracteres: o que a empresa faz, para quem e o resultado.]",
   },
 
-  ui: { skip: "Pular para o conteúdo", external: "(abre em nova aba)" },
+  ui: {
+    skip: "Pular para o conteúdo",
+    external: "(abre em nova aba)",
+    home: "início",
+    navMain: "Principal",
+    navFooter: "Rodapé",
+    menu: "Menu",
+    preview: "Prévia",
+    groups: "Grupos",
+    mediaSpace: "Espaço para mídia",
+    step: "Passo",
+    pauseMarquee: "Pausar faixa",
+    playMarquee: "Retomar faixa",
+  },
 
   announcement: {
     enabled: true,

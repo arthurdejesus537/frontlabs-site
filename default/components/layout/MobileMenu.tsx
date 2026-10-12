@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import type { HeaderContent } from "@/content/types";
 import { Button } from "@/components/ui/Button";
+import { site } from "@/content/site";
 import styles from "./MobileMenu.module.css";
 
 /** Menu do celular: abre abaixo do nav, prende o foco, fecha com Esc ou ao escolher um link. */
@@ -39,7 +40,7 @@ export function MobileMenu({ id, open, onClose, data }: { id: string; open: bool
 
   return (
     <div id={id} ref={ref} className={[styles.panel, open ? styles.open : ""].join(" ")} hidden={!open}>
-      <nav aria-label="Menu">
+      <nav aria-label={site.ui.menu}>
         <ul className={styles.list}>
           {data.links.map((l) => (
             <li key={l.label}>

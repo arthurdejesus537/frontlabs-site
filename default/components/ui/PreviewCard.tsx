@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { PreviewSpec } from "@/content/types";
+import { site } from "@/content/site";
 import styles from "./PreviewCard.module.css";
 
 /**
@@ -9,7 +10,7 @@ import styles from "./PreviewCard.module.css";
  */
 export function PreviewCard({ preview, children, compact, className }: { preview: PreviewSpec; children?: ReactNode; compact?: boolean; className?: string }) {
   return (
-    <figure className={[styles.card, compact ? styles.compact : "", className].filter(Boolean).join(" ")} aria-label={`Prévia: ${preview.title}`}>
+    <figure className={[styles.card, compact ? styles.compact : "", className].filter(Boolean).join(" ")} aria-label={`${site.ui.preview}: ${preview.title}`}>
       <div className={styles.bar} aria-hidden="true">
         <span className={styles.dots}><i /><i /><i /></span>
         <span className={styles.url}>{preview.url}</span>

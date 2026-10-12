@@ -1,15 +1,13 @@
 .grid { display: grid; grid-template-columns: 1fr minmax(0, 560px); gap: var(--s-8); align-items: start; }
 .head { display: grid; gap: var(--s-5); justify-items: start; position: sticky; top: var(--s-9); }
 .head :global(.t-heading) { max-width: 11em; }
-.tag {
-  font-size: var(--t-meta); font-weight: var(--w-strong); color: var(--c-btn-ink);
-  background: var(--c-btn); border-radius: var(--r-pill); padding: var(--s-1) var(--s-3);
-}
+.tag { font-family: var(--f-mono); font-size: var(--t-label); font-weight: var(--w-label); color: var(--c-mute); } /* rótulo mono (§3.1) */
 .text { color: var(--c-text); max-width: 32em; }
 .stack { display: grid; gap: var(--s-1); }
-.card { position: relative; border: 1px solid var(--c-line); transition: background-color var(--dur-fade) ease; }
+.card { position: relative; border: 1px solid var(--c-line); border-radius: var(--r-card-sm); transition: background-color var(--dur-fade) ease; }
 .on { background: var(--c-field-3); border-color: transparent; }
 /* pontos nos cantos (B) */
+.dots { display: none; } /* Front Labs: sem bolinhas (DESIGN §4.7) */
 .dots i { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--c-ink); }
 .dots i:nth-child(1) { top: 8px; left: 8px; }
 .dots i:nth-child(2) { top: 8px; right: 8px; }
@@ -21,7 +19,7 @@
   display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); width: 100%; text-align: left;
   padding: var(--s-5) var(--s-5) var(--s-8); min-height: 120px; align-items: start;
 }
-.name { font-size: var(--t-feature); line-height: 1.1; letter-spacing: var(--t-title-ls); font-weight: var(--w-title); color: var(--c-ink); }
+.name { font-size: var(--t-feature); line-height: 1.1; letter-spacing: var(--t-title-ls); font-weight: var(--w-regular); color: var(--c-ink); }
 .short { font-size: var(--t-small); color: var(--c-text); padding-top: var(--s-1); }
 .on .toggle { padding-bottom: var(--s-5); }
 .body { padding: 0 var(--s-5) var(--s-6); }

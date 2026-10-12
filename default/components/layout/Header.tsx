@@ -5,6 +5,7 @@ import type { HeaderContent } from "@/content/types";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { MobileMenu } from "./MobileMenu";
+import { site } from "@/content/site";
 import styles from "./Header.module.css";
 
 /** Nav (A layout + B pills): marca à esquerda, links no centro, 2 botões pequenos à direita. */
@@ -26,10 +27,10 @@ export function Header({ data }: { data: HeaderContent }) {
   return (
     <header className={[styles.header, data.sticky ? styles.sticky : ""].join(" ")} data-section="header">
       <div className={styles.inner}>
-        <Link href={data.brandHref} className={styles.brand} aria-label={`${data.brand}, início`}>
+        <Link href={data.brandHref} className={styles.brand} aria-label={`${data.brand}, ${site.ui.home}`}>
           {data.brand}
         </Link>
-        <nav aria-label="Principal" className={styles.nav}>
+        <nav aria-label={site.ui.navMain} className={styles.nav}>
           <ul className={styles.links}>
             {data.links.map((l) => (
               <li key={l.label}>

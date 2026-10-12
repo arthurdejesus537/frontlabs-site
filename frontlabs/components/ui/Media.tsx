@@ -26,7 +26,7 @@ export function Media({ media, fill, className, sizes = "100vw", priority }: { m
   }
   if (media.kind === "gradient") {
     return (
-      <div className={`${cls} ${styles.gradient}`} style={!fill && ratio ? { aspectRatio: ratio } : undefined} role="img" aria-label={media.alt ?? media.label ?? "Fundo"} data-media>
+      <div className={`${cls} ${styles.gradient}`} style={!fill && ratio ? { aspectRatio: ratio } : undefined} {...(media.alt ? { role: "img", "aria-label": media.alt } : { "aria-hidden": true })} data-media>
         {media.src ? <Image src={media.src} alt="" fill sizes={sizes} className={styles.img} priority={priority} /> : null}
         {media.label && !media.src ? <span className={`t-label ${styles.gLabel}`}>{media.label}</span> : null}
       </div>

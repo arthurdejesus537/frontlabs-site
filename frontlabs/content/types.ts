@@ -227,5 +227,18 @@ export type Site = {
   faq: FaqContent;
   finalCta: FinalCtaContent;
   footer: FooterContent;
-  ui: { skip: string; external: string };
+  ui: {
+    skip: string;
+    external: string;
+    home: string;
+    navMain: string;
+    navFooter: string;
+    menu: string;
+    preview: string;
+    groups: string;
+    mediaSpace: string;
+    step: string;
+    pauseMarquee: string;
+    playMarquee: string;
+  };
 };

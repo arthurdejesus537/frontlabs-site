@@ -74,7 +74,7 @@ export function Steps() {
                   <span className="t-label">{s.label}</span>
                 </p>
                 <h3 className="t-title">
-                  <span className="sr-only">{`Step ${i + 1}: `}</span>
+                  <span className="sr-only">{`${site.ui.step} ${i + 1}: `}</span>
                   {s.title}
                 </h3>
                 <p className={styles.text}>{s.text}</p>

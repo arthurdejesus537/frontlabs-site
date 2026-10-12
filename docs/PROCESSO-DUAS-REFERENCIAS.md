@@ -46,4 +46,26 @@ Adaptação do processo do `~/site-build` (uma referência, montamont.com) para 
 
 ## Aprendizados da 1ª rodada
 
-(O Claude Code preenche ao fim da Fase 8.)
+Rodada de 12/10/2026 (runway.com + ploy.ai → default → Front Labs).
+
+**O que travou**
+- **Portas ocupadas.** 3010–3019 tinham outros projetos rodando (3011 era um venue). O `next dev` na 3011 falhou em silêncio e os primeiros screenshots foram de outro site. Próxima vez: o prompt deve mandar checar a porta (`lsof -iTCP:<porta> -sTCP:LISTEN`) e confirmar o `cwd` do processo antes de fotografar; usar uma faixa alta (ex.: 31xx).
+- **Ploy quase sem `<section>`.** O `sections.mjs` achava 3–4 blocos; foi preciso dividir blocos altos nos filhos e, se ainda faltar cobertura, cortar fatias de uma janela.
+- **Entradas ao rolar e rolagem suave.** Screenshot de página inteira saía com cards invisíveis (rolagem antes da hidratação) e com o nav no meio do herói (`scroll-behavior: smooth`). Os scripts agora esperam 1,5s, rolam devagar e usam `behavior: 'instant'`.
+- **`grid-template-columns: 1fr` estoura no celular** quando há texto sem quebra (URL no card de preview). Regra: sempre `minmax(0, 1fr)`.
+- **Regras da marca que brigam com acessibilidade:** `--soft` do DESIGN dá 2.6:1; grão a 60% apaga texto. Ajustei e registrei no REVISAR.
+- **Auditor de vazio ingênuo.** Contava fundos e `<li>` como conteúdo (dava 0px ou falso positivo). Agora conta só elementos com texto próprio, controles e mídia menor que 60% da janela.
+
+**O que funcionou**
+- Medir antes (Fase 1): o espaço entre seções estimado (144) estava longe do medido (~2 × 96).
+- `data-section` em toda seção: os scripts de QA (seções, vazio, estouro) ficam genéricos.
+- Tokens primeiro: a Front Labs saiu trocando `tokens.css` + `site.ts`; só 2 componentes novos (Steps, Faq) e um nav próprio. Onde faltou token (peso do título de card, caixa do rótulo, tamanho ótico, recuo das molduras), o token entrou no default antes da cópia.
+- Placeholders de instrução no default deixam óbvio o que cada bloco pede.
+- Revisor externo (subagente sem contexto) para a versão da marca.
+
+**O que mudar no prompt da próxima vez**
+1. Fase 0: "escolha portas livres e confirme o processo que responde antes de qualquer screenshot".
+2. Já pedir no MESTRE-DEFAULT os tokens de "troca de marca" (peso de card, caixa do rótulo, opsz, recuo das molduras, fundo da faixa, virada do título), para não descobrir na Fase 5.
+3. Dizer explicitamente o que fazer quando a regra da marca reprova em contraste (ajustar o mínimo e registrar — foi o que fiz).
+4. Pedir o SVG oficial do logo e o link da agenda no pacote da noite.
+5. Incluir `tools/qa-check.mjs` (estouro + toque) no roteiro, não só o gap-audit.

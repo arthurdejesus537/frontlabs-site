@@ -83,7 +83,7 @@ export function FeatureTabs() {
         ) : null}
 
         {groups.length > 1 ? (
-          <div className={styles.groups} role="tablist" aria-label="Grupos">
+          <div className={styles.groups} role="tablist" aria-label={site.ui.groups}>
             {groups.map((grp, i) => (
               <button
                 key={grp.name}
@@ -134,7 +134,7 @@ export function FeatureTabs() {
             {active ? (
               <div key={`${g}-${t}`} className={styles.fade}>
                 {active.preview ? (
-                  <div className={styles.previewWrap}><PreviewCard preview={active.preview} /></div>
+                  <div className={styles.previewWrap} data-media><PreviewCard preview={active.preview} /></div>
                 ) : (
                   <Media media={active.media} className={styles.media} sizes="(max-width: 1023px) 100vw, 60vw" />
                 )}

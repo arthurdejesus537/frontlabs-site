@@ -7,8 +7,9 @@ import type { PreviewSpec, Site } from "./types";
  */
 
 const EMAIL = "archielewis49@gmail.com"; // [CONFIRMAR se é o e-mail público] — FRONTLABS-HOME §4
-const CALL_HREF = "#cta"; // [CONFIRMAR] não há link de agenda; o botão leva ao formulário
-const AI_PROMPT = encodeURIComponent("What does Front Labs (frontlabs.co) do for local businesses, and how does the free website preview work?");
+// [CONFIRMAR] não há link de agenda: por enquanto o botão abre um e-mail para o Arch pedindo a call
+const CALL_HREF = `mailto:archielewis49@gmail.com?subject=${encodeURIComponent("15-minute call")}`;
+const AI_PROMPT = encodeURIComponent("What does Front Labs, the website studio for local businesses, do? How does its free website preview work?");
 
 /** O site do próprio visitante, ilustrativo (FRONTLABS-HOME §1). Nunca um cliente real. */
 const visitorPreview: PreviewSpec = {
@@ -34,7 +35,20 @@ export const site: Site = {
     description: "We rebuild your local business website before you pay a thing. You see it first, then decide. No monthly fee.",
   },
 
-  ui: { skip: "Skip to content", external: "(opens in a new tab)" },
+  ui: {
+    skip: "Skip to content",
+    external: "(opens in a new tab)",
+    home: "home",
+    navMain: "Main",
+    navFooter: "Footer",
+    menu: "Menu",
+    preview: "Preview",
+    groups: "Groups",
+    mediaSpace: "Media",
+    step: "Step",
+    pauseMarquee: "Pause scrolling list",
+    playMarquee: "Resume scrolling list",
+  },
 
   announcement: {
     enabled: true,
@@ -97,14 +111,14 @@ export const site: Site = {
     mode: "words",
     intro: "Built for the businesses your town runs on",
     items: [
-      "/wedding venues",
+      "/home services",
       "/pool builders",
       "/plumbers",
       "/clinics",
       "/studios",
       "/restaurants",
-      "/home services",
       "/shops",
+      "/wedding venues",
     ].map((name) => ({ name })),
   },
 
@@ -122,7 +136,7 @@ export const site: Site = {
     items: [
       { icon: "monitor", title: "We build it", text: "A new site, coded the right way for Google and designed around one thing: calls and bookings." },
       { icon: "arrow-up-right", title: "We launch it", text: "On your domain, in your name. You own it. No monthly fee, no hosting bill." },
-      { icon: "check", title: "We handle it", text: "Edits, fixes, the online stuff you never get to. Signature includes six months of care." },
+      { icon: "check", title: "We handle it", text: "Need changes after launch? Signature includes six months of care: revisions and edits, handled." },
     ],
   },
 
@@ -143,7 +157,7 @@ export const site: Site = {
         label: "/15 minutes",
         title: "A 15-minute call",
         text: "We walk you through the preview. Ask anything. No pitch deck.",
-        visual: { kind: "invite", month: "Oct", day: "14", title: "Your preview, walked through", meta: "15 min · video call", reply: "Works for me." },
+        visual: { kind: "invite", month: "Oct", day: "14", title: "Your preview, walked through", meta: "15 min · call", reply: "Works for me." },
       },
       {
         label: "/live",
@@ -179,7 +193,7 @@ export const site: Site = {
                 { label: "/phones", value: "Fast on every one" },
                 { label: "/pages", value: "Easy to read" },
               ],
-              status: "checked before launch",
+              status: "the right foundation",
             },
           },
           {
@@ -244,37 +258,30 @@ export const site: Site = {
   timeline: {
     enabled: true,
     id: "handled",
-    label: "/example week · illustrative",
+    label: "/example week with Signature · illustrative",
     titleStart: "While you run your business,",
     titleEnd: "the online stuff gets handled.",
     field: "image",
     background: { kind: "gradient", src: "/img/gradiente-horizonte-16x9.jpg", alt: "" },
     items: [
-      { time: "Mon 9:12 AM", tag: "/booking", tone: 1, title: "A booking request gets an answer", text: "An automatic reply goes out the moment someone asks for a time." },
+      { time: "Mon 9:12 AM", tag: "/booking", tone: 1, title: "A booking request gets an answer", text: "An automatic reply goes out when someone asks for a time." },
       { time: "Tue 2:30 PM", tag: "/reviews", tone: 2, title: "A review request goes out", text: "After the visit, your customer gets a short ask for a Google review." },
-      { time: "Wed 10:05 AM", tag: "/care", tone: 3, title: "Holiday hours, updated", text: "You send the change. We put it on the site." },
-      { time: "Fri 4:40 PM", tag: "/photos", tone: 1, title: "New photos on the gallery", text: "Color-graded and on the site, not stuck in your camera roll." },
+      { time: "Wed 10:05 AM", tag: "/care", tone: 3, title: "Holiday hours, updated", text: "You send the change. It's part of your six months of care." },
+      { time: "Fri 4:40 PM", tag: "/photos", tone: 1, title: "New photos on the gallery", text: "Color-graded with Front Cinematic, not stuck in your camera roll." },
     ],
   },
 
   audience: {
     enabled: true,
     id: "who-its-for",
-    tag: "Who it's for",
+    tag: "/who it's for",
     title: "For the businesses your town runs on.",
     text: "If people find you online and then call, book or walk in, this is for you.",
     items: [
       {
-        name: "Wedding & event venues",
-        short: "Where we started.",
-        points: ["A site that shows the space and gets tours booked", "Automatic replies to date questions (Signature)", "Google review requests after every event (Signature)"],
-        primary: { label: "Get my free preview", href: "#cta" },
-        secondary: { label: "Book a 15-minute call", href: CALL_HREF },
-      },
-      {
         name: "Home services",
         short: "Pool builders, plumbers, cleaners, roofers.",
-        points: ["Tap-to-call on every page", "Service area and hours that are always right", "Built the right way for Google"],
+        points: ["A call button on every page", "Service area and hours, clear on every page", "Built the right way for Google"],
         primary: { label: "Get my free preview", href: "#cta" },
       },
       {
@@ -287,6 +294,12 @@ export const site: Site = {
         name: "Restaurants & shops",
         short: "Hours, menu, directions. Where people look.",
         points: ["Hours and directions up top", "Photos that look like the real place", "Your domain, your name, no monthly fee"],
+        primary: { label: "Get my free preview", href: "#cta" },
+      },
+      {
+        name: "Wedding & event venues",
+        short: "Where we started.",
+        points: ["A site that shows the space and gets tours booked", "Automatic replies to date questions (Signature)", "Google review requests after every event (Signature)"],
         primary: { label: "Get my free preview", href: "#cta" },
       },
     ],
@@ -305,7 +318,7 @@ export const site: Site = {
         price: "[CONFIRMAR]",
         priceNote: "paid once",
         phrase: "Your new site, built and launched.",
-        text: "Everything you need to be found and booked. Creative and automatic booking are not included.",
+        text: "A new site built for calls and bookings. Creative and automatic booking are not included.",
         features: [
           "Free preview before you pay",
           "15-minute call to walk you through it",
@@ -356,7 +369,7 @@ export const site: Site = {
       { q: "Is there a monthly fee?", verdict: "No.", a: "No subscription and no monthly hosting fee. You pay once and the site is yours." },
       { q: "Can you get me to #1 on Google?", verdict: "No one can.", a: "Anyone who promises that is guessing. We build your site the right way for Google: clean code, fast pages, a clear structure." },
       { q: "Do I own the site?", verdict: "Yes.", a: "It lives on your domain, in your name." },
-      { q: "I'm not a wedding venue. Is this for me?", verdict: "Yes.", a: "We started with venues, but we build for any local business that lives on calls, bookings and walk-ins." },
+      { q: "Is this only for wedding venues?", verdict: "No.", a: "We started with venues. We build for any local business that lives on calls, bookings and walk-ins." },
     ],
   },
 
@@ -371,7 +384,7 @@ export const site: Site = {
     inputType: "url",
     placeholder: "yourbusiness.com",
     button: "Get my free preview",
-    microcopy: "Free preview · No card · You see it first, then decide",
+    microcopy: "Free preview · You see it first, then decide",
     errorEmpty: "Add your website so we know what to rebuild.",
     errorInvalid: "That doesn't look like a web address. Try yourbusiness.com",
     success: "Got it. We'll start on your preview.",

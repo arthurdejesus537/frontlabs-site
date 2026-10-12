@@ -53,3 +53,7 @@
   .previewWrap { aspect-ratio: auto; padding: var(--s-4); }
 }
 @media (max-width: 767px) { .pause { width: var(--tap); height: var(--tap); } }
+
+/* Front Labs: lista no topo e botão de pausa logo abaixo dela — sem vazio > 12% no meio do painel (DESIGN §10.1) */
+.listWrap { justify-content: flex-start; padding-top: var(--s-2); }
+.pause { position: static; align-self: flex-start; }

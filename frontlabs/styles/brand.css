@@ -15,11 +15,18 @@
 [data-section="announcement"] { position: relative; isolation: isolate; }
 
 /* fundo do herói em movimento lento de câmera: ciclo de 22s, escala 1,04–1,08 */
-[data-section="hero"] [data-media] img { animation: fl-drift var(--dur-drift) ease-in-out infinite alternate; transform-origin: 50% 40%; }
+[data-section="hero"] [data-media] img {
+  filter: blur(var(--hero-blur)) saturate(1.15);
+  animation: fl-drift var(--dur-drift) ease-in-out infinite alternate; transform-origin: 50% 40%;
+}
+
+/* Horizonte atrás de texto branco: um pouco mais escuro para passar AA */
+[data-section="timeline"] [data-media] img,
+[data-section="final-cta"] [data-media] img { filter: brightness(var(--horizon-dim)); }
 @keyframes fl-drift {
-  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  from { transform: scale(1.06) translate3d(0, 0, 0); }
   to { transform: scale(1.08) translate3d(-1%, -0.6%, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  [data-section="hero"] [data-media] img { animation: none; transform: scale(1.04); }
+  [data-section="hero"] [data-media] img { animation: none; transform: scale(1.08); }
 }

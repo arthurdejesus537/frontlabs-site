@@ -52,6 +52,7 @@
   --c-placeholder-ink: #6e6e6e;
   --c-placeholder-dark: #2b2b2b; /* placeholder atrás de texto branco */
   --c-placeholder-dark-ink: rgb(255 255 255 / 0.6);
+  --c-focus-halo: #ffffff;       /* halo claro: o foco aparece em fundo escuro e em foto */
   --c-focus: #0c0c0c;
   --c-error: #b42318;
   --c-success: #1f7a45;
@@ -128,9 +129,11 @@
 
   /* ---------- nav e faixa ---------- */
   --nav-h: 68px;                 /* A */
+  --bar-btn-h: 28px;             /* A: botão contornado da faixa */
   --bar-h: 48px;                 /* A */
   --nav-link-fs: 15px;
-  --tap: 44px;                   /* toque mínimo no celular */
+  --tap: 44px;
+  --form-h: var(--btn-h-md);      /* input e botão do CTA final */                   /* toque mínimo no celular */
 
   /* ---------- molduras ---------- */
   --hero-h: clamp(560px, 80svh, 760px);

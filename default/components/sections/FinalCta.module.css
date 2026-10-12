@@ -3,7 +3,7 @@
 .bg { z-index: -1; }
 .shout { font-size: var(--t-shout-md); max-width: 1000px; margin-inline: auto; }
 .title { max-width: 820px; margin-inline: auto; }
-.turn { display: block; font-size: var(--turn-size); color: var(--turn-color); margin-top: var(--turn-gap); }
+.turn { display: block; letter-spacing: var(--t-hero-ls); font-size: var(--turn-size); color: var(--turn-color); margin-top: var(--turn-gap); }
 .onMedia .turn { color: var(--turn-on-media); }
 .text { margin: var(--s-6) auto 0; max-width: 34em; color: var(--c-text); }
 .onMedia .title, .onMedia .shout, .onMedia .text { color: var(--c-on-media); }
@@ -20,12 +20,12 @@
 .pill:focus-within { border-color: var(--c-ink); }
 .invalid { border-color: var(--c-error); }
 .input {
-  flex: 1; min-width: 0; height: var(--btn-h-md); padding-inline: var(--s-4);
+  flex: 1; min-width: 0; height: var(--form-h); padding-inline: var(--s-4);
   border: 0; background: transparent; outline: none; font-size: var(--t-body); color: var(--c-ink);
 }
 .input::placeholder { color: var(--c-mute); }
 .submit {
-  display: inline-flex; align-items: center; gap: var(--s-2); height: var(--btn-h-md); padding-inline: var(--btn-px-md);
+  display: inline-flex; align-items: center; gap: var(--s-2); height: var(--form-h); padding-inline: var(--btn-px-md);
   border-radius: var(--r-pill); background: var(--c-btn); color: var(--c-btn-ink); font-size: var(--btn-fs); font-weight: var(--btn-fw);
   white-space: nowrap; transition: background-color var(--dur-fast) var(--ease);
 }
