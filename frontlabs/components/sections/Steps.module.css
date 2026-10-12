@@ -63,3 +63,23 @@
 @media (max-width: 767px) {
   .head { margin-bottom: var(--s-6); }
 }
+
+/* rodada 3: momentos animados dos 5 passos */
+.veil::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--c-veil); }
+.editor { width: 86%; }
+.five .mini { width: 84%; transform: translateY(12%); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-5); margin-top: var(--s-7); }
+
+/* 5 passos: uma linha no desktop largo; faixa com snap no meio; empilhados no celular */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .five {
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+    margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); padding-bottom: var(--s-3);
+  }
+  .five > li { flex: 0 0 300px; scroll-snap-align: start; }
+}
+@media (min-width: 1280px) {
+  .five { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--live-gap); }
+  .five .body { padding: var(--s-4) var(--s-3) var(--s-3); }
+  .five .text { font-size: var(--t-small); }
+}

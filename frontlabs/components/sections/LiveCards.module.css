@@ -1,6 +1,5 @@
 /* Campo (Ploy: rosa) → Horizonte com grão, raio 24. Cards 373 / pad 24 / gap 16 (medido). */
 .field { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--r-field); padding: var(--s-9) var(--gutter) var(--s-8); color: var(--c-on-media); }
-.bg { z-index: -2; }
 .inner { max-width: var(--live-card-w); margin-inline: auto; }
 .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-6); align-items: end; }
 .headLeft { display: grid; gap: var(--s-4); }
@@ -38,6 +37,10 @@
 .logText { animation: log var(--dur-log) var(--ease); }
 @keyframes log { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
+.statsWrap { display: grid; gap: var(--s-1); }
+.statsExample { justify-self: end; color: var(--c-mute); font-size: var(--t-micro); }
+.flash { animation: flash var(--dur-flash) var(--ease); }
+@keyframes flash { from { opacity: 0.35; } to { opacity: 1; } }
 .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-2); margin: 0; }
 .stats dt { font-size: var(--t-meta); color: var(--c-mute); }
 .stats dd { margin: var(--s-1) 0 0; font-size: var(--t-live-stat); font-weight: var(--w-title); letter-spacing: -0.02em; color: var(--c-ink); }

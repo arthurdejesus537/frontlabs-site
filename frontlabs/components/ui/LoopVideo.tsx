@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { VideoSpec } from "@/content/types";
 import { useReducedMotion, useSmallScreen } from "./useMotion";
 import styles from "./LoopVideo.module.css";
@@ -26,6 +26,8 @@ function stop(v: HTMLVideoElement) {
  * `preload="metadata"`, só toca quando metade dele está na tela e pausa quando sai.
  * Sem `autoplay` no HTML de propósito: quem dá o play é o observador (e com reduced-motion
  * ele nunca dá, então o vídeo fica parado no poster).
+ * As fontes só entram quando o vídeo chega perto da tela (meia tela de distância): antes disso
+ * é só o poster, e o carregamento da página não disputa banda com o herói.
  */
 export function LoopVideo({ video, allowMobile = true, className }: { video: VideoSpec; allowMobile?: boolean; className?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -33,21 +35,35 @@ export function LoopVideo({ video, allowMobile = true, className }: { video: Vid
   const small = useSmallScreen();
   // versão do celular só onde há altura para ela (palcos); nas áreas 4:3 fica a de desktop
   const src = allowMobile && small && video.mobile ? video.mobile : video;
+  const [near, setNear] = useState(false);
 
   useEffect(() => {
     const v = ref.current;
-    if (!v || reduced) return;
+    if (!v) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setNear(true);
+        io.disconnect();
+      }
+    }, { rootMargin: "50% 0px" });
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const v = ref.current;
+    if (!v || reduced || !near) return;
     const io = new IntersectionObserver(([e]) => (e.isIntersecting ? start(v) : stop(v)), { threshold: 0.5 });
     io.observe(v);
     return () => {
       io.disconnect();
       stop(v);
     };
-  }, [reduced, src]);
+  }, [reduced, src, near]);
 
   return (
     <video
-      key={src.mp4}
+      key={`${src.mp4}${near ? "" : "-poster"}`}
       ref={ref}
       className={[styles.video, className].filter(Boolean).join(" ")}
       style={{ "--ratio": src.ratio } as CSSProperties}
@@ -59,8 +75,8 @@ export function LoopVideo({ video, allowMobile = true, className }: { video: Vid
       disablePictureInPicture
       aria-label={video.label}
     >
-      <source src={src.webm} type="video/webm" />
-      <source src={src.mp4} type="video/mp4" />
+      {near ? <source src={src.webm} type="video/webm" /> : null}
+      {near ? <source src={src.mp4} type="video/mp4" /> : null}
     </video>
   );
 }
