@@ -3,7 +3,7 @@
   aspect-ratio: var(--stage-ratio); min-height: min-content; padding: var(--s-7); /* cresce se o card for mais alto */ border-radius: var(--r-media-lg);
   background: var(--c-placeholder-dark);
 }
-.bg { object-fit: cover; z-index: -2; transform: scale(1.06); }
+.bg { object-fit: cover; z-index: -2; }
 .horizon .bg { filter: brightness(var(--horizon-dim)); }
 .visual { width: 100%; max-width: 480px; }
 

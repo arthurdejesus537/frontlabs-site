@@ -1,0 +1,78 @@
+== /
+
+== 768px · scrollWidth 768 ✓
+
+== 390px · scrollWidth 390 ✓
+
+Tudo certo.
+✓ offers             maior vazio   76px  (y=6887)
+✓ faq                maior vazio   91px  (y=8717)
+✓ final-cta          maior vazio   89px  (y=9690)
+✓ footer             maior vazio   81px  (y=10253)
+
+1 seção(ões) acima do limite.
+== /how-it-works
+
+== 768px · scrollWidth 768 ✓
+
+== 390px · scrollWidth 390 ✓
+
+Tudo certo.
+✓ feature-rows       maior vazio   72px  (y=632)
+✓ steps              maior vazio   56px  (y=6168)
+✓ final-cta          maior vazio   89px  (y=7475)
+✓ footer             maior vazio   81px  (y=8038)
+
+2 seção(ões) acima do limite.
+== /what-you-get
+
+== 768px · scrollWidth 768 ✓
+
+== 390px · scrollWidth 390 ✓
+
+Tudo certo.
+✓ results            maior vazio   85px  (y=718)
+✗ products           maior vazio  121px  (y=3148)
+✓ final-cta          maior vazio   89px  (y=5518)
+✓ footer             maior vazio   81px  (y=6081)
+
+3 seção(ões) acima do limite.
+== /pricing
+
+== 768px · scrollWidth 768 ✓
+
+== 390px · scrollWidth 390 ✓
+
+Tudo certo.
+✓ compare            maior vazio   48px  (y=3583)
+✓ faq                maior vazio   52px  (y=4600)
+✓ final-cta          maior vazio   89px  (y=5468)
+✓ footer             maior vazio   81px  (y=6030)
+
+Nenhum vazio acima do limite.
+== /questions
+
+== 768px · scrollWidth 768 ✓
+
+== 390px · scrollWidth 390 ✓
+
+Tudo certo.
+✓ page-hero          maior vazio   51px  (y=277)
+✓ faq                maior vazio   91px  (y=879)
+✓ final-cta          maior vazio   89px  (y=1939)
+✓ footer             maior vazio   81px  (y=2502)
+
+Nenhum vazio acima do limite.
+== /nada-aqui
+
+== 768px · scrollWidth 768 ✓
+
+== 390px · scrollWidth 390 ✓
+
+Tudo certo.
+✓ header             maior vazio    0px  (y=0)
+✓ page-hero          maior vazio   51px  (y=387)
+✓ final-cta          maior vazio   89px  (y=882)
+✓ footer             maior vazio   81px  (y=1444)
+
+Nenhum vazio acima do limite.

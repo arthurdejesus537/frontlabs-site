@@ -1,5 +1,4 @@
-.row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s-8); align-items: center; }
-.flip { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-8); align-items: center; }
 .flip .copy { order: 2; }
 .copy { display: grid; gap: var(--s-4); justify-items: start; }
 .label { color: var(--c-mute); }

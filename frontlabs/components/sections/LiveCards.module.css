@@ -4,7 +4,7 @@
 .inner { max-width: var(--live-card-w); margin-inline: auto; }
 .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-6); align-items: end; }
 .headLeft { display: grid; gap: var(--s-4); }
-.label { color: var(--c-on-media-text); }
+.label { color: var(--c-on-media); }
 .title { color: var(--c-on-media); max-width: 11em; }
 .text { color: var(--c-on-media); font-size: var(--t-body); max-width: 30em; justify-self: end; padding-bottom: var(--s-2); }
 

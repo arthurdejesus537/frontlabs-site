@@ -1,0 +1,28 @@
+✓ abas: troca automática 0 → 1
+✓ abas: barra de progresso visível na etapa ativa
+✓ abas: clique ativa a etapa 4
+✓ abas: troca automática para depois do clique
+✓ abas: barra some depois da interação
+✓ abas: seta para baixo
+✓ abas: Home
+✓ abas: End
+✓ abas: botão mostra "Resume" depois de parar
+✓ abas: retomar volta a troca automática
+✓ faq: abre a pergunta 2
+✓ faq: fecha a pergunta 2
+✓ form: vazio dá erro
+✓ form: formato inválido dá erro
+✓ form: sucesso
+✓ nav: /how-it-works abre, aria-current e title certos
+✓ nav: /what-you-get abre, aria-current e title certos
+✓ nav: /pricing abre, aria-current e title certos
+✓ nav: /questions abre, aria-current e title certos
+✓ rodapé: volta para a home
+✓ 404 da marca
+✓ pricing: acordeão abre
+✓ menu: abre
+✓ menu: Esc fecha
+✓ menu: link abre /pricing
+✓ celular: abas viram acordeão com a mídia dentro da etapa aberta
+✓ reduced-motion: linha cheia (100%)
+✓ reduced-motion: sem troca automática
