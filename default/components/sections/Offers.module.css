@@ -34,7 +34,7 @@
   .phrase { font-size: var(--t-subtitle); }
 }
 @media (max-width: 767px) {
-  .grid, .n2 { grid-template-columns: 1fr; gap: var(--s-8); }
+  .grid, .n2 { grid-template-columns: minmax(0, 1fr); gap: var(--s-8); }
   .pricing { gap: var(--grid-gap); }
   .head { margin-bottom: var(--s-7); }
   .phrase { margin-top: var(--s-5); font-size: var(--t-subtitle); }

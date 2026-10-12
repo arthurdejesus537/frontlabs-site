@@ -21,7 +21,7 @@
   display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); width: 100%; text-align: left;
   padding: var(--s-5) var(--s-5) var(--s-8); min-height: 120px; align-items: start;
 }
-.name { font-size: var(--t-heading); line-height: 1; letter-spacing: var(--t-heading-ls); font-weight: var(--w-title); color: var(--c-ink); }
+.name { font-size: var(--t-feature); line-height: 1.1; letter-spacing: var(--t-title-ls); font-weight: var(--w-title); color: var(--c-ink); }
 .short { font-size: var(--t-small); color: var(--c-text); padding-top: var(--s-1); }
 .on .toggle { padding-bottom: var(--s-5); }
 .body { padding: 0 var(--s-5) var(--s-6); }
@@ -31,9 +31,9 @@
 .ctas { display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-5); margin-top: var(--s-6); }
 
 @media (max-width: 1023px) {
-  .grid { grid-template-columns: 1fr; gap: var(--s-7); }
+  .grid { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); }
   .head { position: static; }
 }
 @media (max-width: 767px) {
-  .toggle { grid-template-columns: 1fr; gap: var(--s-3); padding: var(--s-6) var(--s-5) var(--s-6); min-height: 0; }
+  .toggle { grid-template-columns: minmax(0, 1fr); gap: var(--s-3); padding: var(--s-6) var(--s-5) var(--s-6); min-height: 0; }
 }

@@ -36,7 +36,8 @@
   --c-dark-line: rgb(255 255 255 / 0.14);
   --c-dark-btn: rgb(255 255 255 / 0.08);
   --c-bar: var(--p-ceu);
-  --bar-bg: var(--grain) repeat, var(--bg-horizonte); /* barra de oferta com o Horizonte (§6.6) */
+  --bar-bg: var(--bg-horizonte);  /* barra de oferta com o Horizonte (§6.6) */
+  --grain-opacity: 0.22;          /* DESIGN §4.3 pede ~60% em overlay; com este grao.png isso apaga o texto. Ver REVISAR */
   --c-bar-ink: #ffffff;
   --c-on-media: #ffffff;
   --c-on-media-text: rgb(255 255 255 / 0.85);
@@ -46,6 +47,7 @@
   --c-veil: rgb(10 10 10 / 0.3);
   --c-scrim: linear-gradient(180deg, rgb(10 10 10 / 0) 30%, rgb(10 10 10 / 0.45) 100%);
   --ph-blur: var(--bg-horizonte);
+  --stage-bg: url("/img/foto-borrada-hero.jpg") center / cover; /* card sobre o fundo borrado (§4.2.2) */
   /* campos coloridos: legado "em aberto" no DESIGN (§4.2). Na home não há campo de cor;
      o card aberto de "Para quem" fica branco e as tags da timeline ficam cinza. */
   --c-field-1: var(--card);
@@ -98,6 +100,9 @@
   --t-meta: 13px;     --t-meta-lh: 1.4;
   --t-label: 13px;    --t-label-ls: normal;                            /* Geist Mono 400 */
   --t-number: 56px;   --t-number-lh: 1;
+  --turn-size: 0.62em; --turn-gap: 0.18em;                             /* virada: linha menor, cor secundária (§3.2) */
+  --turn-color: var(--mute);
+  --turn-on-media: rgb(255 255 255 / 0.78);
   --t-micro: 11px;
   --t-logo: 20px;     --t-logo-lg: 44px;
   --t-ask: 24px;

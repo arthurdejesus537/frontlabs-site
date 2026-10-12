@@ -17,7 +17,7 @@
 
 @media (max-width: 767px) {
   .field { padding-block: var(--s-8); }
-  .inner { grid-template-columns: 1fr; }
+  .inner { grid-template-columns: minmax(0, 1fr); }
   .start, .end, .list, .label { grid-column: 1; }
   .card { padding: var(--s-4); }
 }

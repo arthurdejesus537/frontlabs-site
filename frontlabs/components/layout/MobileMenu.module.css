@@ -10,4 +10,5 @@
   font-size: var(--t-title); letter-spacing: var(--t-title-ls); color: var(--c-ink);
 }
 .actions { display: grid; gap: var(--s-3); }
-@media (min-width: 1024px) { .panel { display: none; } }
+@media (min-width: 1101px) { .panel { display: none; } }
+.panel { border-top: 0; }

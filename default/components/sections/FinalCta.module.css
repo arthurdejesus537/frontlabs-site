@@ -3,7 +3,8 @@
 .bg { z-index: -1; }
 .shout { font-size: var(--t-shout-md); max-width: 1000px; margin-inline: auto; }
 .title { max-width: 820px; margin-inline: auto; }
-.turn { display: block; }
+.turn { display: block; font-size: var(--turn-size); color: var(--turn-color); margin-top: var(--turn-gap); }
+.onMedia .turn { color: var(--turn-on-media); }
 .text { margin: var(--s-6) auto 0; max-width: 34em; color: var(--c-text); }
 .onMedia .title, .onMedia .shout, .onMedia .text { color: var(--c-on-media); }
 .card {

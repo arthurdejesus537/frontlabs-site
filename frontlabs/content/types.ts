@@ -38,6 +38,8 @@ export type SectionKey =
   | "spotlight"
   | "audience"
   | "news"
+  | "steps"
+  | "faq"
   | "finalCta";
 
 type Base = { enabled: boolean; id: string };
@@ -156,6 +158,27 @@ export type NewsContent = Base & {
   more: string;
 };
 
+/** Passos (DESIGN §6.8) — componente só da Front Labs. */
+export type StepVisual =
+  | { kind: "preview"; preview: PreviewSpec }
+  | { kind: "invite"; month: string; day: string; title: string; meta: string; reply: string }
+  | { kind: "live"; domain: string; word: string };
+export type StepsContent = Base & {
+  label?: string;
+  title: string;
+  titleTurn?: string;
+  items: { label: string; title: string; text: string; visual: StepVisual }[];
+};
+
+/** Perguntas (DESIGN §6.9) — componente só da Front Labs. */
+export type FaqContent = Base & {
+  label?: string;
+  title: string;
+  text: string;
+  contact: { name: string; initial: string; bubble: string; email: string; emailNote?: string; button: string };
+  items: { q: string; verdict: string; a: string }[];
+};
+
 export type FinalCtaContent = Base & {
   style: "shout" | "calm";
   title: string;
@@ -200,6 +223,8 @@ export type Site = {
   spotlight: SpotlightContent;
   audience: AudienceContent;
   news: NewsContent;
+  steps: StepsContent;
+  faq: FaqContent;
   finalCta: FinalCtaContent;
   footer: FooterContent;
   ui: { skip: string; external: string };

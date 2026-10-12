@@ -14,11 +14,11 @@ export async function autoScroll(page) {
   await page.evaluate(async () => {
     const step = Math.round(window.innerHeight * 0.5);
     for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
-      window.scrollTo(0, y);
+      window.scrollTo({ top: y, behavior: 'instant' });
       await new Promise((r) => setTimeout(r, 160));
     }
     await new Promise((r) => setTimeout(r, 900));
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   });
   await page.waitForTimeout(900);
 }

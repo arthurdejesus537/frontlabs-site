@@ -1,6 +1,7 @@
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Logo } from "@/components/ui/Logo";
 import { Hero } from "@/components/sections/Hero";
 import { sections } from "@/components/sections";
 import { site } from "@/content/site";
@@ -18,7 +19,7 @@ export default function Home() {
           return Section ? <Section key={key} /> : null;
         })}
       </main>
-      <Footer data={site.footer} />
+      <Footer data={site.footer} logo={<Logo label={site.footer.brand} size="var(--t-logo-lg)" />} />
     </>
   );
 }

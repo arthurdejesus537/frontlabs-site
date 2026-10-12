@@ -11,7 +11,7 @@
 
 @media (max-width: 1279px) { .item { grid-template-columns: minmax(0, 0.9fr) 1fr; gap: var(--s-4); } }
 @media (max-width: 767px) {
-  .grid { grid-template-columns: 1fr; gap: var(--s-7); }
-  .item { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); }
+  .item { grid-template-columns: minmax(0, 1fr); }
   .title { margin-bottom: var(--s-6); }
 }

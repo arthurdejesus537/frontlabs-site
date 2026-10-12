@@ -3,7 +3,7 @@
 .line { display: block; }
 .calm {
   max-width: 820px; margin-inline: auto; text-align: left;
-  font-size: clamp(26px, 2.4vw, 34px); line-height: 1.25; letter-spacing: -0.02em; font-weight: var(--w-title); color: var(--c-ink);
+  font-size: var(--t-feature); line-height: var(--t-feature-lh); letter-spacing: var(--t-feature-ls); font-weight: var(--w-regular); color: var(--c-ink);
 }
 .calm .line { display: inline; }
 .soft { color: var(--c-soft); }

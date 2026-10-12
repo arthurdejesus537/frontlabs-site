@@ -12,6 +12,8 @@ import { Spotlight } from "./Spotlight";
 import { Audience } from "./Audience";
 import { News } from "./News";
 import { FinalCta } from "./FinalCta";
+import { Steps } from "./Steps";
+import { Faq } from "./Faq";
 
 /* Mapa chave → seção. Cada seção lê o próprio bloco de site.ts e some se `enabled` for false. */
 export const sections: Partial<Record<SectionKey, ComponentType>> = {
@@ -27,4 +29,6 @@ export const sections: Partial<Record<SectionKey, ComponentType>> = {
   audience: Audience,
   news: News,
   finalCta: FinalCta,
+  steps: Steps,
+  faq: Faq,
 };

@@ -38,6 +38,7 @@
   --ph-blur: radial-gradient(60% 80% at 20% 30%, #5a5a52 0%, transparent 70%),
     radial-gradient(50% 70% at 80% 70%, #8a8a7a 0%, transparent 70%),
     radial-gradient(40% 60% at 60% 10%, #2c2f33 0%, transparent 70%), #3d3f3a; /* placeholder de "foto borrada" */
+  --stage-bg: var(--c-surface-2); /* palco atrás de previews/mockups */
   --c-scrim: linear-gradient(180deg, rgb(0 0 0 / 0) 35%, rgb(0 0 0 / 0.55) 100%);
   --c-field-1: #ffb8fc;          /* B campo rosa */
   --c-field-2: #fffa64;          /* B campo amarelo */
@@ -88,6 +89,10 @@
   --t-meta: 12px;     --t-meta-lh: 1.4;                                /* A */
   --t-label: 12px;    --t-label-ls: 0.04em;                            /* B "ANNOUNCEMENT" */
   --t-number: 64px;   --t-number-lh: 1;                                /* B número de card */
+  --t-feature: 32px;  --t-feature-lh: 1.25; --t-feature-ls: -0.02em;  /* frase de destaque calma */
+  --turn-size: 1em;   --turn-gap: 0;                                   /* "virada" do título (2ª linha) */
+  --turn-color: inherit;
+  --turn-on-media: inherit;
   --t-micro: 10px;                                                     /* rótulo do card de anúncio */
   --t-logo: 20px;     --t-logo-lg: 40px;                               /* marca no nav e no footer */
   --t-ask: 28px;                                                       /* "versão curta" do footer (B) */
@@ -155,6 +160,7 @@
     --t-subtitle: 18px;
     --t-lead: 18px;
     --t-number: 48px;
+    --t-feature: 24px;
     --gutter: 16px;
     --section-y: 64px;
     --frame-pad: 20px;

@@ -41,7 +41,7 @@
 @media (max-width: 767px) {
   .card { padding: var(--s-8) var(--s-5) var(--s-5); gap: var(--s-7); }
   .top { flex-direction: column; align-items: flex-start; }
-  .ask { grid-template-columns: 1fr; }
+  .ask { grid-template-columns: minmax(0, 1fr); }
   .cols { grid-template-columns: 1fr 1fr; }
   .link { min-height: var(--tap); }
   .bottom { flex-direction: column; align-items: flex-start; }

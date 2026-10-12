@@ -32,5 +32,5 @@
 .live::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--c-live); opacity: 0; animation: ring var(--dur-pulse) ease-in-out infinite; }
 @keyframes ring { 0% { transform: scale(0.6); opacity: 0.8; } 70%, 100% { transform: scale(1.6); opacity: 0; } }
 .compact .body { padding: var(--s-5) var(--s-4); }
-.compact .rows { grid-template-columns: 1fr; }
-@media (max-width: 767px) { .rows { grid-template-columns: 1fr; } .body { padding: var(--s-5) var(--s-4); } }
+.compact .rows { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 767px) { .rows { grid-template-columns: minmax(0, 1fr); } .body { padding: var(--s-5) var(--s-4); } }

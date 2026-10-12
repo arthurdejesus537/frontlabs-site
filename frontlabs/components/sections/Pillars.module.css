@@ -14,7 +14,7 @@
 .title { margin-top: var(--s-9); }
 .text { margin-top: var(--s-3); color: var(--c-text); max-width: 34ch; }
 @media (max-width: 767px) {
-  .card { grid-template-columns: 1fr; padding: var(--s-5); }
+  .card { grid-template-columns: minmax(0, 1fr); padding: var(--s-5); }
   .item { border-left: 0; padding: var(--s-6) 0; border-top: 1px solid var(--c-line); }
   .item:first-child { border-top: 0; padding-top: 0; }
   .item:last-child { padding-bottom: 0; }

@@ -4,10 +4,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { HeaderContent } from "@/content/types";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { Logo } from "@/components/ui/Logo";
 import { MobileMenu } from "./MobileMenu";
 import styles from "./Header.module.css";
 
-/** Nav (A layout + B pills): marca à esquerda, links no centro, 2 botões pequenos à direita. */
+/** Nav da Front Labs (DESIGN §6.5): pílula branca flutuante com borda clara — logo, links e os dois botões pequenos. */
 export function Header({ data }: { data: HeaderContent }) {
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -17,7 +18,7 @@ export function Header({ data }: { data: HeaderContent }) {
   }, []);
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
+    const mq = window.matchMedia("(min-width: 1101px)");
     const onChange = () => mq.matches && setOpen(false);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
@@ -27,7 +28,7 @@ export function Header({ data }: { data: HeaderContent }) {
     <header className={[styles.header, data.sticky ? styles.sticky : ""].join(" ")} data-section="header">
       <div className={styles.inner}>
         <Link href={data.brandHref} className={styles.brand} aria-label={`${data.brand}, início`}>
-          {data.brand}
+          <Logo label={data.brand} />
         </Link>
         <nav aria-label="Principal" className={styles.nav}>
           <ul className={styles.links}>

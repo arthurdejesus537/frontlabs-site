@@ -1,280 +1,423 @@
-import type { Site } from "./types";
+import type { PreviewSpec, Site } from "./types";
 
 /*
- * Conteúdo do default: só instruções entre colchetes, em português.
- * Cada marca troca este arquivo inteiro. `order` define a sequência da home;
- * `enabled: false` tira a seção sem quebrar o layout.
+ * Conteúdo da home da Front Labs (docs/FRONTLABS-HOME.md). Site em inglês americano.
+ * Regra: nada de número, cliente, depoimento, prazo ou logo sem fonte.
+ * Tudo que precisa de confirmação está marcado [CONFIRMAR] e listado em docs/REVISAR.md.
  */
+
+const EMAIL = "archielewis49@gmail.com"; // [CONFIRMAR se é o e-mail público] — FRONTLABS-HOME §4
+const CALL_HREF = "#cta"; // [CONFIRMAR] não há link de agenda; o botão leva ao formulário
+const AI_PROMPT = encodeURIComponent("What does Front Labs (frontlabs.co) do for local businesses, and how does the free website preview work?");
+
+/** O site do próprio visitante, ilustrativo (FRONTLABS-HOME §1). Nunca um cliente real. */
+const visitorPreview: PreviewSpec = {
+  url: "preview.frontlabs.co/your-business",
+  eyebrow: "/your-business",
+  title: "Your Business",
+  text: "Your new homepage, built before we ever talk.",
+  cta: "Book a visit",
+  rows: [
+    { label: "/calls", value: "Book a visit" },
+    { label: "/hours", value: "Open today" },
+    { label: "/reviews", value: "On Google" },
+  ],
+  status: "preview ready before the call",
+};
+
+const unused = "[seção desligada na Front Labs]";
+
 export const site: Site = {
   meta: {
-    lang: "pt-BR",
-    title: "[Nome da marca] — [promessa em até 60 caracteres]",
-    description: "[Descrição para o Google em até 155 caracteres: o que a empresa faz, para quem e o resultado.]",
+    lang: "en-US",
+    title: "Front Labs — Online stuff, handled.",
+    description: "We rebuild your local business website before you pay a thing. You see it first, then decide. No monthly fee.",
   },
 
-  ui: { skip: "Pular para o conteúdo", external: "(abre em nova aba)" },
+  ui: { skip: "Skip to content", external: "(opens in a new tab)" },
 
   announcement: {
     enabled: true,
-    text: "[Novidade ou oferta com prazo, até 60 caracteres. Ex.: Oferta de lançamento até 31/10.]",
-    link: { label: "[Ver condições]", href: "#" },
-    cta: { label: "[Ação curta]", href: "#cta" },
+    text: "Launch offer for our first local clients [CONFIRMAR]",
+    link: { label: "See pricing", href: "#pricing" },
+    cta: { label: "Get my free preview", href: "#cta" },
   },
 
   header: {
-    brand: "[marca]",
+    brand: "FrontLabs",
     brandHref: "/",
     links: [
-      { label: "[Link 1]", href: "#pilares" },
-      { label: "[Link 2]", href: "#ofertas" },
-      { label: "[Link 3]", href: "#como-funciona" },
-      { label: "[Link 4]", href: "#para-quem" },
-      { label: "[Link 5]", href: "#novidades" },
+      { label: "How it works", href: "#how-it-works" },
+      { label: "What you get", href: "#what-you-get" },
+      { label: "Pricing", href: "#pricing" },
+      { label: "Questions", href: "#questions" },
     ],
-    secondary: { label: "[Entrar]", href: "#" },
-    primary: { label: "[Começar]", href: "#cta" },
-    sticky: false,
-    menuLabel: "Abrir menu",
-    closeLabel: "Fechar menu",
+    secondary: { label: "Book a 15-minute call", href: CALL_HREF },
+    primary: { label: "Get my free preview", href: "#cta" },
+    sticky: true,
+    menuLabel: "Open menu",
+    closeLabel: "Close menu",
   },
 
   hero: {
     enabled: true,
-    id: "inicio",
+    id: "top",
     variant: "calm",
-    label: "[rótulo curto · para quem]",
-    title: "[Promessa principal em até 8 palavras]",
-    lead: "[Lead de 1–2 frases (até 160 caracteres): o que a empresa faz, para quem e o resultado. Tom direto, sem jargão.]",
-    primary: { label: "[Ação principal]", href: "#cta" },
-    secondary: { label: "[Ação secundária]", href: "#como-funciona" },
-    media: { kind: "placeholder", tone: "dark", label: "[vídeo ou foto 16:9 · mín. 2400px · fundo escuro para texto branco]" },
-    announcement: {
-      label: "Anúncio",
-      text: "[Novidade em uma frase de até 70 caracteres]",
-      href: "#novidades",
-      media: { kind: "placeholder", ratio: "1/1", label: "[1:1]" },
-    },
+    label: "/for local businesses",
+    title: "Online stuff, handled.",
+    titleTurn: "Go run your business.",
+    lead: "We rebuild your website before you pay a thing. You see it first, then decide.",
+    primary: { label: "Get my free preview", href: "#cta" },
+    secondary: { label: "See how it works", href: "#how-it-works" },
+    media: { kind: "image", src: "/img/foto-borrada-hero.jpg", alt: "" },
+    preview: visitorPreview,
   },
 
   order: [
     "logos",
     "statement",
     "pillars",
-    "offers",
+    "steps",
     "tabs",
-    "proof",
     "timeline",
+    "audience",
+    "offers",
+    "faq",
+    "finalCta",
+    // desligadas (FRONTLABS-HOME §2): proof, library, news, spotlight
+    "proof",
     "library",
     "spotlight",
-    "audience",
     "news",
-    "finalCta",
   ],
 
   logos: {
     enabled: true,
-    id: "logos",
-    mode: "logos",
-    intro: "[Frase curta de prova: quem já confia. Ex.: Usado por equipes de…]",
-    items: Array.from({ length: 8 }, (_, i) => ({ name: `[logo ${i + 1}]` })),
+    id: "businesses",
+    mode: "words",
+    intro: "Built for the businesses your town runs on",
+    items: [
+      "/wedding venues",
+      "/pool builders",
+      "/plumbers",
+      "/clinics",
+      "/studios",
+      "/restaurants",
+      "/home services",
+      "/shops",
+    ].map((name) => ({ name })),
   },
 
   statement: {
     enabled: true,
-    id: "problema",
-    style: "shout",
-    lines: ["[A dor do cliente,", "em uma frase.]"],
-    note: "[Frase pequena que vira a chave: o que a empresa faz com essa dor. Até 80 caracteres.]",
+    id: "why",
+    style: "calm",
+    lines: ["People look you up before they call."],
+    soft: "If your site looks dead, they call someone else.",
   },
 
   pillars: {
     enabled: true,
-    id: "pilares",
+    id: "what-we-do",
     items: [
-      { icon: "monitor", title: "[Pilar 1]", text: "[O que o produto faz neste pilar, em 2 frases. Até 140 caracteres.]" },
-      { icon: "act", title: "[Pilar 2]", text: "[O que o produto faz neste pilar, em 2 frases. Até 140 caracteres.]" },
-      { icon: "surface", title: "[Pilar 3]", text: "[O que o produto faz neste pilar, em 2 frases. Até 140 caracteres.]" },
+      { icon: "monitor", title: "We build it", text: "A new site, coded the right way for Google and designed around one thing: calls and bookings." },
+      { icon: "arrow-up-right", title: "We launch it", text: "On your domain, in your name. You own it. No monthly fee, no hosting bill." },
+      { icon: "check", title: "We handle it", text: "Edits, fixes, the online stuff you never get to. Signature includes six months of care." },
     ],
   },
 
-  offers: {
+  steps: {
     enabled: true,
-    id: "ofertas",
-    mode: "products",
-    title: "[Título da seção de ofertas em duas linhas: o que você vende, em uma frase]",
-    items: [1, 2, 3].map((n) => ({
-      name: `[Oferta ${n}]`,
-      media: { kind: "placeholder" as const, ratio: "16/9", label: "[foto 16:9 · mín. 1600px]" },
-      phrase: "[Frase de produto: o resultado que esta oferta entrega, até 90 caracteres.]",
-      text: "[Texto de apoio: para quem é, o que inclui e como funciona. Até 200 caracteres.]",
-      ctas: [
-        { label: "[Ação]", href: "#cta", variant: "primary" as const },
-        { label: "[Saiba mais]", href: "#", variant: "secondary" as const },
-      ],
-      meta: "[Meta: prova curta ou condição. Ex.: sem cartão, cancela quando quiser.]",
-    })),
+    id: "how-it-works",
+    label: "/how it works",
+    title: "You see it first,",
+    titleTurn: "then decide.",
+    items: [
+      {
+        label: "/before any call",
+        title: "We rebuild your site",
+        text: "Send us your current website. We build the new one before we ever talk.",
+        visual: { kind: "preview", preview: visitorPreview },
+      },
+      {
+        label: "/15 minutes",
+        title: "A 15-minute call",
+        text: "We walk you through the preview. Ask anything. No pitch deck.",
+        visual: { kind: "invite", month: "Oct", day: "14", title: "Your preview, walked through", meta: "15 min · video call", reply: "Works for me." },
+      },
+      {
+        label: "/live",
+        title: "It goes live",
+        text: "Like it? We launch it on your domain, in your name.",
+        visual: { kind: "live", domain: "yourbusiness.com", word: "Live." },
+      },
+    ],
   },
 
   tabs: {
     enabled: true,
-    id: "como-funciona",
+    id: "what-you-get",
+    label: "/what you get",
+    title: "Everything a local business site should do.",
     intervalMs: 6000,
-    pauseLabel: "Pausar troca automática",
-    playLabel: "Retomar troca automática",
-    groups: [1, 2, 3].map((g) => ({
-      name: `[Grupo ${g}]`,
-      tabs: [1, 2, 3, 4].map((t) => ({
-        title: `[Aba ${g}.${t}: recurso]`,
-        text: "[Uma frase sobre este recurso, até 110 caracteres.]",
-        media: { kind: "placeholder" as const, ratio: "16/10", label: `[imagem ou vídeo 16:10 · aba ${g}.${t}]` },
-      })),
-    })),
-  },
-
-  proof: {
-    enabled: true,
-    id: "prova",
-    field: 1,
-    title: "[Prova em duas linhas curtas.]",
-    text: "[Uma frase que explica os números abaixo e de onde vêm. Até 160 caracteres.]",
-    cards: [
+    pauseLabel: "Pause auto-advance",
+    playLabel: "Resume auto-advance",
+    groups: [
       {
-        tag: "[produto 1]", value: 120, caption: "[o que o número mede]", spark: [2, 3, 3, 4, 4, 5, 7, 9],
-        note: "[Ação recente que gerou o número, até 80 caracteres]",
-        stats: [{ label: "[métrica]", value: "[00]" }, { label: "[métrica]", value: "[00]" }, { label: "[métrica]", value: "[00]" }],
-        status: "[status ao vivo]",
-      },
-      {
-        tag: "[produto 2]", value: 385, caption: "[o que o número mede]", spark: [3, 3, 4, 5, 5, 6, 6, 8],
-        note: "[Ação recente que gerou o número, até 80 caracteres]",
-        stats: [{ label: "[métrica]", value: "[00]" }, { label: "[métrica]", value: "[00]" }, { label: "[métrica]", value: "[00]" }],
-        status: "[status ao vivo]",
-      },
-      {
-        tag: "[produto 3]", value: 3, prefix: "$", suffix: "K", caption: "[o que o número mede]", spark: [1, 2, 2, 3, 3, 3, 4, 7],
-        note: "[Ação recente que gerou o número, até 80 caracteres]",
-        stats: [{ label: "[métrica]", value: "[00]" }, { label: "[métrica]", value: "[00]" }, { label: "[métrica]", value: "[00]" }],
-        status: "[status ao vivo]",
+        name: "Your new site",
+        tabs: [
+          {
+            title: "Built right for Google",
+            text: "Clean code, fast pages, a structure Google can read. No ranking promises, just the right foundation.",
+            media: { kind: "placeholder" },
+            preview: {
+              url: "preview.frontlabs.co/your-business",
+              eyebrow: "/under the hood",
+              title: "Built the right way for Google",
+              rows: [
+                { label: "/code", value: "Clean" },
+                { label: "/phones", value: "Fast on every one" },
+                { label: "/pages", value: "Easy to read" },
+              ],
+              status: "checked before launch",
+            },
+          },
+          {
+            title: "Made for calls and bookings",
+            text: "Every page points to one thing: call, book or visit.",
+            media: { kind: "placeholder" },
+            preview: { ...visitorPreview, status: "one tap to call" },
+          },
+          {
+            title: "Yours, not ours",
+            text: "Your name, your domain, your site. No monthly fee and no hosting bill.",
+            media: { kind: "placeholder" },
+            preview: {
+              url: "yourbusiness.com",
+              eyebrow: "/ownership",
+              title: "It's your site",
+              rows: [
+                { label: "/domain", value: "Yours" },
+                { label: "/name", value: "Yours" },
+                { label: "/monthly fee", value: "None" },
+              ],
+              status: "paid once",
+            },
+          },
+          {
+            title: "Front Cinematic",
+            text: "Six cinematic AI videos and color grading for all your photos. $197 with Launch, included in Signature.",
+            media: { kind: "placeholder" },
+            preview: {
+              url: "preview.frontlabs.co/your-business",
+              eyebrow: "/front cinematic",
+              title: "Your place, in motion",
+              rows: [
+                { label: "/videos", value: "6 cinematic AI" },
+                { label: "/photos", value: "All color-graded" },
+                { label: "/price", value: "$197 add-on" },
+              ],
+              status: "included in Signature",
+            },
+          },
+          {
+            title: "Bookings and reviews on autopilot",
+            text: "Signature adds automatic booking with automatic replies, and asks your customers for a Google review.",
+            media: { kind: "placeholder" },
+            preview: {
+              url: "preview.frontlabs.co/your-business",
+              eyebrow: "/signature",
+              title: "Handled while you work",
+              rows: [
+                { label: "/booking", value: "Automatic" },
+                { label: "/replies", value: "Automatic" },
+                { label: "/reviews", value: "Asked for you" },
+              ],
+              status: "Signature only",
+            },
+          },
+        ],
       },
     ],
   },
 
   timeline: {
     enabled: true,
-    id: "atividade",
-    field: 2,
-    titleStart: "[Começo da frase]",
-    titleEnd: "[que fecha embaixo.]",
+    id: "handled",
+    label: "/example week · illustrative",
+    titleStart: "While you run your business,",
+    titleEnd: "the online stuff gets handled.",
+    field: "image",
+    background: { kind: "gradient", src: "/img/gradiente-horizonte-16x9.jpg", alt: "" },
     items: [
-      { time: "03:08", tag: "[tipo]", tone: 1, title: "[O que foi feito, até 50 caracteres]", text: "[Detalhe em uma frase, até 90 caracteres.]" },
-      { time: "04:33", tag: "[tipo]", tone: 2, title: "[O que foi feito, até 50 caracteres]", text: "[Detalhe em uma frase, até 90 caracteres.]" },
-      { time: "06:12", tag: "[tipo]", tone: 3, title: "[O que foi feito, até 50 caracteres]", text: "[Detalhe em uma frase, até 90 caracteres.]" },
-      { time: "07:45", tag: "[tipo]", tone: 1, title: "[O que foi feito, até 50 caracteres]", text: "[Detalhe em uma frase, até 90 caracteres.]" },
+      { time: "Mon 9:12 AM", tag: "/booking", tone: 1, title: "A booking request gets an answer", text: "An automatic reply goes out the moment someone asks for a time." },
+      { time: "Tue 2:30 PM", tag: "/reviews", tone: 2, title: "A review request goes out", text: "After the visit, your customer gets a short ask for a Google review." },
+      { time: "Wed 10:05 AM", tag: "/care", tone: 3, title: "Holiday hours, updated", text: "You send the change. We put it on the site." },
+      { time: "Fri 4:40 PM", tag: "/photos", tone: 1, title: "New photos on the gallery", text: "Color-graded and on the site, not stuck in your camera roll." },
     ],
-  },
-
-  library: {
-    enabled: true,
-    id: "biblioteca",
-    field: 3,
-    title: "[Serviços empacotados, prontos para usar.]",
-    text: "[Uma frase sobre a biblioteca: o que cada card é e como o cliente usa. Até 180 caracteres.]",
-    prevLabel: "Anterior",
-    nextLabel: "Próximo",
-    items: [1, 2, 3, 4, 5, 6].map((n) => ({
-      brand: "[marca]",
-      title: `[Nome do pacote ${n}]`,
-      author: "[por quem]",
-      text: "[O que este pacote faz, para quem e o resultado, em até 160 caracteres.]",
-    })),
-  },
-
-  spotlight: {
-    enabled: true,
-    id: "destaque",
-    label: "[Rótulo do destaque]",
-    text: "[Parágrafo grande com a visão ou o diferencial da empresa, em 2–3 frases. Até 260 caracteres.]",
-    cta: { label: "[Saiba mais]", href: "#" },
-    media: { kind: "gradient", label: "[foto borrada ou vídeo lento · 16:9]" },
-    items: [1, 2, 3].map((n) => ({
-      title: `[Item ${n}]`,
-      text: "[Uma frase sobre este item, até 110 caracteres.]",
-      href: "#",
-    })),
   },
 
   audience: {
     enabled: true,
-    id: "para-quem",
-    tag: "[Para quem é?]",
-    title: "[Título calmo: para quem a empresa trabalha.]",
+    id: "who-its-for",
+    tag: "Who it's for",
+    title: "For the businesses your town runs on.",
+    text: "If people find you online and then call, book or walk in, this is for you.",
     items: [
       {
-        name: "[Segmento 1]", short: "[Promessa curta para este segmento.]",
-        points: ["[Benefício 1]", "[Benefício 2]", "[Benefício 3]", "[Benefício 4]"],
-        primary: { label: "[Ação]", href: "#cta" }, secondary: { label: "[Falar com a gente]", href: "#" },
+        name: "Wedding & event venues",
+        short: "Where we started.",
+        points: ["A site that shows the space and gets tours booked", "Automatic replies to date questions (Signature)", "Google review requests after every event (Signature)"],
+        primary: { label: "Get my free preview", href: "#cta" },
+        secondary: { label: "Book a 15-minute call", href: CALL_HREF },
       },
-      { name: "[Segmento 2]", short: "[Promessa curta para este segmento.]", points: ["[Benefício 1]", "[Benefício 2]", "[Benefício 3]"], primary: { label: "[Ação]", href: "#cta" } },
-      { name: "[Segmento 3]", short: "[Promessa curta para este segmento.]", points: ["[Benefício 1]", "[Benefício 2]", "[Benefício 3]"], primary: { label: "[Ação]", href: "#cta" } },
+      {
+        name: "Home services",
+        short: "Pool builders, plumbers, cleaners, roofers.",
+        points: ["Tap-to-call on every page", "Service area and hours that are always right", "Built the right way for Google"],
+        primary: { label: "Get my free preview", href: "#cta" },
+      },
+      {
+        name: "Studios & clinics",
+        short: "Bookings without the phone tag.",
+        points: ["Booking front and center", "Automatic booking with automatic replies (Signature)", "Fast on every phone"],
+        primary: { label: "Get my free preview", href: "#cta" },
+      },
+      {
+        name: "Restaurants & shops",
+        short: "Hours, menu, directions. Where people look.",
+        points: ["Hours and directions up top", "Photos that look like the real place", "Your domain, your name, no monthly fee"],
+        primary: { label: "Get my free preview", href: "#cta" },
+      },
     ],
   },
 
-  news: {
+  offers: {
     enabled: true,
-    id: "novidades",
-    title: "[Novidades e casos]",
-    more: "[Saiba mais]",
-    items: [1, 2, 3, 4].map((n) => ({
-      title: `[Título da novidade ${n}, até 50 caracteres]`,
-      text: "[Resumo em uma ou duas frases, até 160 caracteres.]",
-      href: "#",
-      media: { kind: "placeholder" as const, ratio: "19/10", label: "[foto 1.9:1 · mín. 1200px]" },
-    })),
+    id: "pricing",
+    mode: "pricing",
+    label: "/pricing",
+    title: "Pay once. No monthly fee.",
+    lead: "No subscription, no hosting bill. The site is yours.",
+    items: [
+      {
+        name: "Launch",
+        price: "[CONFIRMAR]",
+        priceNote: "paid once",
+        phrase: "Your new site, built and launched.",
+        text: "Everything you need to be found and booked. Creative and automatic booking are not included.",
+        features: [
+          "Free preview before you pay",
+          "15-minute call to walk you through it",
+          "Code built the right way for Google",
+          "Design made for calls and bookings",
+          "Your domain, your name, no monthly fee",
+          "Add Front Cinematic for $197: 6 cinematic AI videos + color grading of all your photos",
+        ],
+        ctas: [{ label: "Get my free preview", href: "#cta", variant: "primary" }],
+      },
+      {
+        name: "Signature",
+        badge: "everything handled",
+        featured: true,
+        price: "$999",
+        priceNote: "paid once, or $500 setup + 6 × $99 [CONFIRMAR qual mostrar]",
+        phrase: "Launch, plus the stuff that runs itself.",
+        text: "For businesses that want bookings and reviews handled, not just a new site.",
+        features: [
+          "Everything in Launch",
+          "Front Cinematic included",
+          "Automatic booking with automatic replies",
+          "Automatic Google review requests",
+          "6 months of care: revisions and edits",
+        ],
+        ctas: [{ label: "Get my free preview", href: "#cta", variant: "primary" }],
+      },
+    ],
+    footnote: "You see the preview first. You pay only if you want it live.",
+  },
+
+  faq: {
+    enabled: true,
+    id: "questions",
+    label: "/questions",
+    title: "Straight answers.",
+    text: "If yours isn't here, ask Arch.",
+    contact: {
+      name: "Arch",
+      initial: "A",
+      bubble: "Something else on your mind?",
+      email: EMAIL,
+      emailNote: "[CONFIRMAR e-mail público]",
+      button: "Email Arch",
+    },
+    items: [
+      { q: "Do I pay anything before I see the new site?", verdict: "No.", a: "We build your preview first. You see it on a 15-minute call, then decide." },
+      { q: "Is there a monthly fee?", verdict: "No.", a: "No subscription and no monthly hosting fee. You pay once and the site is yours." },
+      { q: "Can you get me to #1 on Google?", verdict: "No one can.", a: "Anyone who promises that is guessing. We build your site the right way for Google: clean code, fast pages, a clear structure." },
+      { q: "Do I own the site?", verdict: "Yes.", a: "It lives on your domain, in your name." },
+      { q: "I'm not a wedding venue. Is this for me?", verdict: "Yes.", a: "We started with venues, but we build for any local business that lives on calls, bookings and walk-ins." },
+    ],
   },
 
   finalCta: {
     enabled: true,
     id: "cta",
-    style: "shout",
-    title: "[Chamada final em até 5 palavras.]",
-    text: "[Uma frase que diz o que acontece depois do clique. Até 100 caracteres.]",
-    inputLabel: "[Seu e-mail]",
-    inputType: "email",
-    placeholder: "[voce@empresa.com]",
-    button: "[Começar]",
-    microcopy: "[Microcopy que tira atrito · ex.: sem cartão · resposta em 1 dia]",
-    errorEmpty: "Preencha este campo.",
-    errorInvalid: "Confira o formato: parece que falta alguma coisa.",
-    success: "[Mensagem de sucesso: o que acontece agora e em quanto tempo.]",
+    style: "calm",
+    title: "See your new site before you pay a thing.",
+    titleTurn: "Fire your web designer. Politely.",
+    text: "Drop your current website. We'll build your preview first.",
+    inputLabel: "Your current website",
+    inputType: "url",
+    placeholder: "yourbusiness.com",
+    button: "Get my free preview",
+    microcopy: "Free preview · No card · You see it first, then decide",
+    errorEmpty: "Add your website so we know what to rebuild.",
+    errorInvalid: "That doesn't look like a web address. Try yourbusiness.com",
+    success: "Got it. We'll start on your preview.",
+    background: { kind: "gradient", src: "/img/gradiente-horizonte-16x9.jpg", alt: "" },
   },
 
   footer: {
-    brand: "[marca]",
-    tagline: "[Frase da marca em uma linha, até 70 caracteres.]",
-    contact: { label: "[Fale com a gente]", href: "#" },
+    brand: "FrontLabs",
+    tagline: "Online stuff, handled.",
+    contact: { label: "Book a 15-minute call", href: CALL_HREF },
     ask: {
-      title: "[Quer a versão curta?]",
-      text: "[Peça a uma IA um resumo da empresa. Uma frase, até 120 caracteres.]",
+      title: "Want the short version?",
+      text: "Ask an AI what Front Labs does.",
       items: [
-        { label: "ChatGPT", href: "#" },
-        { label: "Claude", href: "#" },
-        { label: "Perplexity", href: "#" },
+        { label: "ChatGPT", href: `https://chatgpt.com/?q=${AI_PROMPT}` },
+        { label: "Claude", href: `https://claude.ai/new?q=${AI_PROMPT}` },
+        { label: "Perplexity", href: `https://www.perplexity.ai/search?q=${AI_PROMPT}` },
       ],
     },
-    columns: [1, 2, 3, 4].map((c) => ({
-      title: `[Coluna ${c}]`,
-      links: [1, 2, 3, 4].map((l) => ({ label: `[Link ${c}.${l}]`, href: "#" })),
-    })),
-    legal: "© 2026 [Razão social]",
-    legalLinks: [
-      { label: "[Privacidade]", href: "#" },
-      { label: "[Termos]", href: "#" },
+    columns: [
+      {
+        title: "Site",
+        links: [
+          { label: "How it works", href: "#how-it-works" },
+          { label: "What you get", href: "#what-you-get" },
+          { label: "Pricing", href: "#pricing" },
+          { label: "Questions", href: "#questions" },
+        ],
+      },
+      {
+        title: "Talk to us",
+        links: [
+          { label: "Get my free preview", href: "#cta" },
+          { label: "Book a 15-minute call", href: CALL_HREF },
+          { label: "Email Arch", href: `mailto:${EMAIL}` },
+        ],
+      },
     ],
-    social: [
-      { label: "X", href: "#", icon: "x" },
-      { label: "Instagram", href: "#", icon: "instagram" },
-      { label: "LinkedIn", href: "#", icon: "linkedin" },
-      { label: "YouTube", href: "#", icon: "youtube" },
-    ],
+    legal: "© 2026 Front Labs",
+    legalLinks: [],
+    social: [],
   },
+
+  /* ---- desligadas (FRONTLABS-HOME §2): sem números reais, sem biblioteca, sem notícias ---- */
+  proof: { enabled: false, id: "proof", field: 1, title: unused, text: unused, cards: [] },
+  library: { enabled: false, id: "library", field: 3, title: unused, text: unused, prevLabel: "Previous", nextLabel: "Next", items: [] },
+  spotlight: { enabled: false, id: "spotlight", label: unused, text: unused, media: { kind: "placeholder" }, items: [] },
+  news: { enabled: false, id: "news", title: unused, more: "Read more", items: [] },
 };

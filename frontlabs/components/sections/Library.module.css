@@ -37,7 +37,7 @@
 
 @media (max-width: 767px) {
   .field { padding-block: var(--s-8) var(--s-7); }
-  .head { grid-template-columns: 1fr; }
+  .head { grid-template-columns: minmax(0, 1fr); }
   .side { padding-top: 0; }
   .prev, .next { width: var(--tap); height: var(--tap); }
   .cardTop { min-height: 200px; padding: var(--s-5); }

@@ -21,8 +21,8 @@
 @keyframes pulse { 0% { transform: scale(0.6); opacity: 0.8; } 70%, 100% { transform: scale(1.6); opacity: 0; } }
 
 @media (max-width: 1023px) {
-  .head { grid-template-columns: 1fr; }
-  .cards { grid-template-columns: 1fr; margin-top: var(--s-8); }
+  .head { grid-template-columns: minmax(0, 1fr); }
+  .cards { grid-template-columns: minmax(0, 1fr); margin-top: var(--s-8); }
 }
 @media (max-width: 767px) {
   .field { padding-block: var(--s-8); }

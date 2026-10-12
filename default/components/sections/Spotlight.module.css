@@ -20,7 +20,7 @@
 .item:hover .arrow { transform: translate(2px, -2px); }
 
 @media (max-width: 1023px) {
-  .frame { grid-template-columns: 1fr; padding: var(--s-8) var(--s-6); }
+  .frame { grid-template-columns: minmax(0, 1fr); padding: var(--s-8) var(--s-6); }
 }
 @media (max-width: 767px) {
   .frame { min-height: 0; padding: var(--s-8) var(--s-4) var(--s-6); gap: var(--s-8); }

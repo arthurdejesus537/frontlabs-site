@@ -11,7 +11,7 @@
 .copy { display: grid; gap: var(--s-5); max-width: 640px; }
 .label { color: var(--c-on-media); opacity: 0.85; }
 .title { color: var(--c-on-media); }
-.turn { display: block; }
+.turn { display: block; font-size: var(--turn-size); color: var(--turn-on-media); margin-top: var(--turn-gap); }
 .lead { color: var(--c-on-media); max-width: 34em; opacity: 0.92; }
 .ctas { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-2); }
 
@@ -45,7 +45,7 @@
 .cardIcon { flex-shrink: 0; align-self: flex-start; margin-top: var(--s-1); }
 
 @media (max-width: 1023px) {
-  .calm, .withPreview { grid-template-columns: 1fr; }
+  .calm, .withPreview { grid-template-columns: minmax(0, 1fr); }
   .calm .card, .withPreview .card, .withPreview .preview { grid-column: 1; grid-row: auto; }
 }
 @media (max-width: 767px) {
