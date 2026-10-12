@@ -1,0 +1,26 @@
+FRONTLABS-SITE — rodada da noite (default de Runway + Ploy, depois o site da Front Labs)
+
+Antes de dormir:
+1) No Terminal:   cd ~/Documents/FrontLabs-Site && caffeinate -dims claude
+2) Use o Opus (/model) e ligue o auto mode (Shift + Tab), para ele não parar pedindo aprovação.
+3) Cole:          Leia PROMPT_NOITE.md e execute tudo, fase por fase, sem me perguntar nada.
+
+Se a sessão cair: rode os passos 1 a 3 de novo. Ele lê PROGRESSO.md e continua de onde parou.
+
+De manhã:
+- PROGRESSO.md                 o que foi feito, fase por fase
+- frontlabs/docs/REVISAR.md    o que você precisa confirmar ([CONFIRMAR]) e as decisões que ele tomou sozinho
+- qa/RESUMO.png                a home da Front Labs em desktop e celular
+- Ver no navegador:
+    cd ~/Documents/FrontLabs-Site/frontlabs && npm run dev -- -p 3011   → http://localhost:3011
+    cd ~/Documents/FrontLabs-Site/default   && npm run dev -- -p 3010   → http://localhost:3010
+
+O que tem aqui:
+- CLAUDE.md                          regras que o Claude Code lê sozinho
+- PROMPT_NOITE.md                    o roteiro da noite (8 fases)
+- docs/MESTRE-DEFAULT.md             como as duas referências se juntam no default
+- docs/referencias/                  blueprints medidos da Runway e da Ploy + screenshots
+- docs/DESIGN.md                     o design system da Front Labs (v4)
+- docs/FRONTLABS-HOME.md             briefing da home: negócios locais, não só venues
+- docs/PROCESSO-DUAS-REFERENCIAS.md  o processo, para repetir com outras referências
+- assets/                            gradiente Horizonte, grão e fotos
