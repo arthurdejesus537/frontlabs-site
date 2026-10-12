@@ -1,0 +1,39 @@
+.grid { display: grid; grid-template-columns: 1fr minmax(0, 560px); gap: var(--s-8); align-items: start; }
+.head { display: grid; gap: var(--s-5); justify-items: start; position: sticky; top: var(--s-9); }
+.head :global(.t-heading) { max-width: 11em; }
+.tag {
+  font-size: var(--t-meta); font-weight: var(--w-strong); color: var(--c-btn-ink);
+  background: var(--c-btn); border-radius: var(--r-pill); padding: var(--s-1) var(--s-3);
+}
+.text { color: var(--c-text); max-width: 32em; }
+.stack { display: grid; gap: var(--s-1); }
+.card { position: relative; border: 1px solid var(--c-line); transition: background-color var(--dur-fade) ease; }
+.on { background: var(--c-field-3); border-color: transparent; }
+/* pontos nos cantos (B) */
+.dots i { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--c-ink); }
+.dots i:nth-child(1) { top: 8px; left: 8px; }
+.dots i:nth-child(2) { top: 8px; right: 8px; }
+.dots i:nth-child(3) { bottom: 8px; left: 8px; }
+.dots i:nth-child(4) { bottom: 8px; right: 8px; }
+.on .dots i { background: var(--c-surface); }
+.cardHead { font: inherit; }
+.toggle {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); width: 100%; text-align: left;
+  padding: var(--s-5) var(--s-5) var(--s-8); min-height: 120px; align-items: start;
+}
+.name { font-size: var(--t-heading); line-height: 1; letter-spacing: var(--t-heading-ls); font-weight: var(--w-title); color: var(--c-ink); }
+.short { font-size: var(--t-small); color: var(--c-text); padding-top: var(--s-1); }
+.on .toggle { padding-bottom: var(--s-5); }
+.body { padding: 0 var(--s-5) var(--s-6); }
+.points { display: grid; gap: var(--s-3); margin-top: var(--s-6); }
+.points li { position: relative; padding-left: var(--s-5); font-size: var(--t-small); color: var(--c-text); }
+.points li::before { content: ""; position: absolute; left: 4px; top: 0.6em; width: 4px; height: 4px; border-radius: 50%; background: var(--c-ink); }
+.ctas { display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-5); margin-top: var(--s-6); }
+
+@media (max-width: 1023px) {
+  .grid { grid-template-columns: 1fr; gap: var(--s-7); }
+  .head { position: static; }
+}
+@media (max-width: 767px) {
+  .toggle { grid-template-columns: 1fr; gap: var(--s-3); padding: var(--s-6) var(--s-5) var(--s-6); min-height: 0; }
+}

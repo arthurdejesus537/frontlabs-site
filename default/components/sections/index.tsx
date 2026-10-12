@@ -9,6 +9,9 @@ import { ProofField } from "./ProofField";
 import { Timeline } from "./Timeline";
 import { Library } from "./Library";
 import { Spotlight } from "./Spotlight";
+import { Audience } from "./Audience";
+import { News } from "./News";
+import { FinalCta } from "./FinalCta";
 
 /* Mapa chave → seção. Cada seção lê o próprio bloco de site.ts e some se `enabled` for false. */
 export const sections: Partial<Record<SectionKey, ComponentType>> = {
@@ -21,4 +24,7 @@ export const sections: Partial<Record<SectionKey, ComponentType>> = {
   timeline: Timeline,
   library: Library,
   spotlight: Spotlight,
+  audience: Audience,
+  news: News,
+  finalCta: FinalCta,
 };

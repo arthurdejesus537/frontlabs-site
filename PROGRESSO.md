@@ -5,6 +5,10 @@ A entrada mais nova fica no topo.
 
 ---
 
+- 12/10 · Fase 3 · S15 Footer (B+A): card escuro raio 20 a 24px da borda; frase + "→ contato"; bloco "versão curta" com pills de IA (44px); colunas auto-fit (A); marca grande, linha legal em mono 11 caixa-alta (A) e ícones sociais de 44px. Aceita `logo` como nó (para a marca usar o próprio componente).
+- 12/10 · Fase 3 · S14 CTA final (B): grito médio centralizado, frase, card branco raio 8 com input pill + botão preto dentro, microcopy 12/600; valida vazio e formato (e-mail ou URL), erro em `aria-live`, sucesso com `role=status`. No celular o pill vira coluna (input e botão de 48px). Aceita fundo (`background`) para virar campo.
+- 12/10 · Fase 3 · S13 Notícias (A): título à esquerda, grade 2×2 com imagem 342px (1.9:1, raio 8) à esquerda e título 24 / texto 14 / "saiba mais ›" à direita; uma coluna no celular.
+- 12/10 · Fase 3 · S12 Para quem (B): etiqueta pill escura + título calmo fixo (sticky) à esquerda; à direita cards empilhados com pontos nos cantos, um aberto por vez (o aberto ganha `--c-field-3`); botão com `aria-expanded`. Decisão: nome do segmento em `t-heading` calmo (a Ploy usa o grito).
 - 12/10 · Fase 3 · S11 Destaque (A, Research): moldura raio 12, 700px de altura, fundo "foto borrada" em gradiente neutro com drift lento (placeholder), parágrafo 24px à esquerda + pill contornada, lista de 3 itens com linha branca e ↗ à direita. Decisão: véu preto 28% por cima do fundo para garantir AA com qualquer mídia.
 - 12/10 · Fase 3 · S10 Biblioteca (B): campo azul, título à esquerda, texto + setas (contornada e preta) à direita, carrossel com scroll-snap que começa no container e sangra até a borda do campo; setas desabilitam nas pontas; rolagem por toque/teclado (lista focável).
 - 12/10 · Fase 3 · S9 Atividade (B): campo amarelo encostado no rosa (24px, como na Ploy), começo do título em cima à esquerda, coluna de cards de 576px com horário mono + tag colorida, fim do título embaixo à direita; cards entram em sequência ao rolar. Aceita fundo de imagem (`field: "image"`) para a Front Labs.
