@@ -30,15 +30,6 @@
 .cardLabel { color: var(--c-mute); font-size: var(--t-micro); }
 .cardTitle { font-size: var(--t-small); line-height: 1.25; font-weight: var(--w-strong); }
 
-/* play/pause: canto inferior direito, círculo de 44 */
-.play {
-  position: absolute; right: var(--s-4); bottom: var(--s-4);
-  display: grid; place-items: center; width: var(--tap); height: var(--tap); border-radius: 50%;
-  border: 1px solid var(--c-on-media-border); color: var(--c-on-media);
-  transition: background-color var(--dur-fast) var(--ease);
-}
-.play:hover { background: var(--c-on-media-hover); }
-
 @media (max-width: 767px) {
   .frame { min-height: 0; padding: var(--s-8) var(--s-5); }
   .lead { font-size: var(--t-body); }

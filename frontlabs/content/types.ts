@@ -229,8 +229,6 @@ export type HeroFilmContent = Base & {
   video: { src: string; poster: string } | null;
   image: MediaSpec;
   card: { label: string; text: string; href: string; media?: MediaSpec } | null;
-  playLabel: string;
-  pauseLabel: string;
 };
 
 /** Linha que preenche ao rolar (Ploy "Your website launched. Then it stopped."). */

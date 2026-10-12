@@ -257,8 +257,6 @@ export const site: Site = {
     video: { src: "/video/hero.mp4", poster: "/img/hero-poster.jpg" },
     image: { kind: "image", src: "/img/foto-borrada-hero.jpg", alt: "" },
     card: null,
-    playLabel: "Play background video",
-    pauseLabel: "Pause background video",
   },
 
   scrollFill: {
