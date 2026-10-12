@@ -6,3 +6,4 @@
 .text { color: var(--c-text); font-size: var(--t-body); max-width: 40ch; }
 .arrow { display: grid; place-items: center; flex-shrink: 0; width: var(--icon-circle); height: var(--icon-circle); border-radius: 50%; border: 1px solid var(--c-line); color: var(--c-ink); }
 a.item:hover .arrow { background: var(--c-ink); border-color: var(--c-ink); color: var(--c-btn-ink); }
+div.item .arrow { border-color: transparent; color: var(--c-mute); }

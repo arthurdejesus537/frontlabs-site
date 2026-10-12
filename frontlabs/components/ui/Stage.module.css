@@ -1,6 +1,6 @@
 .stage {
   position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center;
-  aspect-ratio: var(--stage-ratio); padding: var(--s-7); border-radius: var(--r-media-lg);
+  aspect-ratio: var(--stage-ratio); min-height: min-content; padding: var(--s-7); /* cresce se o card for mais alto */ border-radius: var(--r-media-lg);
   background: var(--c-placeholder-dark);
 }
 .bg { object-fit: cover; z-index: -2; transform: scale(1.06); }
