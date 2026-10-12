@@ -1,4 +1,4 @@
-import type { PreviewSpec, Site } from "./types";
+import type { Plan, PreviewSpec, Site, StageSpec } from "./types";
 
 /*
  * Conteúdo da home da Front Labs (docs/FRONTLABS-HOME.md). Site em inglês americano.
@@ -9,6 +9,10 @@ import type { PreviewSpec, Site } from "./types";
 const EMAIL = "archielewis49@gmail.com"; // [CONFIRMAR se é o e-mail público] — FRONTLABS-HOME §4
 // [CONFIRMAR] não há link de agenda: por enquanto o botão abre um e-mail para o Arch pedindo a call
 const CALL_HREF = `mailto:archielewis49@gmail.com?subject=${encodeURIComponent("15-minute call")}`;
+/* rotas das páginas (rodada 2: o nav abre páginas, não âncoras) */
+const R = { how: "/how-it-works", get: "/what-you-get", pricing: "/pricing", questions: "/questions" };
+const PREVIEW = "#cta"; // toda página termina no formulário do preview (FinalCta, id "cta")
+
 const AI_PROMPT = encodeURIComponent("What does Front Labs, the website studio for local businesses, do? How does its free website preview work?");
 
 /** O site do próprio visitante, ilustrativo (FRONTLABS-HOME §1). Nunca um cliente real. */
@@ -24,6 +28,144 @@ const visitorPreview: PreviewSpec = {
     { label: "/reviews", value: "On Google" },
   ],
   status: "preview ready before the call",
+};
+
+/** As 5 etapas (provisórias): usadas nas abas da home e, em versão longa, em /how-it-works. */
+const STEPS: { label: string; title: string; text: string; long: string; points: string[]; stage: StageSpec }[] = [
+  {
+    label: "/01 code",
+    title: "Code",
+    text: "Clean code built for Google, fast on every phone.",
+    long: "We hand-build your site with clean code and a clear structure, so Google can read it and every phone loads it fast. No ranking promises, just the right foundation.",
+    points: ["Clean, hand-built code", "Fast on every phone", "A structure Google can read"],
+    stage: {
+      bg: "/img/foto-borrada-hero.jpg",
+      visual: {
+        kind: "preview",
+        preview: {
+          url: "preview.frontlabs.co/your-business",
+          eyebrow: "/under the hood",
+          title: "Built the right way for Google",
+          rows: [
+            { label: "/code", value: "Clean" },
+            { label: "/speed", value: "Fast" },
+            { label: "/pages", value: "Easy to read" },
+          ],
+          status: "the right foundation",
+        },
+      },
+    },
+  },
+  {
+    label: "/02 design",
+    title: "Design",
+    text: "Your business as it really is, from your photos and your words.",
+    long: "We design from what's already yours: your photos, your words, your place. The first look shows the real business, not a template with your logo on it.",
+    points: ["Made from your photos and your words", "Looks like you, not a template", "Ready to see before any call"],
+    stage: { bg: "/img/foto-noiva-borrada.jpg", visual: { kind: "preview", preview: visitorPreview } },
+  },
+  {
+    label: "/03 booking",
+    title: "Booking",
+    text: "Every page leads to a call, a visit or a booking.",
+    long: "Every page points to one thing: the next step. A call button where thumbs reach, a booking form that takes a minute, and with Signature, automatic replies when someone asks.",
+    points: ["One clear action on every page", "Booking that takes a minute", "Automatic replies with Signature"],
+    stage: {
+      bg: "/img/foto-cadeiras-borrada.jpg",
+      visual: {
+        kind: "booking",
+        url: "yourbusiness.com/book",
+        title: "Book a visit",
+        button: "Book a visit",
+        slotsLabel: "/this week",
+        slots: ["Tue 10:00", "Wed 2:30", "Thu 9:00", "Fri 4:00"],
+        status: "one tap to book",
+      },
+    },
+  },
+  {
+    label: "/04 launch",
+    title: "Launch",
+    text: "Live on your domain, in your name.",
+    long: "When you say yes, we launch it on your domain, in your name. You own it. No monthly fee and no hosting bill.",
+    points: ["Your domain, your name", "You own the site", "No monthly fee"],
+    stage: { bg: "horizon", visual: { kind: "live", domain: "yourbusiness.com", word: "Live.", note: "/in your name" } },
+  },
+  {
+    label: "/05 care",
+    title: "Care",
+    text: "Edits and updates handled for 6 months with Signature.",
+    long: "With Signature, changes after launch are on us for six months: new hours, new photos, new prices. You send it, we handle it.",
+    points: ["6 months of edits and updates", "You send it, we handle it", "Included in Signature"],
+    stage: {
+      bg: "/img/foto-borrada-hero.jpg",
+      visual: {
+        kind: "requests",
+        url: "care.frontlabs.co/your-business",
+        title: "Your requests",
+        items: [
+          { text: "Holiday hours", state: "done" },
+          { text: "New gallery photos", state: "done" },
+          { text: "Updated prices", state: "done" },
+        ],
+        status: "handled with Signature",
+      },
+    },
+  },
+];
+
+/* Preços: apresentação da oferta (10/10/2026). Sem mensalidade; depois dos 6 meses o site continua no ar e é do cliente. */
+const PLANS: Record<"launch" | "signature" | "cinematic", Plan> = {
+  launch: {
+    name: "Launch",
+    kind: "plan",
+    phrase: "Your new site, built and launched.",
+    price: "$600",
+    priceNote: "paid once, no monthly fee",
+    split: "2 × $300",
+    payment: "Half when you approve the preview, half at launch.",
+    text: "A new site built for calls and bookings. Creative and automatic booking are not included.",
+    features: [
+      "Free preview before you pay",
+      "15-minute call to walk you through it",
+      "Code built the right way for Google",
+      "Design made for calls and bookings",
+      "Your domain, your name",
+    ],
+    ctas: [{ label: "Get my free preview", href: PREVIEW, variant: "secondary" }],
+  },
+  signature: {
+    name: "Signature",
+    kind: "plan",
+    badge: "Everything handled",
+    featured: true,
+    phrase: "Launch, plus the stuff that runs itself.",
+    price: "$999",
+    priceNote: "paid once, no monthly fee",
+    split: "3 × $333",
+    payment: "At approval, at launch and 30 days later.",
+    text: "For businesses that want bookings and reviews handled, not just a new site.",
+    features: [
+      "Everything in Launch",
+      "Front Cinematic included",
+      "Automatic booking with automatic replies",
+      "Automatic Google review requests",
+      "6 months of care: edits and updates",
+    ],
+    ctas: [{ label: "Get my free preview", href: PREVIEW, variant: "primary" }],
+  },
+  cinematic: {
+    name: "Front Cinematic",
+    kind: "addon",
+    badge: "Add-on",
+    phrase: "Your place, in motion. For Launch.",
+    price: "+$197",
+    priceNote: "added to Launch, once",
+    split: "Included in Signature",
+    text: "Six cinematic AI films and color grading for every photo on your site.",
+    features: ["6 cinematic AI films", "Color grading of all your photos", "Placed across your new site"],
+    ctas: [{ label: "Add it to my preview", href: PREVIEW, variant: "outline" }],
+  },
 };
 
 const unused = "[seção desligada na Front Labs]";
@@ -48,10 +190,12 @@ export const site: Site = {
     step: "Step",
     pauseMarquee: "Pause scrolling list",
     playMarquee: "Resume scrolling list",
+    example: "/example",
+    current: "current page",
   },
 
   announcement: {
-    enabled: true,
+    enabled: false, // rodada 2: desligada (a oferta de lançamento continua sem fonte)
     text: "Launch offer for our first local clients [CONFIRMAR]",
     link: { label: "See pricing", href: "#pricing" },
     cta: { label: "Get my free preview", href: "#cta" },
@@ -61,20 +205,21 @@ export const site: Site = {
     brand: "FrontLabs",
     brandHref: "/",
     links: [
-      { label: "How it works", href: "#how-it-works" },
-      { label: "What you get", href: "#what-you-get" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "Questions", href: "#questions" },
+      { label: "How it works", href: R.how },
+      { label: "What you get", href: R.get },
+      { label: "Pricing", href: R.pricing },
+      { label: "Questions", href: R.questions },
     ],
     secondary: { label: "Book a 15-minute call", href: CALL_HREF },
-    primary: { label: "Get my free preview", href: "#cta" },
+    primary: { label: "Get my free preview", href: PREVIEW },
     sticky: true,
     menuLabel: "Open menu",
     closeLabel: "Close menu",
   },
 
+  /* herói antigo (rodada 1): desligado, substituído pelo heroFilm */
   hero: {
-    enabled: true,
+    enabled: false,
     id: "top",
     variant: "calm",
     label: "/for local businesses",
@@ -87,26 +232,101 @@ export const site: Site = {
     preview: visitorPreview,
   },
 
+  /* Rodada 2 (PROMPT_RODADA2.md): estrutura Ploy + Runway. Copy provisória em inglês. */
   order: [
-    "logos",
-    "statement",
+    "heroFilm",
+    "scrollFill",
     "pillars",
-    "steps",
+    "liveCards",
+    "results",
     "tabs",
-    "timeline",
-    "audience",
     "offers",
     "faq",
     "finalCta",
-    // desligadas (FRONTLABS-HOME §2): proof, library, news, spotlight
-    "proof",
-    "library",
-    "spotlight",
-    "news",
+    // desligadas na rodada 2 (código mantido): logos, statement, steps, timeline, audience
+    // desligadas desde a rodada 1: proof, library, spotlight, news
   ],
 
-  logos: {
+  heroFilm: {
     enabled: true,
+    id: "top",
+    title: "Your website should work as hard as you do.",
+    lead: "We build it, launch it and handle it. You go run your business.",
+    primary: { label: "Get my free preview", href: PREVIEW },
+    secondary: { label: "See how it works", href: R.how },
+    video: null, // quando houver: { src: "/video/hero.mp4", poster: "/img/hero-poster.jpg" }
+    image: { kind: "image", src: "/img/foto-borrada-hero.jpg", alt: "" },
+    card: null,
+    playLabel: "Play background video",
+    pauseLabel: "Pause background video",
+  },
+
+  scrollFill: {
+    enabled: true,
+    id: "why",
+    text: "Most local websites launch. Then they stop working.",
+    note: "Front Labs keeps yours working.",
+  },
+
+  liveCards: {
+    enabled: true,
+    id: "live",
+    illustrative: true, // dados de exemplo: o rótulo /example aparece no topo
+    label: "/example · illustrative numbers",
+    title: "Running while you work.",
+    text: "Your site, your bookings and your reviews, each one quietly doing its job. These cards show what that looks like.",
+    brand: "FrontLabs",
+    intervalMs: 4000, // medido na Ploy: o log troca a cada ~4s
+    cards: [
+      {
+        pill: "Site",
+        value: 3,
+        caption: "previews built this week",
+        spark: [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 9, 12],
+        log: ["New preview → plumbing company in Houston", "Hours updated → studio site", "Photos color-graded → venue site"],
+        stats: [{ label: "Pages", value: 6 }, { label: "Speed score", value: 96 }, { label: "Fixes", value: 4 }],
+        status: "Building a preview",
+      },
+      {
+        pill: "Booking",
+        value: 12,
+        caption: "visits booked",
+        spark: [1, 2, 2, 3, 5, 5, 6, 8, 8, 9, 11, 12],
+        log: ["New request → auto-reply sent in 1 min", "Tour booked → added to calendar", "Reminder sent → tomorrow 10am"],
+        stats: [{ label: "Replies", value: 14 }, { label: "Reminders", value: 9 }, { label: "Reschedules", value: 2 }],
+        status: "Answering a new request",
+      },
+      {
+        pill: "Reviews",
+        value: 8,
+        caption: "review requests sent",
+        spark: [1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 7, 8],
+        log: ["Job finished → review request sent", "New 5-star review → thank-you sent", "Follow-up → 3 days later"],
+        stats: [{ label: "Sent", value: 8 }, { label: "Opened", value: 6 }, { label: "New reviews", value: 3 }],
+        status: "Waiting for replies",
+      },
+    ],
+  },
+
+  results: {
+    enabled: true,
+    id: "results",
+    label: "/what changes",
+    title: "What changes when it's handled.",
+    titleTurn: "Less chasing. More booked.",
+    text: "Every product does one job well. Here's what each one is for.",
+    items: [
+      { icon: "search", title: "More people find you", text: "Code built the right way for Google.", product: "Launch" },
+      { icon: "phone", title: "More calls and visits", text: "Every page leads to one action.", product: "Launch" },
+      { icon: "calendar", title: "More booked meetings", text: "Instant booking with automatic replies.", product: "Signature" },
+      { icon: "star", title: "More reviews", text: "Automatic Google review requests.", product: "Signature" },
+      { icon: "image", title: "A site that looks like you", text: "6 cinematic films + color-graded photos.", product: "Front Cinematic" },
+      { icon: "check", title: "Nothing to manage", text: "6 months of edits and updates, no monthly fee.", product: "Signature" },
+    ],
+  },
+
+  logos: {
+    enabled: false, // rodada 2: desligada
     id: "businesses",
     mode: "words",
     intro: "Built for the businesses your town runs on",
@@ -123,7 +343,7 @@ export const site: Site = {
   },
 
   statement: {
-    enabled: true,
+    enabled: false, // rodada 2: desligada
     id: "why",
     style: "calm",
     lines: ["People look you up before they call."],
@@ -132,16 +352,20 @@ export const site: Site = {
 
   pillars: {
     enabled: true,
-    id: "what-we-do",
+    id: "what-it-needs",
+    title: "What a local business needs online.",
+    titleTurn: "Four things. We handle all of them.",
+    numbered: true,
     items: [
-      { icon: "monitor", title: "We build it", text: "A new site, coded the right way for Google and designed around one thing: calls and bookings." },
-      { icon: "arrow-up-right", title: "We launch it", text: "On your domain, in your name. You own it. No monthly fee, no hosting bill." },
-      { icon: "check", title: "We handle it", text: "Need changes after launch? Signature includes six months of care: revisions and edits, handled." },
+      { icon: "search", title: "Found", text: "When someone nearby searches for what you do, your site is built to show up." },
+      { icon: "heart", title: "Loved", text: "The first look shows your business as it really is, not a template." },
+      { icon: "check", title: "Working", text: "Every page fast, every button where it should go, on any phone." },
+      { icon: "calendar", title: "Booked", text: "A clear path from \"just looking\" to a call, a visit or a booking." },
     ],
   },
 
   steps: {
-    enabled: true,
+    enabled: false, // rodada 2: desligada
     id: "how-it-works",
     label: "/how it works",
     title: "You see it first,",
@@ -170,93 +394,22 @@ export const site: Site = {
 
   tabs: {
     enabled: true,
-    id: "what-you-get",
-    label: "/what you get",
-    title: "Everything a local business site should do.",
+    id: "every-step",
+    label: "/what we do",
+    title: "What we do at every step.",
     intervalMs: 6000,
     pauseLabel: "Pause auto-advance",
     playLabel: "Resume auto-advance",
     groups: [
       {
-        name: "Your new site",
-        tabs: [
-          {
-            title: "Built right for Google",
-            text: "Clean code, fast pages, a structure Google can read. No ranking promises, just the right foundation.",
-            media: { kind: "placeholder" },
-            preview: {
-              url: "preview.frontlabs.co/your-business",
-              eyebrow: "/under the hood",
-              title: "Built the right way for Google",
-              rows: [
-                { label: "/code", value: "Clean" },
-                { label: "/phones", value: "Fast on every one" },
-                { label: "/pages", value: "Easy to read" },
-              ],
-              status: "the right foundation",
-            },
-          },
-          {
-            title: "Made for calls and bookings",
-            text: "Every page points to one thing: call, book or visit.",
-            media: { kind: "placeholder" },
-            preview: { ...visitorPreview, status: "one tap to call" },
-          },
-          {
-            title: "Yours, not ours",
-            text: "Your name, your domain, your site. No monthly fee and no hosting bill.",
-            media: { kind: "placeholder" },
-            preview: {
-              url: "yourbusiness.com",
-              eyebrow: "/ownership",
-              title: "It's your site",
-              rows: [
-                { label: "/domain", value: "Yours" },
-                { label: "/name", value: "Yours" },
-                { label: "/monthly fee", value: "None" },
-              ],
-              status: "paid once",
-            },
-          },
-          {
-            title: "Front Cinematic",
-            text: "Six cinematic AI videos and color grading for all your photos. $197 with Launch, included in Signature.",
-            media: { kind: "placeholder" },
-            preview: {
-              url: "preview.frontlabs.co/your-business",
-              eyebrow: "/front cinematic",
-              title: "Your place, in motion",
-              rows: [
-                { label: "/videos", value: "6 cinematic AI" },
-                { label: "/photos", value: "All color-graded" },
-                { label: "/price", value: "$197 add-on" },
-              ],
-              status: "included in Signature",
-            },
-          },
-          {
-            title: "Bookings and reviews on autopilot",
-            text: "Signature adds automatic booking with automatic replies, and asks your customers for a Google review.",
-            media: { kind: "placeholder" },
-            preview: {
-              url: "preview.frontlabs.co/your-business",
-              eyebrow: "/signature",
-              title: "Handled while you work",
-              rows: [
-                { label: "/booking", value: "Automatic" },
-                { label: "/replies", value: "Automatic" },
-                { label: "/reviews", value: "Asked for you" },
-              ],
-              status: "Signature only",
-            },
-          },
-        ],
+        name: "Every step",
+        tabs: STEPS.map((x) => ({ title: x.title, text: x.text, media: { kind: "placeholder" }, stage: x.stage })),
       },
     ],
   },
 
   timeline: {
-    enabled: true,
+    enabled: false, // rodada 2: desligada
     id: "handled",
     label: "/example week with Signature · illustrative",
     titleStart: "While you run your business,",
@@ -272,7 +425,7 @@ export const site: Site = {
   },
 
   audience: {
-    enabled: true,
+    enabled: false, // rodada 2: desligada
     id: "who-its-for",
     tag: "/who it's for",
     title: "For the businesses your town runs on.",
@@ -311,43 +464,10 @@ export const site: Site = {
     mode: "pricing",
     label: "/pricing",
     title: "Pay once. No monthly fee.",
-    lead: "No subscription, no hosting bill. The site is yours.",
-    items: [
-      {
-        name: "Launch",
-        price: "[CONFIRMAR]",
-        priceNote: "paid once",
-        phrase: "Your new site, built and launched.",
-        text: "A new site built for calls and bookings. Creative and automatic booking are not included.",
-        features: [
-          "Free preview before you pay",
-          "15-minute call to walk you through it",
-          "Code built the right way for Google",
-          "Design made for calls and bookings",
-          "Your domain, your name, no monthly fee",
-          "Add Front Cinematic for $197: 6 cinematic AI videos + color grading of all your photos",
-        ],
-        ctas: [{ label: "Get my free preview", href: "#cta", variant: "primary" }],
-      },
-      {
-        name: "Signature",
-        badge: "everything handled",
-        featured: true,
-        price: "$999",
-        priceNote: "paid once, or $500 setup + 6 × $99 [CONFIRMAR qual mostrar]",
-        phrase: "Launch, plus the stuff that runs itself.",
-        text: "For businesses that want bookings and reviews handled, not just a new site.",
-        features: [
-          "Everything in Launch",
-          "Front Cinematic included",
-          "Automatic booking with automatic replies",
-          "Automatic Google review requests",
-          "6 months of care: revisions and edits",
-        ],
-        ctas: [{ label: "Get my free preview", href: "#cta", variant: "primary" }],
-      },
-    ],
-    footnote: "You see the preview first. You pay only if you want it live.",
+    lead: "You see the preview first. You pay only if you want it live.",
+    items: [PLANS.launch, PLANS.signature],
+    footnote: "Front Cinematic adds 6 cinematic films and color-graded photos to Launch for $197.",
+    more: { label: "See full pricing", href: R.pricing },
   },
 
   faq: {
@@ -364,6 +484,7 @@ export const site: Site = {
       emailNote: "[CONFIRMAR e-mail público]",
       button: "Email Arch",
     },
+    more: { label: "See all questions", href: R.questions },
     items: [
       { q: "Do I pay anything before I see the new site?", verdict: "No.", a: "We build your preview first. You see it on a 15-minute call, then decide." },
       { q: "Is there a monthly fee?", verdict: "No.", a: "No subscription and no monthly hosting fee. You pay once and the site is yours." },
@@ -408,16 +529,17 @@ export const site: Site = {
       {
         title: "Site",
         links: [
-          { label: "How it works", href: "#how-it-works" },
-          { label: "What you get", href: "#what-you-get" },
-          { label: "Pricing", href: "#pricing" },
-          { label: "Questions", href: "#questions" },
+          { label: "Home", href: "/" },
+          { label: "How it works", href: R.how },
+          { label: "What you get", href: R.get },
+          { label: "Pricing", href: R.pricing },
+          { label: "Questions", href: R.questions },
         ],
       },
       {
         title: "Talk to us",
         links: [
-          { label: "Get my free preview", href: "#cta" },
+          { label: "Get my free preview", href: PREVIEW },
           { label: "Book a 15-minute call", href: CALL_HREF },
           { label: "Email Arch", href: `mailto:${EMAIL}` },
         ],
@@ -433,4 +555,237 @@ export const site: Site = {
   library: { enabled: false, id: "library", field: 3, title: unused, text: unused, prevLabel: "Previous", nextLabel: "Next", items: [] },
   spotlight: { enabled: false, id: "spotlight", label: unused, text: unused, media: { kind: "placeholder" }, items: [] },
   news: { enabled: false, id: "news", title: unused, more: "Read more", items: [] },
+
+  /* ---------- páginas (rodada 2) ---------- */
+  pages: {
+    pricing: {
+      meta: { title: "Pricing", description: "Launch $600 or Signature $999, paid once. No monthly fee. You see your new site before you pay a thing." },
+      hero: {
+        tag: "Pricing",
+        title: "Pay once. Keep it forever.",
+        lead: "No monthly fee, no hosting bill. You see your new site first, then decide.",
+        primary: { label: "Get my free preview", href: PREVIEW },
+        secondary: { label: "Book a 15-minute call", href: CALL_HREF },
+      },
+      plans: [PLANS.launch, PLANS.signature, PLANS.cinematic],
+      plansNote: { text: "Not sure which one?", link: { label: "Start with the free preview", href: PREVIEW } },
+      payment: {
+        title: "How payment works",
+        text: "You pay in parts, only after you've seen the site and said yes.",
+        rows: [
+          { title: "Nothing before the preview", text: "We build your preview first. You see it on a 15-minute call. If you don't want it, you owe nothing." },
+          { title: "Launch: 2 × $300", text: "Half when you approve the preview, half when the site goes live." },
+          { title: "Signature: 3 × $333", text: "One part at approval, one at launch and one 30 days later." },
+          { title: "Front Cinematic: +$197", text: "Added to Launch, paid once. Already included in Signature." },
+          { title: "No monthly fee, ever", text: "After the 6 months of care, the site stays live and stays yours." },
+        ],
+      },
+      compare: {
+        tag: "Compare plans",
+        title: "Every plan, side by side.",
+        text: "Start with Launch. Pick Signature if you want bookings and reviews handled too.",
+        columns: ["Launch", "Signature"],
+        highlight: 1,
+        yes: "Included",
+        no: "Not included",
+        rows: [
+          { label: "Price", values: ["$600", "$999"] },
+          { label: "Payments", values: ["2 × $300", "3 × $333"] },
+          { label: "Monthly fee", values: ["None", "None"] },
+          { label: "Free preview before you pay", values: [true, true] },
+          { label: "15-minute call", values: [true, true] },
+          { label: "Code built for Google", values: [true, true] },
+          { label: "Design made for calls and bookings", values: [true, true] },
+          { label: "Your domain, in your name", values: [true, true] },
+          { label: "Front Cinematic (6 films + color-graded photos)", values: ["+$197", true] },
+          { label: "Automatic booking with automatic replies", values: [false, true] },
+          { label: "Automatic Google review requests", values: [false, true] },
+          { label: "6 months of edits and updates", values: [false, true] },
+        ],
+      },
+      faq: {
+        enabled: true,
+        id: "pricing-faq",
+        label: "/pricing questions",
+        title: "Pricing, answered.",
+        text: "The short version: you pay once, after you've seen it.",
+        items: [
+          { q: "Do I pay anything before I see the preview?", verdict: "No.", a: "The preview is free. You pay the first part only when you approve it." },
+          { q: "Is there a monthly fee?", verdict: "No.", a: "No subscription and no monthly hosting fee." },
+          { q: "What happens after the 6 months of care?", verdict: "It stays yours.", a: "The site stays live on your domain, in your name. Care ends; the site doesn't." },
+          { q: "Can I start with Launch and add Front Cinematic later?", verdict: "Yes.", a: "Front Cinematic is a $197 add-on for Launch. It's already included in Signature." },
+          { q: "Why is Signature paid in three parts?", verdict: "To match the work.", a: "One part at approval, one at launch and one 30 days later, while care is running." },
+        ],
+      },
+    },
+
+    howItWorks: {
+      meta: { title: "How it works", description: "Code, design, booking, launch and care. What Front Labs does at every step, and how you get from a free preview to a live site." },
+      hero: {
+        tag: "How it works",
+        title: "Every step, handled.",
+        lead: "From the first line of code to the edits after launch. You see it first, then decide.",
+        primary: { label: "Get my free preview", href: PREVIEW },
+        secondary: { label: "See pricing", href: R.pricing },
+      },
+      rowsTitle: "What we do at every step.",
+      rows: STEPS.map((x) => ({ label: x.label, title: x.title, text: x.long, points: x.points, stage: x.stage })),
+      steps: {
+        enabled: true,
+        id: "process",
+        label: "/the process",
+        title: "From preview to live.",
+        titleTurn: "Four steps. One of them is yours.",
+        items: [
+          {
+            label: "/before any call",
+            title: "We build your preview",
+            text: "Send us your current website. We build the new one before we ever talk.",
+            visual: { kind: "preview", preview: visitorPreview },
+          },
+          {
+            label: "/15 minutes",
+            title: "A 15-minute call",
+            text: "We walk you through the preview. Ask anything. No pitch deck.",
+            visual: { kind: "invite", month: "Oct", day: "14", title: "Your preview, walked through", meta: "15 min · call", reply: "Works for me." },
+          },
+          {
+            label: "/your call",
+            title: "Pick a plan",
+            text: "Launch or Signature. Pay the first part only when you approve.",
+            visual: { kind: "plan", options: [{ name: "Launch", note: "$600" }, { name: "Signature", note: "$999", on: true }] },
+          },
+          {
+            label: "/live",
+            title: "It goes live",
+            text: "We launch it on your domain, in your name.",
+            visual: { kind: "live", domain: "yourbusiness.com", word: "Live." },
+          },
+        ],
+      },
+    },
+
+    whatYouGet: {
+      meta: { title: "What you get", description: "Everything in Launch and Signature: the site, Front Cinematic, the booking system and 6 months of care." },
+      hero: {
+        tag: "What you get",
+        title: "Everything in the box.",
+        lead: "A site built for Google and for bookings, the creative to make it look like you, and the care to keep it working.",
+        primary: { label: "Get my free preview", href: PREVIEW },
+        secondary: { label: "See pricing", href: R.pricing },
+      },
+      overview: {
+        enabled: true,
+        id: "products",
+        label: "/the products",
+        title: "Five parts, one site.",
+        titleTurn: "Pick Launch, or get it all with Signature.",
+        items: [
+          { icon: "code", title: "The site", text: "Clean code, fast pages, made for calls and bookings.", product: "Launch" },
+          { icon: "image", title: "Front Cinematic", text: "6 cinematic films and color-graded photos.", product: "Front Cinematic" },
+          { icon: "calendar", title: "Booking system", text: "Instant booking with automatic replies.", product: "Signature" },
+          { icon: "star", title: "Review requests", text: "A short ask for a Google review after each job.", product: "Signature" },
+          { icon: "wrench", title: "Care", text: "6 months of edits and updates.", product: "Signature" },
+          { icon: "pin", title: "Yours", text: "Your domain, your name, no monthly fee.", product: "Launch" },
+        ],
+      },
+      blocks: [
+        {
+          id: "launch",
+          label: "/launch · $600",
+          name: "Launch",
+          phrase: "Your new site, built and launched.",
+          price: "$600 · 2 × $300",
+          cta: { label: "Get my free preview", href: PREVIEW },
+          items: [
+            { title: "Free preview first", text: "We rebuild your site before any call. You see it, then decide." },
+            { title: "Code built for Google", text: "Clean code, fast pages, a structure Google can read." },
+            { title: "Made for calls and bookings", text: "Every page leads to one action." },
+            { title: "Your domain, your name", text: "You own it. No monthly fee, no hosting bill." },
+          ],
+        },
+        {
+          id: "cinematic",
+          label: "/front cinematic · +$197",
+          name: "Front Cinematic",
+          phrase: "Your place, in motion.",
+          price: "+$197 with Launch · included in Signature",
+          items: [
+            { title: "6 cinematic AI films", text: "Short films of your business, made for your site." },
+            { title: "Color-graded photos", text: "Every photo on your site, graded to look like one shoot." },
+            { title: "Placed for you", text: "We put them where they do the most work." },
+          ],
+        },
+        {
+          id: "booking",
+          label: "/booking system · signature",
+          name: "Booking system",
+          phrase: "Booked while you work.",
+          items: [
+            { title: "Instant booking", text: "People pick a time without calling." },
+            { title: "Automatic replies", text: "Every new request gets an answer right away." },
+            { title: "Google review requests", text: "After the job, your customer gets a short ask for a review." },
+          ],
+        },
+        {
+          id: "care",
+          label: "/care · signature",
+          name: "Care",
+          phrase: "Six months of changes, handled.",
+          price: "Included in Signature · $999 · 3 × $333",
+          cta: { label: "See pricing", href: R.pricing },
+          items: [
+            { title: "Edits and updates", text: "New hours, new photos, new prices. You send it, we handle it." },
+            { title: "6 months", text: "Care runs for six months after launch." },
+            { title: "Then it stays yours", text: "After care ends, the site stays live and in your name." },
+          ],
+        },
+      ],
+    },
+
+    questions: {
+      meta: { title: "Questions", description: "Straight answers about the free preview, pricing, ownership and what Front Labs builds." },
+      hero: {
+        tag: "Questions",
+        title: "Straight answers.",
+        lead: "If yours isn't here, ask Arch.",
+        primary: { label: "Get my free preview", href: PREVIEW },
+        secondary: { label: "See pricing", href: R.pricing },
+      },
+      faq: {
+        enabled: true,
+        id: "all-questions",
+        label: "/all questions",
+        title: "Everything people ask.",
+        text: "Short questions, short answers.",
+        contact: {
+          name: "Arch",
+          initial: "A",
+          bubble: "Something else on your mind?",
+          email: EMAIL,
+          emailNote: "[CONFIRMAR e-mail público]",
+          button: "Email Arch",
+        },
+        items: [
+          { q: "Do I pay anything before I see the new site?", verdict: "No.", a: "We build your preview first. You see it on a 15-minute call, then decide." },
+          { q: "Is there a monthly fee?", verdict: "No.", a: "No subscription and no monthly hosting fee. You pay once and the site is yours." },
+          { q: "How much does it cost?", verdict: "$600 or $999.", a: "Launch is $600 (2 × $300). Signature is $999 (3 × $333). Front Cinematic adds $197 to Launch." },
+          { q: "Can you get me to #1 on Google?", verdict: "No one can.", a: "Anyone who promises that is guessing. We build your site the right way for Google: clean code, fast pages, a clear structure." },
+          { q: "Do I own the site?", verdict: "Yes.", a: "It lives on your domain, in your name." },
+          { q: "What happens after the 6 months of care?", verdict: "It stays yours.", a: "The site stays live. Care ends; the site doesn't." },
+          { q: "Is this only for wedding venues?", verdict: "No.", a: "We started with venues. We build for any local business that lives on calls, bookings and walk-ins." },
+        ],
+      },
+    },
+
+    notFound: {
+      meta: { title: "Page not found" },
+      tag: "/404",
+      title: "This page isn't here.",
+      titleTurn: "Your new site could be, though.",
+      lead: "The link may be old, or the page moved.",
+      primary: { label: "Back to home", href: "/" },
+      secondary: { label: "See pricing", href: R.pricing },
+    },
+  },
 };

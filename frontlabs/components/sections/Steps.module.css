@@ -1,12 +1,12 @@
 .head { display: grid; gap: var(--s-4); margin-bottom: var(--s-7); }
 .turn { display: block; font-size: var(--turn-size); color: var(--turn-color); margin-top: var(--turn-gap); }
-.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
+.grid { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: var(--grid-gap); }
 .card { display: flex; flex-direction: column; background: var(--c-surface); border-radius: var(--r-card); padding: var(--s-2); }
 
 /* palco da imagem: raio 18, 8px de margem (vem do padding do card) */
 .stage {
   position: relative; isolation: isolate; overflow: hidden; aspect-ratio: 4 / 3;
-  display: grid; place-items: center; border-radius: var(--r-media-lg); background: var(--c-placeholder-dark);
+  display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; border-radius: var(--r-media-lg); background: var(--c-placeholder-dark);
 }
 .stage::after {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
@@ -39,6 +39,12 @@
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-live); }
 .word { color: var(--c-on-media); font-size: var(--t-display); line-height: 1; letter-spacing: var(--t-display-ls); font-weight: var(--w-title); }
 
+.plans { display: grid; gap: var(--s-2); width: 78%; }
+.plans li { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); padding: var(--s-3) var(--s-4); border-radius: var(--r-card-sm); background: var(--c-surface); border: 1px solid transparent; }
+.plans .planOn { border-color: var(--c-ink); }
+.planName { font-size: var(--t-small); font-weight: var(--w-title); color: var(--c-ink); }
+.planNote { color: var(--c-mute); }
+
 .body { display: grid; gap: var(--s-2); padding: var(--s-5) var(--s-4) var(--s-4); }
 .meta { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-2); color: var(--c-mute); }
 .circle {
@@ -48,8 +54,11 @@
 .filled { background: var(--c-ink); border-color: var(--c-ink); color: var(--c-btn-ink); }
 .text { color: var(--c-text); font-size: var(--t-body); }
 
-@media (max-width: 1023px) {
-  .grid { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
+@media (max-width: 1180px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 767px) {
   .head { margin-bottom: var(--s-6); }

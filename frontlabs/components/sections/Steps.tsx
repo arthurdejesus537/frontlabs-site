@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { site } from "@/content/site";
-import type { StepVisual } from "@/content/types";
+import type { StepsContent, StepVisual } from "@/content/types";
 import { PreviewCard } from "@/components/ui/PreviewCard";
 import { Reveal } from "@/components/ui/Reveal";
 import styles from "./Steps.module.css";
@@ -18,6 +18,21 @@ function Visual({ v }: { v: StepVisual }) {
         <div className={styles.mini}>
           <PreviewCard preview={{ ...v.preview, rows: v.preview.rows?.slice(0, 2) }} compact />
         </div>
+      </div>
+    );
+  }
+  if (v.kind === "plan") {
+    return (
+      <div className={styles.stage} data-stage>
+        <Image src="/img/foto-cadeiras-borrada.jpg" alt="" fill sizes="(max-width: 767px) 100vw, 25vw" className={styles.bg} />
+        <ul className={styles.plans}>
+          {v.options.map((o) => (
+            <li key={o.name} className={o.on ? styles.planOn : undefined}>
+              <span className={styles.planName}>{o.name}</span>
+              <span className={`t-label ${styles.planNote}`}>{o.note}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }
@@ -49,8 +64,7 @@ function Visual({ v }: { v: StepVisual }) {
   );
 }
 
-export function Steps() {
-  const data = site.steps;
+export function Steps({ data = site.steps }: { data?: StepsContent }) {
   if (!data.enabled) return null;
   return (
     <section id={data.id} data-section="steps" className="section" aria-labelledby={`${data.id}-title`}>
@@ -62,7 +76,7 @@ export function Steps() {
             {data.titleTurn ? <span className={styles.turn}>{data.titleTurn}</span> : null}
           </h2>
         </header>
-        <ol className={styles.grid}>
+        <ol className={styles.grid} style={{ "--cols": data.items.length } as React.CSSProperties}>
           {data.items.map((s, i) => (
             <Reveal as="li" key={s.title} delay={i * 120} className={styles.card}>
               <Visual v={s.visual} />

@@ -1,0 +1,11 @@
+.odo { display: inline-flex; line-height: 1; font-variant-numeric: tabular-nums; }
+.slot { display: inline-block; height: 1em; overflow: hidden; }
+.col {
+  display: flex; flex-direction: column;
+  transform: translateY(calc(var(--d) * -1em));
+  transition: transform var(--dur-odo) var(--ease-enter) calc(var(--i) * 90ms);
+}
+.col > span { height: 1em; }
+/* com JS: começa no zero e rola quando o card aparece */
+:global(html.js) .col { transform: translateY(0); }
+:global(html.js) [data-on] .col { transform: translateY(calc(var(--d) * -1em)); }

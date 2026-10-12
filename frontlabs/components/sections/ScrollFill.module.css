@@ -1,0 +1,20 @@
+.section { text-align: center; padding-block: var(--s-10); }
+.title {
+  max-width: 15em; margin-inline: auto;
+  font-size: var(--t-fill); line-height: var(--t-fill-lh); letter-spacing: var(--t-display-ls);
+  font-weight: var(--w-title); font-variation-settings: var(--title-fvs); text-wrap: balance;
+}
+.word {
+  --progress: 0%;
+  display: inline-block; position: relative; color: transparent;
+  background-image: linear-gradient(90deg, var(--c-ink) var(--progress), var(--c-fill-ghost) var(--progress));
+  -webkit-background-clip: text; background-clip: text;
+}
+/* sem JS ou com reduced-motion: frase cheia */
+:global(html:not(.js)) .word { --progress: 100%; }
+@media (prefers-reduced-motion: reduce) { .word { --progress: 100% !important; } }
+.note { margin-top: var(--s-6); font-size: var(--t-lead); color: var(--c-mute); }
+@media (max-width: 767px) {
+  .section { padding-block: var(--s-8); }
+  .note { margin-top: var(--s-5); font-size: var(--t-body); }
+}

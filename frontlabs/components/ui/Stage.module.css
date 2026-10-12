@@ -1,0 +1,36 @@
+.stage {
+  position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center;
+  aspect-ratio: var(--stage-ratio); padding: var(--s-7); border-radius: var(--r-media-lg);
+  background: var(--c-placeholder-dark);
+}
+.bg { object-fit: cover; z-index: -2; transform: scale(1.06); }
+.horizon .bg { filter: brightness(var(--horizon-dim)); }
+.visual { width: 100%; max-width: 480px; }
+
+.cardTitle { font-size: var(--t-title); line-height: var(--t-title-lh); letter-spacing: var(--t-title-ls); font-weight: var(--w-title); color: var(--c-ink); }
+.bookBtn {
+  align-self: flex-start; display: inline-flex; align-items: center; height: var(--btn-h-md); padding-inline: var(--btn-px-md);
+  border-radius: var(--r-btn); background: var(--c-btn); color: var(--c-btn-ink); font-size: var(--btn-fs); font-weight: var(--btn-fw);
+}
+.slotsLabel { color: var(--c-mute); margin-top: var(--s-2); }
+.slots { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.slots li { padding: var(--s-2) var(--s-3); border-radius: var(--r-pill); border: 1px solid var(--c-line); font-size: var(--t-small); color: var(--c-ink); }
+.slots .slotOn { background: var(--c-ink); border-color: var(--c-ink); color: var(--c-btn-ink); }
+
+.requests { display: grid; }
+.requests li { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); padding-block: var(--s-3); border-top: 1px solid var(--c-line); font-size: var(--t-small); color: var(--c-ink); }
+.requests li:first-child { border-top: 0; }
+.done { flex-shrink: 0; font-family: var(--f-mono); font-size: var(--t-meta); color: var(--c-ink); border: 1px solid var(--c-line-strong); border-radius: var(--r-pill); padding: 1px var(--s-2); }
+
+.live { display: grid; justify-items: center; gap: var(--s-5); text-align: center; color: var(--c-on-media); }
+.domain {
+  display: inline-flex; align-items: center; gap: var(--s-2); height: var(--btn-h-md); padding-inline: var(--s-5);
+  border-radius: var(--r-pill); background: var(--c-surface); color: var(--c-ink); font-family: var(--f-mono); font-size: var(--t-small);
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-live); }
+.word { font-size: var(--t-hero); line-height: 1; letter-spacing: var(--t-hero-ls); font-weight: var(--w-title); color: var(--c-on-media); }
+.note { color: var(--c-on-media); }
+
+@media (max-width: 767px) {
+  .stage { padding: var(--s-4); }
+}

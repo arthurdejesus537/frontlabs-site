@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { FooterContent } from "@/content/types";
 import { Icon } from "@/components/ui/Icon";
 import { site } from "@/content/site";
@@ -30,7 +31,7 @@ export function Footer({ data, logo }: { data: FooterContent; logo?: React.React
             <div key={c.title}>
               <h3 className={styles.colTitle}>{c.title}</h3>
               <ul className={styles.links}>
-                {c.links.map((l) => <li key={l.label}><a href={l.href} className={styles.link}>{l.label}</a></li>)}
+                {c.links.map((l) => <li key={l.label}>{l.href.startsWith("/") ? <Link href={l.href} className={styles.link}>{l.label}</Link> : <a href={l.href} className={styles.link}>{l.label}</a>}</li>)}
               </ul>
             </div>
           ))}

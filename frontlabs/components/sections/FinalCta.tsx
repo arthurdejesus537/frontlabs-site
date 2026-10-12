@@ -1,6 +1,7 @@
 "use client";
 import { useId, useState, type FormEvent } from "react";
 import { site } from "@/content/site";
+import type { FinalCtaContent } from "@/content/types";
 import { Icon } from "@/components/ui/Icon";
 import { Media } from "@/components/ui/Media";
 import styles from "./FinalCta.module.css";
@@ -11,8 +12,7 @@ const valid = {
 };
 
 /** CTA final (B): título centralizado, frase, card branco com input pill + botão e microcopy. Sem backend: valida e mostra sucesso. */
-export function FinalCta() {
-  const data = site.finalCta;
+export function FinalCta({ data = site.finalCta }: { data?: FinalCtaContent }) {
   const id = useId();
   const [value, setValue] = useState("");
   const [error, setError] = useState("");

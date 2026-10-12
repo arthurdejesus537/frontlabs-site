@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { site } from "@/content/site";
+import type { FaqContent } from "@/content/types";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import styles from "./Faq.module.css";
@@ -10,8 +11,7 @@ import styles from "./Faq.module.css";
  * Esquerda: título, linha de apoio e o card do Arch. Direita: perguntas num card branco raio 24,
  * número mono + círculo "+" que gira e vira "×" preto; resposta começa com a pílula de veredito.
  */
-export function Faq() {
-  const data = site.faq;
+export function Faq({ data = site.faq }: { data?: FaqContent }) {
   const [open, setOpen] = useState<number | null>(0);
   if (!data.enabled) return null;
   const c = data.contact;
@@ -22,6 +22,7 @@ export function Faq() {
           {data.label ? <p className="t-label">{data.label}</p> : null}
           <h2 id={`${data.id}-title`} className="t-display">{data.title}</h2>
           <p className={styles.text}>{data.text}</p>
+          {c ? (
           <div className={styles.arch}>
             <div className={styles.archTop}>
               <span className={styles.avatar} aria-hidden="true">{c.initial}</span>
@@ -33,7 +34,9 @@ export function Faq() {
             </p>
             <Button href={`mailto:${c.email}`} variant="primary" size="md">{c.button}</Button>
           </div>
+          ) : null}
         </div>
+        <div className={styles.right}>
         <ol className={styles.list}>
           {data.items.map((it, i) => {
             const on = open === i;
@@ -53,6 +56,8 @@ export function Faq() {
             );
           })}
         </ol>
+        {data.more ? <Button href={data.more.href} variant="outline" size="md" icon={<Icon name="arrow" />} className={styles.more}>{data.more.label}</Button> : null}
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import type { HeaderContent } from "@/content/types";
 import { Button } from "@/components/ui/Button";
@@ -6,7 +7,7 @@ import { site } from "@/content/site";
 import styles from "./MobileMenu.module.css";
 
 /** Menu do celular: abre abaixo do nav, prende o foco, fecha com Esc ou ao escolher um link. */
-export function MobileMenu({ id, open, onClose, data }: { id: string; open: boolean; onClose: () => void; data: HeaderContent }) {
+export function MobileMenu({ id, open, onClose, data, path }: { id: string; open: boolean; onClose: () => void; data: HeaderContent; path?: string }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,7 +45,7 @@ export function MobileMenu({ id, open, onClose, data }: { id: string; open: bool
         <ul className={styles.list}>
           {data.links.map((l) => (
             <li key={l.label}>
-              <a href={l.href} className={styles.link} onClick={onClose}>{l.label}</a>
+              <Link href={l.href} className={styles.link} onClick={onClose} aria-current={path === l.href ? "page" : undefined}>{l.label}</Link>
             </li>
           ))}
         </ul>

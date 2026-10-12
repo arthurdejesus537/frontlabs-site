@@ -14,6 +14,17 @@ const paths: Record<string, string> = {
   monitor: "M3 5h18v11H3zM8 20h8M12 16v4",
   act: "M13 3L5 14h6l-1 7 8-11h-6z",
   surface: "M4 18l5-6 4 4 7-9M14 7h6v6",
+  search: "M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4",
+  phone: "M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z",
+  calendar: "M4 6h16v14H4zM4 10h16M8 3v4M16 3v4",
+  star: "M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z",
+  image: "M4 5h16v14H4zM4 16l5-5 4 4 2-2 5 5M15 9.5a.5.5 0 101 0 .5.5 0 00-1 0",
+  heart: "M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z",
+  code: "M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14",
+  layers: "M12 4l8 4-8 4-8-4zM4 12l8 4 8-4M4 16l8 4 8-4",
+  rocket: "M12 15l-3-3c1.5-4.5 4.5-7.5 10-8-.5 5.5-3.5 8.5-8 10zM9 12l-4 1 2-4M12 15l-1 4 4-2M6 18l2-2",
+  wrench: "M14.5 6.5a4 4 0 015 5L18 13l-7 7a2 2 0 01-3-3l7-7 1.5-1.5z",
+  pin: "M12 21s-6-5.5-6-11a6 6 0 0112 0c0 5.5-6 11-6 11zM12 8a2 2 0 100 4 2 2 0 000-4z",
 };
 
 export function Icon({ name, size = 16, className }: { name: keyof typeof paths | string; size?: number; className?: string }) {

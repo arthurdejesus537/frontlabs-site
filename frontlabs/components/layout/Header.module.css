@@ -13,7 +13,8 @@
   font-size: var(--nav-link-fs); font-weight: var(--w-medium); color: var(--c-mute);
   transition: color var(--dur-fast) var(--ease);
 }
-.link:hover { color: var(--c-ink); }
+.link:hover, .link[aria-current="page"] { color: var(--c-ink); }
+.link[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
 .actions { justify-self: end; display: flex; align-items: center; gap: var(--s-2); }
 .toggle { display: none; width: var(--tap); height: var(--tap); place-items: center; color: var(--c-ink); border-radius: var(--r-pill); }
 

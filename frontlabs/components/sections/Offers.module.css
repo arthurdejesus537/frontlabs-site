@@ -28,7 +28,9 @@
 .features li { display: flex; gap: var(--s-3); align-items: flex-start; }
 .check { flex-shrink: 0; margin-top: 3px; color: var(--c-ink); }
 .pricing .ctas > * { flex: 1; }
-.footnote { margin-top: var(--s-6); text-align: center; }
+.footnote { margin-top: var(--s-6); display: grid; justify-items: center; gap: var(--s-4); text-align: center; }
+.planItem { min-width: 0; }
+.pricing.n2 { max-width: 960px; }
 
 @media (max-width: 1023px) {
   .phrase { font-size: var(--t-subtitle); }

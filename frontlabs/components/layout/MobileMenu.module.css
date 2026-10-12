@@ -12,3 +12,4 @@
 .actions { display: grid; gap: var(--s-3); }
 @media (min-width: 1101px) { .panel { display: none; } }
 .panel { border-top: 0; }
+.link[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }

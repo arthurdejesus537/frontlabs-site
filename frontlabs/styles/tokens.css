@@ -163,6 +163,28 @@
   --dur-drift: 22s;               /* fundo borrado em "câmera lenta" (§4.2.2) */
   --marquee-speed: 50s;
 
+  /* ---------- rodada 2 ---------- */
+  --t-film: clamp(48px, 7.2vw, 112px); --t-film-lh: 0.98; --t-film-ls: -0.045em; /* herói com filme e títulos de página */
+  --film-measure: 14ch;
+  --hero-film-h: min(calc(100svh - var(--nav-h) - var(--frame-gutter)), 866px); /* Ploy: moldura 866 */
+  --c-on-media-lead: rgb(255 255 255 / 0.9);
+  --t-fill: clamp(40px, 6vw, 96px); --t-fill-lh: 1; /* linha que preenche */
+  --c-fill-ghost: #d9d7d3;
+  --t-live: 72px;                 /* número dos cards ao vivo (Ploy 72) */
+  --t-live-stat: 20px;
+  --live-card-w: 1152px;          /* faixa dos 3 cards (Ploy 3 × 373 + 2 × 16) */
+  --live-gap: 16px;
+  --dur-log: 400ms;               /* fade do log (medido na Ploy) */
+  --dur-odo: 1400ms;
+  --t-tab: 30px; --t-tab-lh: 1.1; /* etapas das abas: título de card grande (28–32) */
+  --tab-bar: 2px;
+  --stage-ratio: 4 / 3;
+  --sticky-top: calc(var(--nav-h) + var(--s-6));
+  --icon-circle: 44px;            /* círculo de ícone (§6.2) */
+  --c-panel-grey: #e9e8e5;        /* bloco cinza "How payment works" (Ploy #E5E5E5 sobre #F4F4F4) */
+  --c-highlight: var(--grey);     /* coluna destacada da tabela */
+  --row-h: 64px;                  /* linha da tabela (Ploy 65) */
+
   --z-header: 50;
   --z-menu: 60;
 }
@@ -194,5 +216,10 @@
     --frame-pad: 24px;
     --hero-h: auto;
     --nav-h: 68px;
+    --hero-film-h: 640px;
+    --t-live: 56px;
+    --t-tab: 22px;
+    --stage-ratio: 4 / 5;
+    --row-h: 56px;
   }
 }

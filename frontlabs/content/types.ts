@@ -40,7 +40,11 @@ export type SectionKey =
   | "news"
   | "steps"
   | "faq"
-  | "finalCta";
+  | "finalCta"
+  | "heroFilm"
+  | "scrollFill"
+  | "liveCards"
+  | "results";
 
 type Base = { enabled: boolean; id: string };
 
@@ -78,6 +82,9 @@ export type StatementContent = Base & { style: "shout" | "calm"; lines: string[]
 export type PillarsContent = Base & {
   label?: string;
   title?: string;
+  titleTurn?: string;
+  /** mostra o número mono (/01, /02…) em cada coluna */
+  numbered?: boolean;
   items: { icon: string; title: string; text: string }[];
 };
 
@@ -93,10 +100,24 @@ export type OfferItem = {
   meta?: string;
   featured?: boolean;
   badge?: string;
+  /** pagamento em partes, ex.: "2 × $300" */
+  split?: string;
 };
-export type OffersContent = Base & { label?: string; title: string; lead?: string; mode: "products" | "pricing"; items: OfferItem[]; footnote?: string };
+export type OffersContent = Base & { label?: string; title: string; lead?: string; mode: "products" | "pricing"; items: OfferItem[]; footnote?: string; more?: Cta };
 
-export type TabItem = { title: string; text: string; media: MediaSpec; preview?: PreviewSpec };
+/** Visual em HTML sobre um fundo (borrado ou Horizonte): o "momento" de cada etapa. */
+export type StageVisual =
+  | { kind: "preview"; preview: PreviewSpec }
+  | { kind: "booking"; url: string; title: string; button: string; slotsLabel: string; slots: string[]; status: string }
+  | { kind: "live"; domain: string; word: string; note?: string }
+  | { kind: "requests"; url: string; title: string; items: { text: string; state: string }[]; status: string };
+export type StageSpec = {
+  /** caminho da imagem de fundo (foto borrada) ou "horizon" para o gradiente */
+  bg: string;
+  visual: StageVisual;
+};
+
+export type TabItem = { title: string; text: string; media: MediaSpec; preview?: PreviewSpec; stage?: StageSpec };
 export type TabsContent = Base & {
   label?: string;
   title?: string;
@@ -161,6 +182,7 @@ export type NewsContent = Base & {
 /** Passos (DESIGN §6.8) — componente só da Front Labs. */
 export type StepVisual =
   | { kind: "preview"; preview: PreviewSpec }
+  | { kind: "plan"; options: { name: string; note: string; on?: boolean }[] }
   | { kind: "invite"; month: string; day: string; title: string; meta: string; reply: string }
   | { kind: "live"; domain: string; word: string };
 export type StepsContent = Base & {
@@ -175,7 +197,8 @@ export type FaqContent = Base & {
   label?: string;
   title: string;
   text: string;
-  contact: { name: string; initial: string; bubble: string; email: string; emailNote?: string; button: string };
+  more?: Cta;
+  contact?: { name: string; initial: string; bubble: string; email: string; emailNote?: string; button: string };
   items: { q: string; verdict: string; a: string }[];
 };
 
@@ -195,6 +218,68 @@ export type FinalCtaContent = Base & {
   background?: MediaSpec;
 };
 
+/* ---------- rodada 2 ---------- */
+
+/** Herói com "vídeo" de fundo (Ploy). Sem vídeo, usa a imagem com câmera lenta. */
+export type HeroFilmContent = Base & {
+  title: string;
+  lead: string;
+  primary: Cta;
+  secondary?: Cta;
+  video: { src: string; poster: string } | null;
+  image: MediaSpec;
+  card: { label: string; text: string; href: string; media?: MediaSpec } | null;
+  playLabel: string;
+  pauseLabel: string;
+};
+
+/** Linha que preenche ao rolar (Ploy "Your website launched. Then it stopped."). */
+export type ScrollFillContent = Base & { text: string; note?: string };
+
+/** Card "ao vivo": número em odômetro, sparkline, log em rodízio, mini-stats e status. */
+export type LiveCard = {
+  pill: string;
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  caption: string;
+  spark: number[];
+  log: string[];
+  stats: { label: string; value: number; suffix?: string }[];
+  status: string;
+};
+export type LiveCardsContent = Base & {
+  label?: string;
+  title: string;
+  text: string;
+  /** dados de exemplo (não são números reais): o componente mostra o rótulo */
+  illustrative: boolean;
+  brand: string;
+  intervalMs: number;
+  cards: LiveCard[];
+};
+
+/** Resultados: título fixo à esquerda + grade de cards de benefício com o produto que entrega. */
+export type ResultsContent = Base & {
+  label?: string;
+  title: string;
+  titleTurn?: string;
+  text?: string;
+  items: { icon: string; title: string; text: string; product: string }[];
+};
+
+/** Plano (página de preço e resumo na home). */
+export type Plan = OfferItem & { kind?: "plan" | "addon"; payment?: string };
+
+export type PageHeroContent = { tag: string; title: string; titleTurn?: string; lead: string; primary: Cta; secondary?: Cta };
+
+export type FeatureRowContent = { label: string; title: string; text: string; points?: string[]; stage: StageSpec };
+
+export type CompareRow = { label: string; values: (string | boolean)[] };
+export type CompareContent = { tag?: string; title: string; text?: string; columns: string[]; highlight?: number; rows: CompareRow[]; yes: string; no: string };
+
+export type ArrowListItem = { title: string; text: string; href?: string };
+
 export type FooterContent = {
   brand: string;
   tagline: string;
@@ -204,6 +289,37 @@ export type FooterContent = {
   legal: string;
   legalLinks: Cta[];
   social: { label: string; href: string; icon: "x" | "instagram" | "linkedin" | "youtube" }[];
+};
+
+export type PagesContent = {
+  pricing: {
+    meta: { title: string; description: string };
+    hero: PageHeroContent;
+    plans: Plan[];
+    plansNote: { text: string; link: Cta };
+    payment: { title: string; text: string; rows: { title: string; text: string }[] };
+    compare: CompareContent;
+    faq: FaqContent;
+  };
+  howItWorks: {
+    meta: { title: string; description: string };
+    hero: PageHeroContent;
+    rowsTitle: string;
+    rows: FeatureRowContent[];
+    steps: StepsContent;
+  };
+  whatYouGet: {
+    meta: { title: string; description: string };
+    hero: PageHeroContent;
+    overview: ResultsContent;
+    blocks: { id: string; label: string; name: string; phrase: string; price?: string; cta?: Cta; items: ArrowListItem[] }[];
+  };
+  questions: {
+    meta: { title: string; description: string };
+    hero: PageHeroContent;
+    faq: FaqContent;
+  };
+  notFound: { meta: { title: string }; tag: string; title: string; titleTurn: string; lead: string; primary: Cta; secondary: Cta };
 };
 
 export type Site = {
@@ -225,8 +341,13 @@ export type Site = {
   news: NewsContent;
   steps: StepsContent;
   faq: FaqContent;
+  heroFilm: HeroFilmContent;
+  scrollFill: ScrollFillContent;
+  liveCards: LiveCardsContent;
+  results: ResultsContent;
   finalCta: FinalCtaContent;
   footer: FooterContent;
+  pages: PagesContent;
   ui: {
     skip: string;
     external: string;
@@ -240,5 +361,7 @@ export type Site = {
     step: string;
     pauseMarquee: string;
     playMarquee: string;
+    example: string;
+    current: string;
   };
 };

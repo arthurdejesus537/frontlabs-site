@@ -9,7 +9,7 @@ export function Sparkline({ values, className }: { values: number[]; className?:
   return (
     <svg viewBox={`0 0 ${w} ${h}`} className={className} aria-hidden="true" preserveAspectRatio="none">
       <path d={`${line} L${w} ${h} L0 ${h} Z`} fill="currentColor" opacity="0.18" />
-      <path d={line} fill="none" stroke="currentColor" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+      <path d={line} fill="none" stroke="currentColor" strokeWidth="1.5" vectorEffect="non-scaling-stroke" pathLength={1} />
     </svg>
   );
 }

@@ -2,6 +2,7 @@ import { site } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Media } from "@/components/ui/Media";
+import { PlanCard } from "@/components/ui/PlanCard";
 import styles from "./Offers.module.css";
 
 /**
@@ -21,7 +22,9 @@ export function Offers() {
         {data.lead ? <p className={`t-lead ${styles.lead}`}>{data.lead}</p> : null}
       </header>
       <ul className={[pricing ? "container" : "wide", styles.grid, pricing ? styles.pricing : "", styles[`n${data.items.length}`]].join(" ")}>
-        {data.items.map((o) => (
+        {data.items.map((o) => pricing ? (
+          <li key={o.name} className={styles.planItem}><PlanCard plan={o} /></li>
+        ) : (
           <li key={o.name} className={[styles.item, o.featured ? styles.featured : ""].join(" ")}>
             <div className={styles.nameRow}>
               <h3 className={styles.name}>{o.name}</h3>
@@ -54,7 +57,12 @@ export function Offers() {
           </li>
         ))}
       </ul>
-      {data.footnote ? <p className={`container t-meta ${styles.footnote}`}>{data.footnote}</p> : null}
+      {data.footnote || data.more ? (
+        <div className={`container ${styles.footnote}`}>
+          {data.footnote ? <p className="t-meta">{data.footnote}</p> : null}
+          {data.more ? <Button href={data.more.href} variant="outline" size="md" icon={<Icon name="arrow" />}>{data.more.label}</Button> : null}
+        </div>
+      ) : null}
     </section>
   );
 }

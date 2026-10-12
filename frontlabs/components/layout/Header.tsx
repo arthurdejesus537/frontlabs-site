@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { HeaderContent } from "@/content/types";
 import { Button } from "@/components/ui/Button";
@@ -12,6 +13,7 @@ import styles from "./Header.module.css";
 /** Nav da Front Labs (DESIGN §6.5): pílula branca flutuante com borda clara — logo, links e os dois botões pequenos. */
 export function Header({ data }: { data: HeaderContent }) {
   const [open, setOpen] = useState(false);
+  const path = usePathname();
   const toggleRef = useRef<HTMLButtonElement>(null);
   const close = useCallback(() => {
     setOpen(false);
@@ -35,7 +37,7 @@ export function Header({ data }: { data: HeaderContent }) {
           <ul className={styles.links}>
             {data.links.map((l) => (
               <li key={l.label}>
-                <a href={l.href} className={styles.link}>{l.label}</a>
+                <Link href={l.href} className={styles.link} aria-current={path === l.href ? "page" : undefined}>{l.label}</Link>
               </li>
             ))}
           </ul>
@@ -56,7 +58,7 @@ export function Header({ data }: { data: HeaderContent }) {
           </button>
         </div>
       </div>
-      <MobileMenu id="menu-mobile" open={open} onClose={close} data={data} />
+      <MobileMenu id="menu-mobile" open={open} onClose={close} data={data} path={path} />
     </header>
   );
 }

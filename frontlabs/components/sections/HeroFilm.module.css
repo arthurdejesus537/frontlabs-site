@@ -1,0 +1,47 @@
+/* Ploy: moldura 1376×866 a 32px das bordas (aqui 24, DESIGN §9), raio 24 na Front Labs. */
+.wrap { padding: var(--s-3) var(--frame-gutter) 0; }
+.frame {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: grid; place-items: center; height: var(--hero-film-h); min-height: 560px;
+  padding: var(--s-9) var(--frame-pad); border-radius: var(--r-frame);
+  background: var(--c-placeholder-dark); color: var(--c-on-media); text-align: center;
+}
+.media, .video { position: absolute; inset: 0; z-index: -2; }
+.video { width: 100%; height: 100%; object-fit: cover; }
+.veil { position: absolute; inset: 0; z-index: -1; background: var(--c-veil); pointer-events: none; }
+
+.copy { display: grid; justify-items: center; gap: var(--s-5); }
+.title {
+  max-width: var(--film-measure); font-size: var(--t-film); line-height: var(--t-film-lh); letter-spacing: var(--t-film-ls);
+  font-weight: var(--w-title); font-variation-settings: var(--title-fvs); color: var(--c-on-media); text-wrap: balance;
+}
+.lead { max-width: 30em; font-size: var(--t-lead); line-height: var(--t-lead-lh); color: var(--c-on-media-lead); text-wrap: balance; }
+.ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-3); margin-top: var(--s-3); }
+
+/* card de anúncio: canto inferior esquerdo (Ploy) */
+.card {
+  position: absolute; left: var(--s-4); bottom: var(--s-4);
+  display: flex; align-items: center; gap: var(--s-3); max-width: 360px;
+  padding: var(--s-2) var(--s-4) var(--s-2) var(--s-2); border-radius: var(--r-card-sm);
+  background: var(--c-surface); color: var(--c-ink); text-align: left;
+}
+.thumb { width: 56px; flex-shrink: 0; border-radius: var(--r-thumb); }
+.cardText { display: grid; gap: 2px; }
+.cardLabel { color: var(--c-mute); font-size: var(--t-micro); }
+.cardTitle { font-size: var(--t-small); line-height: 1.25; font-weight: var(--w-strong); }
+
+/* play/pause: canto inferior direito, círculo de 44 */
+.play {
+  position: absolute; right: var(--s-4); bottom: var(--s-4);
+  display: grid; place-items: center; width: var(--tap); height: var(--tap); border-radius: 50%;
+  border: 1px solid var(--c-on-media-border); color: var(--c-on-media);
+  transition: background-color var(--dur-fast) var(--ease);
+}
+.play:hover { background: var(--c-on-media-hover); }
+
+@media (max-width: 767px) {
+  .frame { min-height: 0; padding: var(--s-8) var(--s-5); }
+  .lead { font-size: var(--t-body); }
+  .ctas { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+  .card { position: static; max-width: none; width: 100%; }
+}

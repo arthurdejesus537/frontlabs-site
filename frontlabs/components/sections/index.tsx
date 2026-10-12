@@ -14,6 +14,11 @@ import { News } from "./News";
 import { FinalCta } from "./FinalCta";
 import { Steps } from "./Steps";
 import { Faq } from "./Faq";
+import { HeroFilm } from "./HeroFilm";
+import { ScrollFill } from "./ScrollFill";
+import { LiveCards } from "./LiveCards";
+import { Results } from "./Results";
+import { site } from "@/content/site";
 
 /* Mapa chave → seção. Cada seção lê o próprio bloco de site.ts e some se `enabled` for false. */
 export const sections: Partial<Record<SectionKey, ComponentType>> = {
@@ -28,7 +33,11 @@ export const sections: Partial<Record<SectionKey, ComponentType>> = {
   spotlight: Spotlight,
   audience: Audience,
   news: News,
-  finalCta: FinalCta,
-  steps: Steps,
-  faq: Faq,
+  steps: () => <Steps />,
+  faq: () => <Faq />,
+  finalCta: () => <FinalCta />,
+  heroFilm: () => <HeroFilm data={site.heroFilm} />,
+  scrollFill: () => <ScrollFill data={site.scrollFill} />,
+  liveCards: () => <LiveCards data={site.liveCards} />,
+  results: () => <Results data={site.results} />,
 };

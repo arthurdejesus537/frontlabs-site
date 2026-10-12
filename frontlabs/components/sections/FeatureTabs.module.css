@@ -11,49 +11,73 @@
 .group:not(:last-child)::after { content: ""; flex: 1; height: 1px; background: var(--c-line); }
 .group:hover, .groupOn { color: var(--c-ink); }
 
-/* painel branco com borda (A: raio 16, borda 1px) */
+/* painel branco raio 24; etapas ~38% / mídia ~62% (Runway) */
 .panel {
-  display: grid; grid-template-columns: minmax(240px, 0.42fr) 1fr; gap: var(--s-6);
+  display: grid; grid-template-columns: minmax(0, 38fr) minmax(0, 62fr); gap: var(--s-7); align-items: center;
   background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-panel); padding: var(--s-6);
 }
-.listWrap { display: flex; flex-direction: column; justify-content: center; gap: var(--s-6); padding: var(--s-5); position: relative; }
-.list { display: grid; gap: var(--s-3); }
+.listWrap { display: flex; flex-direction: column; gap: var(--s-6); padding: var(--s-5) 0 var(--s-5) var(--s-5); }
+.list { display: grid; }
+.item { position: relative; padding-block: var(--s-4); border-top: 1px solid var(--c-line); }
+.item:first-child { border-top: 0; }
 .tab {
-  text-align: left; font-size: var(--t-lead); line-height: 1.35; letter-spacing: -0.01em; color: var(--c-mute);
-  min-height: 32px; transition: color var(--dur-fast) var(--ease);
+  display: grid; grid-template-columns: 2.4ch minmax(0, 1fr); align-items: baseline; gap: var(--s-4);
+  width: 100%; min-height: var(--tap); text-align: left; color: var(--c-mute);
+  transition: color var(--dur-fast) var(--ease);
 }
-.tab:hover { color: var(--c-text); }
-.tabOn { color: var(--c-ink); }
-.tabText { color: var(--c-text); max-width: 36ch; margin-top: var(--s-1); animation: fade var(--dur-fade) ease; }
+.tab:hover { color: var(--c-ink); }
+.num { color: inherit; }
+.tabTitle {
+  font-size: var(--t-tab); line-height: var(--t-tab-lh); letter-spacing: var(--t-title-ls);
+  font-weight: var(--w-title); font-variation-settings: var(--title-fvs);
+}
+.itemOn .tab { color: var(--c-ink); }
+
+/* descrição: abre com altura animada (grid 0fr → 1fr) */
+.more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur-enter) var(--ease-enter); }
+.itemOn .more { grid-template-rows: 1fr; }
+.moreInner { overflow: hidden; min-height: 0; padding-left: calc(2.4ch + var(--s-4)); }
+.tabText { padding-top: var(--s-3); color: var(--c-text); font-size: var(--t-body); max-width: 34ch; }
+.inlineStage { display: none; }
+
+/* barra de progresso da troca automática */
+.bar {
+  position: absolute; left: 0; bottom: -1px; height: var(--tab-bar); width: 100%;
+  background: var(--c-ink); transform-origin: left; transform: scaleX(0);
+  animation: run var(--interval) linear forwards;
+}
+@keyframes run { to { transform: scaleX(1); } }
+
 .pause {
-  position: absolute; left: var(--s-5); bottom: 0; display: grid; place-items: center;
+  display: grid; place-items: center; align-self: flex-start;
   width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--c-line); color: var(--c-mute);
 }
 .pause:hover { color: var(--c-ink); border-color: var(--c-line-strong); }
+
 .stage { min-width: 0; }
 .fade { animation: fade var(--dur-fade) ease; }
+.stageFrame { width: 100%; }
 .media { border-radius: var(--r-media-lg); }
 .previewWrap {
-  display: grid; place-items: center; aspect-ratio: 16 / 10; padding: var(--s-7);
+  display: grid; place-items: center; aspect-ratio: var(--stage-ratio); padding: var(--s-7);
   border-radius: var(--r-media-lg); background: var(--stage-bg);
 }
 .previewWrap > * { max-width: 520px; }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
 @media (max-width: 1023px) {
-  .panel { grid-template-columns: minmax(0, 1fr); padding: var(--s-4); gap: var(--s-4); }
-  .listWrap { padding: var(--s-3) var(--s-3) var(--s-7); }
-  .pause { left: var(--s-3); }
+  /* acordeão: a mídia aparece dentro da etapa aberta */
+  .panel { grid-template-columns: minmax(0, 1fr); padding: var(--s-4); gap: 0; }
+  .listWrap { padding: 0; gap: var(--s-4); }
+  .stage { display: none; }
+  .inlineStage { display: block; padding-top: var(--s-4); }
+  .moreInner { padding-left: 0; }
+  .tab { gap: var(--s-3); }
+  .pause { width: var(--tap); height: var(--tap); }
 }
 @media (max-width: 767px) {
   .groups { flex-wrap: wrap; gap: 0 var(--s-5); }
   .group, .group:last-child { flex: 0 0 auto; }
   .group:not(:last-child)::after { display: none; }
-  .tab { min-height: var(--tap); }
   .previewWrap { aspect-ratio: auto; padding: var(--s-4); }
 }
-@media (max-width: 767px) { .pause { width: var(--tap); height: var(--tap); } }
-
-/* Front Labs: lista no topo e botão de pausa logo abaixo dela — sem vazio > 12% no meio do painel (DESIGN §10.1) */
-.listWrap { justify-content: flex-start; padding-top: var(--s-2); }
-.pause { position: static; align-self: flex-start; }
