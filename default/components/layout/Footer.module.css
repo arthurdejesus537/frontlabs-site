@@ -32,6 +32,7 @@
 .bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-6); flex-wrap: wrap; padding-top: var(--s-6); }
 .brand { font-family: var(--f-logo); font-size: 40px; line-height: 1; font-weight: var(--w-strong); letter-spacing: -0.04em; }
 .legal { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: var(--t-label-ls); color: var(--c-dark-mute); margin-right: auto; }
+.legalLink { display: inline-flex; align-items: center; min-height: var(--tap); margin-block: calc((var(--tap) - 16px) / -2); }
 .legalLink:hover { color: var(--c-dark-ink); }
 .social { display: flex; gap: var(--s-1); }
 .socialLink { display: grid; place-items: center; width: var(--tap); height: var(--tap); border-radius: 50%; color: var(--c-dark-ink); }

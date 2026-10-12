@@ -31,10 +31,11 @@
 .footnote { margin-top: var(--s-6); text-align: center; }
 
 @media (max-width: 1023px) {
-  .grid, .n2 { grid-template-columns: 1fr; gap: var(--s-8); }
-  .pricing { gap: var(--grid-gap); }
+  .phrase { font-size: var(--t-subtitle); }
 }
 @media (max-width: 767px) {
+  .grid, .n2 { grid-template-columns: 1fr; gap: var(--s-8); }
+  .pricing { gap: var(--grid-gap); }
   .head { margin-bottom: var(--s-7); }
   .phrase { margin-top: var(--s-5); font-size: var(--t-subtitle); }
   .foot { padding-top: var(--s-5); }

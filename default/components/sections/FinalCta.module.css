@@ -36,6 +36,6 @@
 @media (max-width: 767px) {
   .onMedia { padding-block: var(--s-8); }
   .pill { flex-direction: column; align-items: stretch; border-radius: var(--r-card); padding: var(--s-2); }
-  .input { height: var(--btn-h-lg); text-align: center; }
+  .input { flex: none; height: var(--btn-h-lg); text-align: center; }
   .submit { justify-content: center; height: var(--btn-h-lg); }
 }

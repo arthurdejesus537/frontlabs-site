@@ -5,6 +5,7 @@ A entrada mais nova fica no topo.
 
 ---
 
+- 12/10 · Fase 4 · QA do default: `tools/qa-check.mjs` (rolagem horizontal, elementos estourando, toque < 44px) limpo em 1440/768/390; correções: input do CTA no celular (flex colapsava a altura), áreas de toque de links (faixa, marca, rodapé, botão-link). 768: ofertas ficam em 3 colunas, prova em 1 coluna largura total. Teste de interação (menu abre/fecha com Esc e devolve o foco; abas com setas; formulário: vazio/formato/sucesso) ok. Teste de desligar 5 seções ok (`qa/default/desligadas/`). `qa/default/comparacao.md` escrito. Build + lint ok. Tag `v1.0-default`.
 - 12/10 · Fase 3 · S15 Footer (B+A): card escuro raio 20 a 24px da borda; frase + "→ contato"; bloco "versão curta" com pills de IA (44px); colunas auto-fit (A); marca grande, linha legal em mono 11 caixa-alta (A) e ícones sociais de 44px. Aceita `logo` como nó (para a marca usar o próprio componente).
 - 12/10 · Fase 3 · S14 CTA final (B): grito médio centralizado, frase, card branco raio 8 com input pill + botão preto dentro, microcopy 12/600; valida vazio e formato (e-mail ou URL), erro em `aria-live`, sucesso com `role=status`. No celular o pill vira coluna (input e botão de 48px). Aceita fundo (`background`) para virar campo.
 - 12/10 · Fase 3 · S13 Notícias (A): título à esquerda, grade 2×2 com imagem 342px (1.9:1, raio 8) à esquerda e título 24 / texto 14 / "saiba mais ›" à direita; uma coluna no celular.

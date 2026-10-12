@@ -22,7 +22,7 @@
 
 @media (max-width: 1023px) {
   .head { grid-template-columns: 1fr; }
-  .cards { grid-template-columns: 1fr; max-width: 480px; margin-top: var(--s-8); }
+  .cards { grid-template-columns: 1fr; margin-top: var(--s-8); }
 }
 @media (max-width: 767px) {
   .field { padding-block: var(--s-8); }

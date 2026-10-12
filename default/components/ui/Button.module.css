@@ -38,4 +38,5 @@
   /* toque mínimo de 44px: a área clicável cresce sem mudar o desenho */
   .btn { position: relative; }
   .sm::after, .md::after { content: ""; position: absolute; inset: -6px -2px; }
+  .link::after { inset: -14px -2px; }
 }
