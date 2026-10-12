@@ -1,0 +1,10 @@
+/* A: frase a ~36px abaixo do hero, logos a ~24px da frase; seção curta, o respiro vem depois. */
+.wrap { display: grid; gap: var(--s-6); padding-top: var(--s-7); padding-bottom: var(--s-4); }
+.intro { text-align: center; color: var(--c-mute); font-size: var(--t-small); padding-inline: var(--gutter); }
+.logo { height: 28px; width: auto; opacity: 0.7; filter: grayscale(1); }
+.ph {
+  display: inline-grid; place-items: center; height: 36px; min-width: 112px; padding-inline: var(--s-4);
+  border-radius: var(--r-card-sm); background: var(--c-placeholder); color: var(--c-placeholder-ink);
+  font-family: var(--f-mono); font-size: var(--t-meta); white-space: nowrap;
+}
+.word { font-family: var(--f-mono); font-size: var(--t-small); color: var(--c-mute); white-space: nowrap; text-transform: uppercase; letter-spacing: var(--t-label-ls); }
