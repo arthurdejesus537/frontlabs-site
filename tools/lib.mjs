@@ -5,21 +5,22 @@ export async function openPage(url, width, height = 900) {
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width, height: width < 600 ? 844 : height }, deviceScaleFactor: 1 });
   await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 }).catch(() => page.waitForLoadState('load'));
-  await page.waitForTimeout(800);
+  await page.waitForTimeout(1500); // dá tempo de hidratar antes de rolar
   await autoScroll(page);
   return { browser, page };
 }
 
 export async function autoScroll(page) {
   await page.evaluate(async () => {
-    const step = Math.round(window.innerHeight * 0.7);
+    const step = Math.round(window.innerHeight * 0.5);
     for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
       window.scrollTo(0, y);
-      await new Promise((r) => setTimeout(r, 120));
+      await new Promise((r) => setTimeout(r, 160));
     }
+    await new Promise((r) => setTimeout(r, 900));
     window.scrollTo(0, 0);
   });
-  await page.waitForTimeout(700);
+  await page.waitForTimeout(900);
 }
 
 export async function dismissOverlays(page) {

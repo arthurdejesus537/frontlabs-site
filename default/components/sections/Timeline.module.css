@@ -1,0 +1,23 @@
+.field { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--r-field); padding-block: var(--s-9); }
+.bg { z-index: -1; }
+.inner { display: grid; grid-template-columns: 1fr minmax(0, 576px) 1fr; grid-template-rows: auto auto auto auto; row-gap: var(--s-6); }
+.label { grid-column: 1 / -1; grid-row: 1; color: var(--c-ink); }
+/* o h2 some do grid: as duas metades do título viram itens do grid */
+.titleWrap { display: contents; }
+.start { grid-column: 1 / 3; grid-row: 2; max-width: 12em; }
+.end { grid-column: 2 / 4; grid-row: 4; justify-self: end; text-align: right; max-width: 12em; }
+.list { grid-column: 2; grid-row: 3; display: grid; gap: var(--s-2); }
+.card { background: var(--c-surface); border-radius: var(--r-card-sm); padding: var(--s-5); display: grid; gap: var(--s-2); }
+.top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.time { font-family: var(--f-mono); font-size: var(--t-meta); color: var(--c-mute); }
+.tag { font-size: var(--t-meta); font-weight: var(--w-strong); color: var(--c-ink); border-radius: var(--r-pill); padding: var(--s-1) var(--s-3); white-space: nowrap; }
+.title { font-size: var(--t-subtitle); line-height: var(--t-subtitle-lh); letter-spacing: var(--t-subtitle-ls); font-weight: var(--w-medium); color: var(--c-ink); }
+.text { color: var(--c-text); }
+.onImage .start, .onImage .end, .onImage .label { color: var(--c-on-media); }
+
+@media (max-width: 767px) {
+  .field { padding-block: var(--s-8); }
+  .inner { grid-template-columns: 1fr; }
+  .start, .end, .list, .label { grid-column: 1; }
+  .card { padding: var(--s-4); }
+}
