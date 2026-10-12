@@ -15,7 +15,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang={site.meta.lang} className={`${sans.variable} ${mono.variable} ${shout.variable}`}>
+    <html lang={site.meta.lang} className={`${sans.variable} ${mono.variable} ${shout.variable}`} suppressHydrationWarning>
+      <head>
+        {/* marca a página como "com JS" antes da pintura: só então as entradas ao rolar escondem o conteúdo */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body>{children}</body>
     </html>
   );

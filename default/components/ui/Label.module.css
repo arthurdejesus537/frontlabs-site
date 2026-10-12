@@ -1,0 +1,9 @@
+.label { display: inline-block; color: var(--c-mute); }
+.ink { color: var(--c-ink); }
+.mute { color: var(--c-mute); }
+.light { color: var(--c-dark-text); }
+.pill {
+  background: var(--c-btn); color: var(--c-btn-ink);
+  padding: var(--s-1) var(--s-3); border-radius: var(--r-pill);
+  text-transform: none; font-family: var(--f-sans); font-weight: var(--w-strong); letter-spacing: 0; font-size: var(--t-meta);
+}
