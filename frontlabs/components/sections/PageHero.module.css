@@ -1,0 +1,18 @@
+/* Ploy /pricing: etiqueta a 148px do topo, h1 144 em 2 linhas, lead 18 a 72%, 2 botões; 96 embaixo. */
+.hero { padding: var(--s-9) 0 var(--s-8); text-align: center; }
+.tag {
+  display: inline-block; padding: var(--s-1) var(--s-3); border-radius: var(--r-pill);
+  background: var(--c-btn); color: var(--c-btn-ink); font-size: var(--t-meta); font-weight: var(--w-strong);
+}
+.title {
+  max-width: var(--film-measure); margin: var(--s-5) auto 0;
+  font-size: var(--t-film); line-height: var(--t-film-lh); letter-spacing: var(--t-film-ls);
+  font-weight: var(--w-title); font-variation-settings: var(--title-fvs); color: var(--c-ink); text-wrap: balance;
+}
+.turn { display: block; letter-spacing: var(--t-hero-ls); font-size: var(--turn-size); color: var(--turn-color); margin-top: var(--turn-gap); }
+.lead { max-width: 32em; margin: var(--s-5) auto 0; font-size: var(--t-lead); line-height: var(--t-lead-lh); color: var(--c-text); text-wrap: balance; }
+.ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-3); margin-top: var(--s-6); }
+@media (max-width: 767px) {
+  .hero { padding: var(--s-8) 0 var(--s-7); }
+  .ctas { flex-direction: column; align-items: stretch; max-width: 320px; margin-inline: auto; }
+}

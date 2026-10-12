@@ -1,0 +1,21 @@
+/* Blocos que só existem nas páginas (o resto vem dos componentes compartilhados). */
+.plans { padding-bottom: var(--section-y); }
+.planGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-4); }
+.plans .planGrid { max-width: calc(1100px + 2 * var(--gutter)); }
+.planNote { margin-top: var(--s-6); text-align: center; color: var(--c-text); font-size: var(--t-small); }
+.rows { display: grid; gap: var(--s-10); }
+.rowsHead { margin-bottom: var(--s-8); }
+.block { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s-7); padding-block: var(--s-8); border-top: 1px solid var(--c-line); }
+.blockHead { display: grid; gap: var(--s-4); align-content: start; justify-items: start; }
+.blockPhrase { color: var(--c-text); font-size: var(--t-lead); line-height: var(--t-lead-lh); }
+.blockPrice { font-family: var(--f-mono); font-size: var(--t-label); color: var(--c-ink); border: 1px solid var(--c-line-strong); border-radius: var(--r-pill); padding: 3px var(--s-3); }
+@media (max-width: 1023px) {
+  .planGrid { grid-template-columns: minmax(0, 1fr); }
+  .plans .planGrid { max-width: calc(560px + 2 * var(--gutter)); }
+  .block { grid-template-columns: minmax(0, 1fr); gap: var(--s-6); }
+  .rows { gap: var(--s-9); }
+}
+@media (max-width: 767px) {
+  .rows { gap: var(--s-8); }
+  .block { padding-block: var(--s-7); }
+}

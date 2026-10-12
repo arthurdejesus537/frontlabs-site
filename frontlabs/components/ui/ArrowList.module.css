@@ -1,0 +1,8 @@
+.list { border-top: 2px solid var(--c-ink); }
+.list li + li { border-top: 1px solid var(--c-line); }
+.item { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-5); padding-block: var(--s-5); }
+.body { display: grid; gap: var(--s-1); }
+.title { font-size: var(--t-title); line-height: var(--t-title-lh); letter-spacing: var(--t-title-ls); font-weight: var(--w-title); color: var(--c-ink); }
+.text { color: var(--c-text); font-size: var(--t-body); max-width: 40ch; }
+.arrow { display: grid; place-items: center; flex-shrink: 0; width: var(--icon-circle); height: var(--icon-circle); border-radius: 50%; border: 1px solid var(--c-line); color: var(--c-ink); }
+a.item:hover .arrow { background: var(--c-ink); border-color: var(--c-ink); color: var(--c-btn-ink); }
