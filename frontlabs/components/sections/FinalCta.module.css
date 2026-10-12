@@ -1,0 +1,41 @@
+.inner { position: relative; isolation: isolate; text-align: center; }
+.onMedia { overflow: hidden; border-radius: var(--r-field); padding-block: var(--s-10); }
+.bg { z-index: -1; }
+.shout { font-size: var(--t-shout-md); max-width: 1000px; margin-inline: auto; }
+.title { max-width: 820px; margin-inline: auto; }
+.turn { display: block; }
+.text { margin: var(--s-6) auto 0; max-width: 34em; color: var(--c-text); }
+.onMedia .title, .onMedia .shout, .onMedia .text { color: var(--c-on-media); }
+.card {
+  max-width: 576px; margin: var(--s-7) auto 0; padding: var(--s-6) var(--s-5) var(--s-5);
+  background: var(--c-surface); border-radius: var(--r-card-sm);
+}
+.form { display: grid; gap: var(--s-4); }
+.pill {
+  display: flex; align-items: center; gap: var(--s-2); padding: var(--s-1);
+  border: 1px solid var(--c-line); border-radius: var(--r-pill); background: var(--c-surface-2);
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.pill:focus-within { border-color: var(--c-ink); }
+.invalid { border-color: var(--c-error); }
+.input {
+  flex: 1; min-width: 0; height: var(--btn-h-md); padding-inline: var(--s-4);
+  border: 0; background: transparent; outline: none; font-size: var(--t-body); color: var(--c-ink);
+}
+.input::placeholder { color: var(--c-mute); }
+.submit {
+  display: inline-flex; align-items: center; gap: var(--s-2); height: var(--btn-h-md); padding-inline: var(--btn-px-md);
+  border-radius: var(--r-pill); background: var(--c-btn); color: var(--c-btn-ink); font-size: var(--btn-fs); font-weight: var(--btn-fw);
+  white-space: nowrap; transition: background-color var(--dur-fast) var(--ease);
+}
+.submit:hover { background: var(--c-btn-hover); }
+.micro { font-size: var(--t-meta); font-weight: var(--w-strong); color: var(--c-mute); }
+.error { font-size: var(--t-meta); font-weight: var(--w-strong); color: var(--c-error); }
+.success { display: flex; align-items: center; justify-content: center; gap: var(--s-2); min-height: 72px; color: var(--c-success); font-weight: var(--w-strong); }
+
+@media (max-width: 767px) {
+  .onMedia { padding-block: var(--s-8); }
+  .pill { flex-direction: column; align-items: stretch; border-radius: var(--r-card); padding: var(--s-2); }
+  .input { flex: none; height: var(--btn-h-lg); text-align: center; }
+  .submit { justify-content: center; height: var(--btn-h-lg); }
+}

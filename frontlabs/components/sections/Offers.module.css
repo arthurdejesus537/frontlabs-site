@@ -1,0 +1,43 @@
+.head { display: grid; justify-items: center; gap: var(--s-4); text-align: center; margin-bottom: var(--s-8); }
+.head :global(.t-display) { max-width: 900px; }
+.lead { max-width: 36em; color: var(--c-text); }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-7) var(--grid-gap); }
+.n2 { grid-template-columns: repeat(2, 1fr); }
+.item { display: flex; flex-direction: column; min-width: 0; }
+.nameRow { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.name { font-size: var(--t-title); line-height: var(--t-title-lh); letter-spacing: var(--t-title-ls); font-weight: var(--w-regular); color: var(--c-text); }
+.media { margin-top: var(--s-4); border-radius: var(--r-media); }
+.phrase { margin-top: var(--s-6); font-size: var(--t-title); line-height: 1.25; letter-spacing: var(--t-title-ls); color: var(--c-ink); max-width: 22em; text-wrap: pretty; }
+.text { margin-top: var(--s-4); color: var(--c-text); max-width: 42ch; }
+.foot { margin-top: auto; padding-top: var(--s-7); display: grid; gap: var(--s-3); }
+.ctas { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.meta { max-width: 48ch; }
+
+/* modo preço: cards brancos */
+.pricing { gap: var(--grid-gap); }
+.pricing .item { background: var(--c-surface); border-radius: var(--r-card); padding: var(--s-6); border: 1px solid var(--c-line); }
+.pricing .featured { border-color: var(--c-ink); }
+.pricing .name { font-weight: var(--w-strong); color: var(--c-ink); font-size: var(--t-subtitle); }
+.badge { font-family: var(--f-mono); font-size: var(--t-meta); color: var(--c-btn-ink); background: var(--c-btn); border-radius: var(--r-pill); padding: 2px var(--s-3); white-space: nowrap; }
+.price { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-2); margin-top: var(--s-6); }
+.priceValue { font-size: var(--t-display); line-height: 1; letter-spacing: var(--t-display-ls); font-weight: var(--w-title); color: var(--c-ink); }
+.priceNote { color: var(--c-mute); font-size: var(--t-small); }
+.pricing .phrase { margin-top: var(--s-5); font-size: var(--t-lead); }
+.features { display: grid; gap: var(--s-3); margin-top: var(--s-6); padding-top: var(--s-5); border-top: 1px solid var(--c-line); font-size: var(--t-small); color: var(--c-text); }
+.features li { display: flex; gap: var(--s-3); align-items: flex-start; }
+.check { flex-shrink: 0; margin-top: 3px; color: var(--c-ink); }
+.pricing .ctas > * { flex: 1; }
+.footnote { margin-top: var(--s-6); text-align: center; }
+
+@media (max-width: 1023px) {
+  .phrase { font-size: var(--t-subtitle); }
+}
+@media (max-width: 767px) {
+  .grid, .n2 { grid-template-columns: 1fr; gap: var(--s-8); }
+  .pricing { gap: var(--grid-gap); }
+  .head { margin-bottom: var(--s-7); }
+  .phrase { margin-top: var(--s-5); font-size: var(--t-subtitle); }
+  .foot { padding-top: var(--s-5); }
+  .pricing .item { padding: var(--s-5); }
+}

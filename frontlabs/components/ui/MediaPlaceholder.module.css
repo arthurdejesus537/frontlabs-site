@@ -1,0 +1,6 @@
+.ph { position: relative; display: grid; place-items: center; width: 100%; overflow: hidden; }
+.light { background: var(--c-placeholder); color: var(--c-placeholder-ink); }
+.dark { background: var(--c-placeholder-dark); color: var(--c-placeholder-dark-ink); }
+.fill { position: absolute; inset: 0; height: 100%; }
+.text { padding: var(--s-3); text-align: center; text-transform: none; letter-spacing: 0; max-width: 32ch; }
+.fill .text { position: absolute; top: var(--s-4); right: var(--s-4); max-width: 40ch; text-align: right; }

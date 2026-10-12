@@ -1,0 +1,185 @@
+/*
+ * tokens.css — Front Labs.
+ * Valores do docs/DESIGN.md §11 (v4), mapeados para os nomes de token do default.
+ * Os componentes são os mesmos do default: só este arquivo, content/site.ts e as imagens mudam.
+ */
+:root {
+  /* ---------- marca (DESIGN §11, nomes originais, para referência) ---------- */
+  --bg: #f4f3f1; --card: #ffffff; --line: #e3e1dd; --grey: #efeeec;
+  --ink: #0a0a0a; --mute: #6b6966; --soft: #9a9792; --ok: #2f7f5e;
+  --p-ceu: #1f6f9e; --p-ceu-claro: #86aabb; --p-mata: #1a2018; --p-grama: #667235;
+  --p-musgo: #36451a; --p-moca: #836a4e; --p-madeira: #402f1d; --p-linho: #ded5c9;
+  --bg-horizonte: url("/img/gradiente-horizonte-16x9.jpg") center / cover;
+  --bg-horizonte-4x5: url("/img/gradiente-horizonte-4x5.jpg") center / cover;
+  --grain: url("/img/grao.png");
+
+  /* ---------- cor (nomes do default) ---------- */
+  --c-bg: var(--bg);
+  --c-surface: var(--card);
+  --c-surface-2: var(--grey);
+  --c-ink: var(--ink);
+  --c-text: var(--mute);          /* DESIGN §3.2: descrição em cor secundária */
+  --c-mute: var(--mute);
+  --c-soft: #8a8782;              /* --soft escurecido: #9A9792 dá 2.6:1 no fundo; este dá 3.2:1 (AA para texto grande). Ver REVISAR */
+  --c-line: var(--line);
+  --c-line-strong: var(--ink);    /* contorno = borda preta 1px (§6.1) */
+  --c-btn: var(--ink);
+  --c-btn-ink: #ffffff;
+  --c-btn-hover: #262626;
+  --c-btn-2: var(--grey);         /* secundário cinza claro #EFEEEC (§6.1) */
+  --c-btn-2-ink: var(--ink);
+  --c-btn-2-hover: var(--line);
+  --c-dark: var(--ink);
+  --c-dark-ink: #ffffff;
+  --c-dark-text: rgb(255 255 255 / 0.72);
+  --c-dark-mute: rgb(255 255 255 / 0.6);
+  --c-dark-line: rgb(255 255 255 / 0.14);
+  --c-dark-btn: rgb(255 255 255 / 0.08);
+  --c-bar: var(--p-ceu);
+  --bar-bg: var(--grain) repeat, var(--bg-horizonte); /* barra de oferta com o Horizonte (§6.6) */
+  --c-bar-ink: #ffffff;
+  --c-on-media: #ffffff;
+  --c-on-media-text: rgb(255 255 255 / 0.85);
+  --c-on-media-line: rgb(255 255 255 / 0.45);
+  --c-on-media-border: #ffffff;   /* contorno branco 1px (§6.1) */
+  --c-on-media-hover: rgb(255 255 255 / 0.12);
+  --c-veil: rgb(10 10 10 / 0.3);
+  --c-scrim: linear-gradient(180deg, rgb(10 10 10 / 0) 30%, rgb(10 10 10 / 0.45) 100%);
+  --ph-blur: var(--bg-horizonte);
+  /* campos coloridos: legado "em aberto" no DESIGN (§4.2). Na home não há campo de cor;
+     o card aberto de "Para quem" fica branco e as tags da timeline ficam cinza. */
+  --c-field-1: var(--card);
+  --c-field-2: var(--card);
+  --c-field-3: var(--card);
+  --c-field-3-tint: var(--grey);
+  --c-tag-1: var(--grey);
+  --c-tag-2: var(--grey);
+  --c-tag-3: var(--grey);
+  --c-live: var(--ok);
+  --c-placeholder: var(--line);
+  --c-placeholder-ink: var(--mute);
+  --c-placeholder-dark: var(--p-mata);
+  --c-placeholder-dark-ink: rgb(255 255 255 / 0.6);
+  --c-focus: var(--ink);
+  --c-error: #b42318;
+  --c-success: var(--ok);
+
+  /* ---------- fontes ---------- */
+  --f-sans: var(--font-sans), -apple-system, system-ui, sans-serif;   /* Inter com opsz */
+  --f-mono: var(--font-mono), ui-monospace, monospace;               /* Geist Mono */
+  --f-logo: var(--font-brand), system-ui, sans-serif;                /* Bricolage, só no nome */
+  --f-shout: var(--f-sans);       /* a Front Labs não usa o grito condensado */
+  --shout-case: none;
+  --shout-weight: 550;
+  --shout-tracking: -0.045em;
+
+  --w-regular: 400;
+  --w-title: 550;
+  --w-medium: 500;
+  --w-strong: 550;
+  --w-card: 550;
+  --w-label: 400;
+  --label-case: none;             /* rótulo mono em minúsculas, começa com "/" (§3.1) */
+  --text-fvs: "opsz" 14;          /* descrição no tamanho ótico de texto (§3.2) */
+  --title-fvs: normal;            /* títulos: tamanho ótico automático (display) */
+
+  /* ---------- escala (DESIGN §3.1) ---------- */
+  --t-shout: 72px;    --t-shout-lh: 1;                                 /* = Display */
+  --t-shout-md: 48px;                                                  /* = Título */
+  --t-hero: 72px;     --t-hero-lh: 1;       --t-hero-ls: -0.045em;    /* Display */
+  --t-display: 48px;  --t-display-lh: 1.02; --t-display-ls: -0.045em; /* Título */
+  --t-heading: 48px;  --t-heading-lh: 1.02; --t-heading-ls: -0.045em; /* Título */
+  --t-feature: 30px;  --t-feature-lh: 1.28; --t-feature-ls: -0.02em;  /* Destaque */
+  --t-title: 24px;    --t-title-lh: 1.15;   --t-title-ls: -0.025em;   /* Título de card */
+  --t-subtitle: 20px; --t-subtitle-lh: 1.25; --t-subtitle-ls: -0.02em;
+  --t-lead: 20px;     --t-lead-lh: 1.45;
+  --t-body: 17px;     --t-body-lh: 1.5;     --t-body-ls: normal;
+  --t-small: 14px;    --t-small-lh: 1.45;
+  --t-meta: 13px;     --t-meta-lh: 1.4;
+  --t-label: 13px;    --t-label-ls: normal;                            /* Geist Mono 400 */
+  --t-number: 56px;   --t-number-lh: 1;
+  --t-micro: 11px;
+  --t-logo: 20px;     --t-logo-lg: 44px;
+  --t-ask: 24px;
+
+  /* ---------- espaço e grid (§5) ---------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 72px; --s-9: 96px; --s-10: 144px;
+  --gutter: 48px;                 /* margem desktop */
+  --container: 1344px;            /* conteúdo máx. 1344 */
+  --container-narrow: 640px;      /* texto corrido */
+  --section-y: 96px;              /* padding vertical de seção */
+  --field-gap: 24px;
+  --grid-gap: 24px;
+  --frame-gutter: 24px;           /* "moldura com raio 24 e 24px de respiro" (§9) */
+
+  /* ---------- raios (§5.3) ---------- */
+  --r-frame: 24px;
+  --r-field: 24px;
+  --r-panel: 24px;
+  --r-card: 24px;                 /* cards grandes */
+  --r-card-sm: 10px;              /* cards de interface */
+  --r-media: 10px;                /* card de notícia */
+  --r-media-lg: 18px;             /* imagem dentro de card */
+  --r-thumb: 4px;
+  --r-pill: 999px;
+  --r-btn: var(--r-pill);
+
+  /* ---------- botões (§6.1) ---------- */
+  --btn-h-lg: 52px;  --btn-px-lg: 28px;
+  --btn-h-md: 44px;  --btn-px-md: 22px;
+  --btn-h-sm: 36px;  --btn-px-sm: 16px;
+  --btn-fs: 15px;    --btn-fw: 550;
+  --btn-fs-sm: 14px;
+
+  /* ---------- nav e faixa ---------- */
+  --nav-h: 76px;                  /* espaço da pílula de 52px + respiro */
+  --nav-pill-h: 52px;
+  --bar-h: 44px;
+  --nav-link-fs: 15px;
+  --tap: 44px;
+
+  /* ---------- molduras ---------- */
+  --hero-h: clamp(620px, 86svh, 820px);
+  --frame-pad: 56px;
+
+  /* ---------- movimento ---------- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur-fade: 250ms;
+  --dur-enter: 720ms;
+  --dur-pulse: 2.8s;
+  --dur-drift: 22s;               /* fundo borrado em "câmera lenta" (§4.2.2) */
+  --marquee-speed: 50s;
+
+  --z-header: 50;
+  --z-menu: 60;
+}
+
+@media (max-width: 1023px) {
+  :root { --gutter: 32px; }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --t-shout: 44px;
+    --t-shout-md: 34px;
+    --t-hero: 44px;
+    --t-display: 34px;
+    --t-heading: 34px;
+    --t-feature: 22px;
+    --t-title: 21px;
+    --t-subtitle: 18px;
+    --t-lead: 18px;
+    --t-body: 16px;
+    --t-number: 44px;
+    --t-logo-lg: 36px;
+    --gutter: 16px;
+    --frame-gutter: 16px;
+    --section-y: 72px;
+    --frame-pad: 24px;
+    --hero-h: auto;
+    --nav-h: 68px;
+  }
+}

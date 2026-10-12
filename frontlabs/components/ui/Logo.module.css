@@ -1,0 +1,6 @@
+.logo { display: inline-flex; align-items: center; gap: 0.2em; color: inherit; line-height: 1; }
+.mark { height: 0.78em; width: auto; fill: currentColor; flex-shrink: 0; }
+.name {
+  font-family: var(--f-logo); font-weight: 800; letter-spacing: -0.05em;
+  font-variation-settings: "opsz" 96; white-space: nowrap;
+}

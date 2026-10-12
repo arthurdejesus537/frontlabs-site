@@ -1,0 +1,13 @@
+.panel {
+  position: fixed; inset: var(--nav-h) 0 0 0; z-index: var(--z-menu);
+  display: flex; flex-direction: column; justify-content: space-between; gap: var(--s-7);
+  padding: var(--s-5) var(--gutter) var(--s-7); background: var(--c-bg); overflow-y: auto;
+}
+.panel[hidden] { display: none; }
+.list { display: grid; }
+.link {
+  display: flex; align-items: center; min-height: 56px; border-bottom: 1px solid var(--c-line);
+  font-size: var(--t-title); letter-spacing: var(--t-title-ls); color: var(--c-ink);
+}
+.actions { display: grid; gap: var(--s-3); }
+@media (min-width: 1024px) { .panel { display: none; } }

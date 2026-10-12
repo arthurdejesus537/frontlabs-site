@@ -1,0 +1,12 @@
+.media { position: relative; width: 100%; overflow: hidden; background: var(--c-placeholder); }
+.fill { position: absolute; inset: 0; height: 100%; }
+.img { object-fit: cover; width: 100%; height: 100%; }
+/* placeholder de "foto borrada": tons neutros em movimento lento (A: fundo da Research) */
+.gradient {
+  background: var(--ph-blur);
+  background-size: 140% 140%;
+  animation: drift 24s ease-in-out infinite alternate;
+}
+.gLabel { position: absolute; top: var(--s-4); right: var(--s-4); color: var(--c-placeholder-dark-ink); text-transform: none; letter-spacing: 0; }
+@keyframes drift { from { background-position: 0% 0%; } to { background-position: 100% 100%; } }
+@media (prefers-reduced-motion: reduce) { .gradient { animation: none; } }

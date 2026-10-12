@@ -1,0 +1,7 @@
+/* Sem JS o conteúdo aparece (só esconde quando o script marcou a página). */
+:global(.js) .reveal { opacity: 0; transform: translateY(16px); }
+:global(.js) .reveal.shown {
+  opacity: 1; transform: none;
+  transition: opacity var(--dur-enter) var(--ease-enter) var(--delay), transform var(--dur-enter) var(--ease-enter) var(--delay);
+}
+@media (prefers-reduced-motion: reduce) { :global(.js) .reveal { opacity: 1; transform: none; } }
