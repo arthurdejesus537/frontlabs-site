@@ -1,0 +1,604 @@
+LIVECARD {
+ "card": {
+  "w": 325.328125,
+  "h": 15.953125,
+  "fs": "16px",
+  "fw": "400",
+  "lh": "24px",
+  "r": "0px",
+  "p": "0px",
+  "bg": "rgba(0, 0, 0, 0)"
+ },
+ "gap": "normal"
+}
+LOG [
+ {
+  "ms": 0,
+  "t": ""
+ }
+]
+PRICING {
+ "h1": {
+  "t": "Pay for whatyou build.",
+  "fs": "144px",
+  "fw": "700",
+  "lh": "123.84px",
+  "ls": "normal",
+  "r": "0px",
+  "p": "0px",
+  "bg": "rgba(0, 0, 0, 0)",
+  "w": 549,
+  "h": 248,
+  "y": 212,
+  "x": 445
+ },
+ "h2s": [
+  {
+   "t": "How credits work",
+   "fs": "36px",
+   "fw": "600",
+   "lh": "38.88px",
+   "ls": "-1.44px",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 357,
+   "h": 39,
+   "y": 1734,
+   "x": 144
+  },
+  {
+   "t": "Every plan, side by side.",
+   "fs": "64px",
+   "fw": "700",
+   "lh": "55.04px",
+   "ls": "normal",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 755,
+   "h": 55,
+   "y": 2674,
+   "x": 541
+  },
+  {
+   "t": "Pricing, answered.",
+   "fs": "64px",
+   "fw": "600",
+   "lh": "69.12px",
+   "ls": "-2.56px",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 655,
+   "h": 69,
+   "y": 4347,
+   "x": 641
+  },
+  {
+   "t": "Ship your site.",
+   "fs": "144px",
+   "fw": "700",
+   "lh": "123.84px",
+   "ls": "normal",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 1020,
+   "h": 124,
+   "y": 5783,
+   "x": 210
+  },
+  {
+   "t": "Want the short version?",
+   "fs": "36px",
+   "fw": "600",
+   "lh": "38.88px",
+   "ls": "-1.44px",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 559,
+   "h": 39,
+   "y": 6535,
+   "x": 144
+  }
+ ],
+ "price": [
+  {
+   "price": {
+    "t": "$0",
+    "fs": "48px",
+    "fw": "700",
+    "lh": "48px",
+    "ls": "normal",
+    "r": "0px",
+    "p": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "w": 66,
+    "h": 48,
+    "y": 912,
+    "x": 113
+   },
+   "card": {
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "r": "0px",
+    "p": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "w": 239,
+    "h": 48,
+    "y": 912,
+    "x": 113
+   }
+  },
+  {
+   "price": {
+    "t": "$50",
+    "fs": "48px",
+    "fw": "700",
+    "lh": "48px",
+    "ls": "normal",
+    "r": "0px",
+    "p": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "w": 98,
+    "h": 48,
+    "y": 912,
+    "x": 438
+   },
+   "card": {
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "r": "0px",
+    "p": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "w": 239,
+    "h": 48,
+    "y": 912,
+    "x": 438
+   }
+  },
+  {
+   "price": {
+    "t": "$300",
+    "fs": "48px",
+    "fw": "700",
+    "lh": "48px",
+    "ls": "normal",
+    "r": "0px",
+    "p": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "w": 130,
+    "h": 48,
+    "y": 912,
+    "x": 763
+   },
+   "card": {
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "r": "0px",
+    "p": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "w": 239,
+    "h": 48,
+    "y": 912,
+    "x": 763
+   }
+  }
+ ],
+ "sections": [
+  {
+   "tag": "SECTION",
+   "fs": "16px",
+   "fw": "400",
+   "lh": "24px",
+   "ls": "normal",
+   "r": "0px",
+   "p": "148px 24px 96px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 1440,
+   "h": 700,
+   "y": 0,
+   "x": 0
+  },
+  {
+   "tag": "SECTION",
+   "fs": "16px",
+   "fw": "400",
+   "lh": "24px",
+   "ls": "normal",
+   "r": "0px",
+   "p": "0px 24px 24px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 1440,
+   "h": 806,
+   "y": 748,
+   "x": 0
+  },
+  {
+   "tag": "SECTION",
+   "fs": "16px",
+   "fw": "400",
+   "lh": "24px",
+   "ls": "normal",
+   "r": "0px",
+   "p": "24px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 1440,
+   "h": 923,
+   "y": 1598,
+   "x": 0
+  },
+  {
+   "tag": "SECTION",
+   "fs": "16px",
+   "fw": "400",
+   "lh": "24px",
+   "ls": "normal",
+   "r": "0px",
+   "p": "24px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 1440,
+   "h": 1674,
+   "y": 2521,
+   "x": 0
+  },
+  {
+   "tag": "SECTION",
+   "fs": "16px",
+   "fw": "400",
+   "lh": "24px",
+   "ls": "normal",
+   "r": "0px",
+   "p": "24px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 1440,
+   "h": 1185,
+   "y": 4195,
+   "x": 0
+  },
+  {
+   "tag": "SECTION",
+   "fs": "16px",
+   "fw": "400",
+   "lh": "24px",
+   "ls": "normal",
+   "r": "0px",
+   "p": "0px 24px 24px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 1440,
+   "h": 886,
+   "y": 5379,
+   "x": 0
+  },
+  {
+   "tag": "FOOTER",
+   "fs": "16px",
+   "fw": "400",
+   "lh": "24px",
+   "ls": "normal",
+   "r": "0px",
+   "p": "0px 24px 24px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 1440,
+   "h": 1214,
+   "y": 6265,
+   "x": 0
+  }
+ ],
+ "total": 7479
+}
+LIVECARD {"card":{"w":373.328125,"h":372.1562194824219,"r":"12px","p":"24px","gapToNext":16},"field":{"w":1152,"h":629.0625,"r":"0px","p":"0px"},"kids":[{"tag":"SPAN","t":"Web","fs":"14px","fw":"600","bg":"rgb(33, 33, 33)","r":"1600px","h":22,"w":38,"y":29,"tr":"all"},{"tag":"SPAN","t":"0","fs":"72px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":72,"w":46,"y":-220,"tr":"all"},{"tag":"SPAN","t":"1","fs":"72px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":72,"w":46,"y":-148,"tr":"all"},{"tag":"SPAN","t":"2","fs":"72px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":72,"w":46,"y":-76,"tr":"all"},{"tag":"SPAN","t":"3","fs":"72px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":72,"w":46,"y":-4,"tr":"all"},{"tag":"SPAN","t":"4","fs":"72px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":72,"w":46,"y":68,"tr":"all"},{"tag":"SPAN","t":"5","fs":"72px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":72,"w":46,"y":140,"tr":"all"},{"tag":"SPAN","t":"6","fs":"72px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":72,"w":46,"y":212,"tr":"all"},{"tag":"SPAN","t":"7","fs":"72px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":72,"w":47,"y":284,"tr":"all"},{"tag":"SPAN","t":"8","fs":"72px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":72,"w":46,"y":356,"tr":"all"},{"tag":"SPAN","t":"9","fs":"72px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":72,"w":46,"y":428,"tr":"all"},{"tag":"P","t":"pages built","fs":"14px","fw":"600","bg":"rgba(0, 0, 0, 0)","r":"0px","h":16,"w":75,"y":144,"tr":"all"},{"tag":"DIV","t":"","fs":"16px","fw":"400","bg":"rgb(245, 245, 245)","r":"4px","h":64,"w":325,"y":176,"tr":"min-height 0.3s"},{"tag":"P","t":"Detected keyword gap in \"enterprise pricing\" → dra","fs":"12.16px","fw":"500","bg":"rgba(0, 0, 0, 0)","r":"0px","h":40,"w":301,"y":188,"tr":"opacity 0.4s, transform 0.4s"},{"tag":"P","t":"Traffic","fs":"12.16px","fw":"400","bg":"rgba(0, 0, 0, 0)","r":"0px","h":16,"w":103,"y":260,"tr":"all"},{"tag":"SPAN","t":"+","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":28,"w":12,"y":280,"tr":"all"},{"tag":"SPAN","t":"0","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":243,"tr":"all"},{"tag":"SPAN","t":"1","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":264,"tr":"all"},{"tag":"SPAN","t":"2","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":284,"tr":"all"},{"tag":"SPAN","t":"3","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":305,"tr":"all"},{"tag":"SPAN","t":"4","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":326,"tr":"all"},{"tag":"SPAN","t":"5","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":347,"tr":"all"},{"tag":"SPAN","t":"6","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":368,"tr":"all"},{"tag":"SPAN","t":"7","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":388,"tr":"all"},{"tag":"SPAN","t":"8","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":409,"tr":"all"},{"tag":"SPAN","t":"9","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":430,"tr":"all"},{"tag":"SPAN","t":"0","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":201,"tr":"all"},{"tag":"SPAN","t":"1","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":222,"tr":"all"},{"tag":"SPAN","t":"2","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":243,"tr":"all"},{"tag":"SPAN","t":"3","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":264,"tr":"all"},{"tag":"SPAN","t":"4","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":284,"tr":"all"},{"tag":"SPAN","t":"5","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":305,"tr":"all"},{"tag":"SPAN","t":"6","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":326,"tr":"all"},{"tag":"SPAN","t":"7","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":347,"tr":"all"},{"tag":"SPAN","t":"8","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":368,"tr":"all"},{"tag":"SPAN","t":"9","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":388,"tr":"all"},{"tag":"SPAN","t":"%","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":28,"w":17,"y":280,"tr":"all"},{"tag":"P","t":"SEO fixes","fs":"12.16px","fw":"400","bg":"rgba(0, 0, 0, 0)","r":"0px","h":16,"w":103,"y":260,"tr":"all"},{"tag":"SPAN","t":"0","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":264,"tr":"all"},{"tag":"SPAN","t":"1","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":284,"tr":"all"},{"tag":"SPAN","t":"2","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":305,"tr":"all"},{"tag":"SPAN","t":"3","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":326,"tr":"all"},{"tag":"SPAN","t":"4","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":347,"tr":"all"},{"tag":"SPAN","t":"5","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":368,"tr":"all"},{"tag":"SPAN","t":"6","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":388,"tr":"all"},{"tag":"SPAN","t":"7","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":409,"tr":"all"},{"tag":"SPAN","t":"8","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":430,"tr":"all"},{"tag":"SPAN","t":"9","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":451,"tr":"all"},{"tag":"SPAN","t":"0","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":97,"tr":"all"},{"tag":"SPAN","t":"1","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":118,"tr":"all"},{"tag":"SPAN","t":"2","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":139,"tr":"all"},{"tag":"SPAN","t":"3","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":160,"tr":"all"},{"tag":"SPAN","t":"4","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":180,"tr":"all"},{"tag":"SPAN","t":"5","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":201,"tr":"all"},{"tag":"SPAN","t":"6","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":222,"tr":"all"},{"tag":"SPAN","t":"7","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":243,"tr":"all"},{"tag":"SPAN","t":"8","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":264,"tr":"all"},{"tag":"SPAN","t":"9","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":284,"tr":"all"},{"tag":"P","t":"Vitals score","fs":"12.16px","fw":"400","bg":"rgba(0, 0, 0, 0)","r":"0px","h":16,"w":103,"y":260,"tr":"all"},{"tag":"SPAN","t":"0","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":97,"tr":"all"},{"tag":"SPAN","t":"1","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":118,"tr":"all"},{"tag":"SPAN","t":"2","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":139,"tr":"all"},{"tag":"SPAN","t":"3","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":160,"tr":"all"},{"tag":"SPAN","t":"4","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":180,"tr":"all"},{"tag":"SPAN","t":"5","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":201,"tr":"all"},{"tag":"SPAN","t":"6","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":222,"tr":"all"},{"tag":"SPAN","t":"7","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":243,"tr":"all"},{"tag":"SPAN","t":"8","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":264,"tr":"all"},{"tag":"SPAN","t":"9","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":284,"tr":"all"},{"tag":"SPAN","t":"0","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":201,"tr":"all"},{"tag":"SPAN","t":"1","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":222,"tr":"all"},{"tag":"SPAN","t":"2","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":243,"tr":"all"},{"tag":"SPAN","t":"3","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":264,"tr":"all"},{"tag":"SPAN","t":"4","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":284,"tr":"all"},{"tag":"SPAN","t":"5","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":305,"tr":"all"},{"tag":"SPAN","t":"6","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":326,"tr":"all"},{"tag":"SPAN","t":"7","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":347,"tr":"all"},{"tag":"SPAN","t":"8","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":368,"tr":"all"},{"tag":"SPAN","t":"9","fs":"20.8px","fw":"700","bg":"rgba(0, 0, 0, 0)","r":"0px","h":21,"w":13,"y":388,"tr":"all"},{"tag":"DIV","t":"","fs":"16px","fw":"400","bg":"rgb(255, 184, 252)","r":"3.35544e+07px","h":22,"w":22,"y":327,"tr":"all"}]}
+LOG [
+ {
+  "ms": 0,
+  "t": "Detected keyword gap in \"enterprise pricing\" → drafting comparison page @op0.6 || 9 / Building case study"
+ },
+ {
+  "ms": 1000,
+  "t": "Blog post ranking #4 → optimizing meta + adding internal links to push #1 @op0.042521 || 9 / Building case study"
+ },
+ {
+  "ms": 1500,
+  "t": "Blog post ranking #4 → optimizing meta + adding internal links to push #1 @op0.6 || 9 / Building case study"
+ },
+ {
+  "ms": 5000,
+  "t": "New backlink from TechCrunch detected → updating link profile report @op0.245365 || 9 / Building case study"
+ },
+ {
+  "ms": 5500,
+  "t": "New backlink from TechCrunch detected → updating link profile report @op0.6 || 9 / Building case study"
+ },
+ {
+  "ms": 9000,
+  "t": "Core Web Vitals regression on /features → auto-fix deployed, LCP improved 340ms @op0.345353 || 9 / Building case study"
+ },
+ {
+  "ms": 9500,
+  "t": "Core Web Vitals regression on /features → auto-fix deployed, LCP improved 340ms @op0.6 || 9 / Building case study"
+ },
+ {
+  "ms": 12500,
+  "t": "Core Web Vitals regression on /features → auto-fix deployed, LCP improved 340ms @op0.532587 || 9 / Building case study"
+ },
+ {
+  "ms": 13000,
+  "t": " || 9 / Building case study"
+ },
+ {
+  "ms": 17000,
+  "t": "Competitor launched pricing page → auto-built 3 counter-pages + 2 ABM landing pages @op0.52415 || 9 / Building case study"
+ },
+ {
+  "ms": 17500,
+  "t": "Competitor launched pricing page → auto-built 3 counter-pages + 2 ABM landing pages @op0.6 || 9 / Building case study"
+ },
+ {
+  "ms": 20500,
+  "t": "Competitor launched pricing page → auto-built 3 counter-pages + 2 ABM landing pages @op0.0885701 || 9 / Building case study"
+ },
+ {
+  "ms": 21000,
+  "t": "Detected keyword gap in \"enterprise pricing\" → drafting comparison page @op0.57625 || 9 / Building case study"
+ },
+ {
+  "ms": 21500,
+  "t": "Detected keyword gap in \"enterprise pricing\" → drafting comparison page @op0.6 || 9 / Building case study"
+ },
+ {
+  "ms": 24500,
+  "t": "Detected keyword gap in \"enterprise pricing\" → drafting comparison page @op0.0183362 || 9 / Building case study"
+ },
+ {
+  "ms": 25000,
+  "t": "Blog post ranking #4 → optimizing meta + adding internal links to push #1 @op0.599428 || 9 / Building case study"
+ },
+ {
+  "ms": 25500,
+  "t": "Blog post ranking #4 → optimizing meta + adding internal links to push #1 @op0.6 || 9 / Building case study"
+ },
+ {
+  "ms": 28500,
+  "t": "Blog post ranking #4 → optimizing meta + adding internal links to push #1 @op2.054e-08 || 9 / Building case study"
+ },
+ {
+  "ms": 29000,
+  "t": "New backlink from TechCrunch detected → updating link profile report @op0.6 || 9 / Building case study"
+ }
+]
+PRICING2 {
+ "tag": {
+  "fs": "16px",
+  "fw": "400",
+  "r": "0px",
+  "p": "0px",
+  "bg": "rgba(0, 0, 0, 0)",
+  "bd": "0px solid rgb(33, 33, 33)",
+  "w": 70,
+  "h": 32,
+  "y": 148,
+  "x": 685
+ },
+ "lead": {
+  "fs": "18px",
+  "fw": "400",
+  "r": "0px",
+  "p": "0px",
+  "bg": "rgba(0, 0, 0, 0)",
+  "bd": "0px solid oklab(0.247757 0.0000112727 0.00000496209 / 0.72)",
+  "w": 578,
+  "h": 28,
+  "y": 492,
+  "x": 431
+ },
+ "btns": [
+  {
+   "fs": "16px",
+   "fw": "500",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px solid oklab(0.247757 0.0000112727 0.00000496209 / 0.7)",
+   "w": 0,
+   "h": 0,
+   "y": 0,
+   "x": 0
+  },
+  {
+   "fs": "12.16px",
+   "fw": "600",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px solid rgb(33, 33, 33)",
+   "w": 73,
+   "h": 16,
+   "y": 1479,
+   "x": 763
+  }
+ ],
+ "cards": [
+  {
+   "fs": "16px",
+   "fw": "400",
+   "r": "14px",
+   "p": "32px",
+   "bg": "rgb(255, 255, 255)",
+   "bd": "1px solid rgba(33, 33, 33, 0.08)",
+   "w": 305,
+   "h": 782,
+   "y": 748,
+   "x": 80
+  },
+  {
+   "fs": "16px",
+   "fw": "400",
+   "r": "14px",
+   "p": "32px",
+   "bg": "rgb(255, 255, 255)",
+   "bd": "1px solid rgba(33, 33, 33, 0.08)",
+   "w": 305,
+   "h": 782,
+   "y": 748,
+   "x": 405
+  },
+  {
+   "fs": "16px",
+   "fw": "400",
+   "r": "14px",
+   "p": "32px",
+   "bg": "rgb(255, 255, 255)",
+   "bd": "1px solid rgb(255, 184, 252)",
+   "w": 305,
+   "h": 782,
+   "y": 748,
+   "x": 730
+  },
+  {
+   "fs": "16px",
+   "fw": "400",
+   "r": "14px",
+   "p": "32px",
+   "bg": "rgb(255, 255, 255)",
+   "bd": "1px solid rgba(33, 33, 33, 0.08)",
+   "w": 305,
+   "h": 782,
+   "y": 748,
+   "x": 1055
+  }
+ ],
+ "grey": {
+  "fs": "16px",
+  "fw": "400",
+  "r": "20px",
+  "p": "112px 96px",
+  "bg": "rgb(229, 229, 229)",
+  "bd": "0px solid rgb(33, 33, 33)",
+  "w": 1392,
+  "h": 875,
+  "y": 1622,
+  "x": 24
+ },
+ "rows": [
+  {
+   "fs": "16px",
+   "fw": "600",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px solid rgb(33, 33, 33)",
+   "w": 300,
+   "h": 17,
+   "y": 1759,
+   "x": 541
+  },
+  {
+   "fs": "16px",
+   "fw": "600",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px solid rgb(33, 33, 33)",
+   "w": 300,
+   "h": 17,
+   "y": 2176,
+   "x": 541
+  }
+ ],
+ "table": {
+  "fs": "16px",
+  "fw": "400",
+  "r": "0px",
+  "p": "0px",
+  "bg": "rgba(0, 0, 0, 0)",
+  "bd": "0px solid rgb(33, 33, 33)",
+  "w": 1152,
+  "h": 1171,
+  "y": 2871,
+  "x": 144
+ },
+ "tr": [
+  {
+   "fs": "16px",
+   "fw": "400",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "",
+   "w": 1152,
+   "h": 65,
+   "y": 2871,
+   "x": 144
+  },
+  {
+   "fs": "16px",
+   "fw": "400",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "",
+   "w": 1152,
+   "h": 65,
+   "y": 2936,
+   "x": 144
+  },
+  {
+   "fs": "16px",
+   "fw": "400",
+   "r": "0px",
+   "p": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "",
+   "w": 1152,
+   "h": 65,
+   "y": 3001,
+   "x": 144
+  }
+ ],
+ "faqItems": [
+  {
+   "fs": "16px",
+   "fw": "400",
+   "r": "0px",
+   "p": "32px 0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(33, 33, 33)",
+   "w": 1152,
+   "h": 94,
+   "y": 4481,
+   "x": 144
+  },
+  {
+   "fs": "16px",
+   "fw": "400",
+   "r": "0px",
+   "p": "32px 0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(33, 33, 33)",
+   "w": 1152,
+   "h": 94,
+   "y": 4636,
+   "x": 144
+  },
+  {
+   "fs": "16px",
+   "fw": "400",
+   "r": "0px",
+   "p": "32px 0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(33, 33, 33)",
+   "w": 1152,
+   "h": 94,
+   "y": 4735,
+   "x": 144
+  }
+ ]
+}
