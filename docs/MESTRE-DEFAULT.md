@@ -53,7 +53,7 @@ O "grito" da B (condensada caixa-alta) fica disponível como **um estilo** (`.t-
 ### Espaço, grid e raios
 - Margem lateral `--gutter`: 24px (A usa 20, B usa 24–32). Mobile: 16px.
 - Container de texto `--container`: 1152px (B). Molduras ocupam a largura toda menos o gutter (A e B).
-- Seções: `--section-y` = 144px desktop, 88px mobile.
+- Seções: `--section-y` = **96px desktop, 64px mobile** de padding em cima e embaixo de cada seção (vazio visual entre seções ≈ 192 / 128px). *Ajustado na Fase 1 (12/10): o valor anterior (144/88) era estimado; medido no Playwright, o vazio entre seções é 200–290px na Runway e 136–255px na Ploy a 1440, e ~100–150px a 390. 2 × 96 = 192 fica no meio das duas; 2 × 64 = 128 no celular.*
 - Raios: `--r-frame` 12 (hero, A+B) · `--r-field` 20 (campo colorido e footer, B) · `--r-card` 12 (B) · `--r-media` 8 (A) · `--r-pill` 999 (B).
 - Botões pill (B), três alturas: 48 / 40 / 32. O nav usa 40 e 32 (pequenos, como na A).
 
@@ -92,6 +92,8 @@ Só onde as referências usam e sempre com `prefers-reduced-motion`:
 - entrada dos itens da timeline ao rolar (B);
 - números contando ao aparecer (B);
 - hover dos botões subindo 1px.
+
+Tempos medidos (Fase 1): hover `150ms cubic-bezier(0.4,0,0.2,1)` (A+B) · fade de mídia `250ms ease` (A) · entrada `720ms cubic-bezier(0.22,1,0.36,1)` (B) · pulso de status `2.8s ease-in-out` (B).
 
 ## 6. Placeholders
 

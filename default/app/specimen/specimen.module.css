@@ -1,0 +1,8 @@
+.page { padding-block: var(--s-8); display: grid; gap: var(--s-8); }
+.block { display: grid; gap: var(--s-5); padding-top: var(--s-5); border-top: 1px solid var(--c-line); }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--s-4); }
+.swatch { display: grid; gap: var(--s-2); }
+.chip { height: 64px; border-radius: var(--r-card-sm); border: 1px solid var(--c-line); }
+.radius { height: 96px; background: var(--c-surface); border: 1px solid var(--c-line); }
+.row { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }
+.dark { background: var(--c-dark); padding: var(--s-5); border-radius: var(--r-card); }

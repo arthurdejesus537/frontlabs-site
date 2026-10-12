@@ -27,7 +27,7 @@
 | Botão secundário | `#EEF1F5` texto `#1A1A1A` | "Learn more", "Login" |
 | Botão sobre mídia | `#F7F7F7` texto `#0C0C0C` | "Try Runway for free" |
 | Rodapé | `#0C0C0C` | footer em largura total |
-| Faixa de anúncio | gradiente azul-violeta 🔶 | topo |
+| Faixa de anúncio | `#2B22FA` sólido ✅ (não é gradiente; medido 12/10) | topo, 48px |
 
 ## 3. Tipografia ✅
 
@@ -53,10 +53,12 @@ Mobile (390): H2 cai para ~32px, centralizado; H1 do hero ~26px.
 - Margem lateral: **20px** (desktop e mobile).
 - Largura útil: 1400px a 1440 (sem container fixo; a página usa a largura toda menos 20+20).
 - Grid de produto: 3 colunas de 456px, gap 16px.
-- Distância entre seções: ~120–160px 🔶.
+- Distância entre seções: ✅ vazio entre o último bloco de uma seção e o primeiro da seguinte = **200–290px** a 1440 (mediana ~215) e **130–275px** a 390 (medido 12/10 com Playwright).
 - Altura do nav: 68px; faixa de anúncio: 48px.
 
 ## 5. Raios ✅
+
+Raios presentes na página (12/10): 4, 6, 8, 12, 16 e 9999px.
 
 | Elemento | Raio |
 |---|---|
@@ -80,12 +82,13 @@ Mobile (390): H2 cai para ~32px, centralizado; H1 do hero ~26px.
 | 7 | Notícias | H2 à esquerda; grade 2×2: imagem 342×180 + título 24 + texto 14 + "Learn more ›" |
 | 8 | Footer | preto em largura total; 8 colunas de links em 2 linhas de 4; logo grande embaixo à esquerda, legal em mono pequeno, ícones sociais |
 
-## 7. Movimento 🔶
+## 7. Movimento
 
-- Hero em vídeo em loop.
-- Abas trocam sozinhas a cada ~5s, com fade na mídia.
-- Fundo da Research: vídeo borrado em movimento lento.
-- Hover dos botões: escurece levemente.
+- Hero em vídeo em loop. ✅
+- Abas trocam sozinhas: 🔶 o intervalo não pôde ser medido sem interação (o painel só troca o conteúdo depois de entrar na tela; em 15s de observação houve 1 troca). Mantido ~5–6s.
+- Fade da mídia: ✅ `opacity 250ms ease`.
+- Fundo da Research: vídeo borrado em movimento lento. ✅
+- Hover dos botões: ✅ `transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1)` (cor de fundo escurece).
 
 ## 8. O que levar para o default
 

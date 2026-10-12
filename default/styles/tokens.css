@@ -1,0 +1,144 @@
+/*
+ * tokens.css — o sistema do default (MESTRE-DEFAULT §2).
+ * Origem de cada valor: A = runway.com · B = ploy.ai (medidos em 12/10/2026).
+ * Uma marca troca ESTE arquivo; os componentes só usam var(--…).
+ */
+:root {
+  /* ---------- cor ---------- */
+  --c-bg: #f4f4f4;               /* B fundo cinza */
+  --c-surface: #ffffff;          /* A+B cards brancos */
+  --c-surface-2: #f4f4f4;        /* caixa de nota dentro de card (B) */
+  --c-ink: #0c0c0c;              /* A título */
+  --c-text: #404040;             /* A corpo */
+  --c-mute: #6e6e6e;             /* A+B meta (AA em 14px) */
+  --c-soft: #8a8a8a;             /* B grito cinza do "problema" (≥3:1, só em texto grande) */
+  --c-line: #e3e3e3;             /* B linhas e bordas */
+  --c-line-strong: #b3b3b3;      /* B borda do botão contornado */
+  --c-btn: #212121;              /* B botão preto */
+  --c-btn-ink: #ffffff;
+  --c-btn-hover: #000000;
+  --c-btn-2: #eaeaea;            /* A secundário cinza (neutralizado) */
+  --c-btn-2-ink: #1a1a1a;
+  --c-btn-2-hover: #dedede;
+  --c-dark: #141414;             /* A+B footer e seção escura */
+  --c-dark-ink: #ffffff;
+  --c-dark-text: rgb(255 255 255 / 0.72);
+  --c-dark-mute: rgb(255 255 255 / 0.6);
+  --c-dark-line: rgb(255 255 255 / 0.14);
+  --c-dark-btn: rgb(255 255 255 / 0.08);
+  --c-bar: #141414;              /* faixa de anúncio (A usa a cor da marca) */
+  --c-bar-ink: #ffffff;
+  --c-on-media: #ffffff;         /* texto sobre mídia escura */
+  --c-scrim: linear-gradient(180deg, rgb(0 0 0 / 0) 35%, rgb(0 0 0 / 0.55) 100%);
+  --c-field-1: #ffb8fc;          /* B campo rosa */
+  --c-field-2: #fffa64;          /* B campo amarelo */
+  --c-field-3: #c3dbff;          /* B campo azul */
+  --c-field-3-tint: #e6efff;     /* B topo do card da biblioteca */
+  --c-tag-1: #ffb8fc;            /* tags da timeline (B) */
+  --c-tag-2: #c3dbff;
+  --c-tag-3: #fffa64;
+  --c-live: #1f9d55;             /* ponto de status ao vivo (B) */
+  --c-placeholder: #e6e6e6;      /* bloco de mídia sem foto */
+  --c-placeholder-ink: #6e6e6e;
+  --c-placeholder-dark: #2b2b2b; /* placeholder atrás de texto branco */
+  --c-placeholder-dark-ink: rgb(255 255 255 / 0.6);
+  --c-focus: #0c0c0c;
+  --c-error: #b42318;
+  --c-success: #1f7a45;
+
+  /* ---------- fontes (as variáveis --font-* vêm do next/font em app/layout.tsx) ---------- */
+  --f-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: var(--font-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --f-shout: var(--font-shout), Impact, "Arial Narrow", sans-serif; /* Anton no lugar da FK Screamer (B) */
+  --f-logo: var(--f-sans);
+  --shout-case: uppercase;
+  --shout-weight: 400;           /* Anton só tem 400 (já é pesada) */
+  --shout-tracking: 0;
+
+  --w-regular: 400;
+  --w-title: 500;                /* A usa 400; 500 dá presença à Geist */
+  --w-medium: 500;
+  --w-strong: 600;               /* botões e rótulos (A+B) */
+
+  /* ---------- escala tipográfica (desktop; mobile no fim) ---------- */
+  --t-shout: 144px;   --t-shout-lh: 0.88;                              /* B */
+  --t-display: 56px;  --t-display-lh: 1.08; --t-display-ls: -0.025em; /* A H2 */
+  --t-hero: 56px;     --t-hero-lh: 1.04;    --t-hero-ls: -0.03em;     /* A H1, maior */
+  --t-heading: 40px;  --t-heading-lh: 1.1;  --t-heading-ls: -0.03em;  /* B título calmo de seção */
+  --t-title: 24px;    --t-title-lh: 1.2;    --t-title-ls: -0.02em;    /* A card */
+  --t-subtitle: 20px; --t-subtitle-lh: 1.3; --t-subtitle-ls: -0.02em; /* B título de card */
+  --t-lead: 20px;     --t-lead-lh: 1.5;                                /* A */
+  --t-body: 16px;     --t-body-lh: 1.5;     --t-body-ls: -0.01em;     /* B */
+  --t-small: 14px;    --t-small-lh: 1.5;                               /* A */
+  --t-meta: 12px;     --t-meta-lh: 1.4;                                /* A */
+  --t-label: 12px;    --t-label-ls: 0.04em;                            /* B "ANNOUNCEMENT" */
+  --t-number: 64px;   --t-number-lh: 1;                                /* B número de card */
+
+  /* ---------- espaço e grid ---------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px;
+  --gutter: 24px;                /* A 20 · B 24–32 */
+  --container: 1152px;           /* B */
+  --container-narrow: 720px;
+  --section-y: 96px;             /* medido: vazio entre seções ≈ 2 × 96 */
+  --field-gap: 24px;             /* B campos coloridos encostados */
+  --grid-gap: 16px;              /* A+B */
+
+  /* ---------- raios ---------- */
+  --r-frame: 12px;               /* A+B hero */
+  --r-field: 20px;               /* B campo colorido e footer */
+  --r-panel: 16px;               /* A painel de abas */
+  --r-card: 12px;                /* B card de stats */
+  --r-card-sm: 8px;              /* B timeline, biblioteca, anúncio */
+  --r-media: 8px;                /* A mídia de card */
+  --r-media-lg: 12px;            /* A mídia dentro do painel */
+  --r-pill: 999px;               /* B */
+  --r-btn: var(--r-pill);
+
+  /* ---------- botões ---------- */
+  --btn-h-lg: 48px;  --btn-px-lg: 24px;
+  --btn-h-md: 40px;  --btn-px-md: 20px;
+  --btn-h-sm: 32px;  --btn-px-sm: 14px;
+  --btn-fs: 14px;    --btn-fw: var(--w-strong);
+  --btn-fs-sm: 13px;
+
+  /* ---------- nav e faixa ---------- */
+  --nav-h: 68px;                 /* A */
+  --bar-h: 48px;                 /* A */
+  --nav-link-fs: 15px;
+  --tap: 44px;                   /* toque mínimo no celular */
+
+  /* ---------- molduras ---------- */
+  --hero-h: clamp(560px, 80svh, 760px);
+  --frame-pad: 40px;             /* A: copy a 40px da borda da moldura */
+
+  /* ---------- movimento (medido) ---------- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);       /* A+B hover */
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1); /* B entrada */
+  --dur-fast: 150ms;
+  --dur-fade: 250ms;
+  --dur-enter: 720ms;
+  --dur-pulse: 2.8s;
+  --marquee-speed: 40s;
+
+  --z-header: 50;
+  --z-menu: 60;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --t-shout: 56px;
+    --t-display: 34px;
+    --t-hero: 36px;
+    --t-heading: 30px;
+    --t-title: 21px;
+    --t-subtitle: 18px;
+    --t-lead: 18px;
+    --t-number: 48px;
+    --gutter: 16px;
+    --section-y: 64px;
+    --frame-pad: 20px;
+    --hero-h: auto;
+    --nav-h: 60px;
+  }
+}

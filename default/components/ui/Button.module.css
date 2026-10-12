@@ -1,0 +1,41 @@
+/* Botão pill (B), três alturas; peso 600 (A+B); hover sobe 1px e muda cor em 150ms (medido). */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2);
+  height: var(--btn-h-md); padding-inline: var(--btn-px-md);
+  border-radius: var(--r-btn); border: 1px solid transparent;
+  font-size: var(--btn-fs); font-weight: var(--btn-fw); line-height: 1; letter-spacing: 0;
+  white-space: nowrap; cursor: pointer; user-select: none;
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.lg { height: var(--btn-h-lg); padding-inline: var(--btn-px-lg); }
+.md { height: var(--btn-h-md); padding-inline: var(--btn-px-md); }
+.sm { height: var(--btn-h-sm); padding-inline: var(--btn-px-sm); font-size: var(--btn-fs-sm); }
+
+.primary { background: var(--c-btn); color: var(--c-btn-ink); }
+.primary:hover { background: var(--c-btn-hover); }
+.secondary { background: var(--c-btn-2); color: var(--c-btn-2-ink); }
+.secondary:hover { background: var(--c-btn-2-hover); }
+.outline { background: transparent; color: var(--c-ink); border-color: var(--c-line-strong); }
+.outline:hover { border-color: var(--c-ink); }
+.light { background: var(--c-surface); color: var(--c-ink); }
+.light:hover { background: var(--c-btn-2); }
+.outline-light { background: transparent; color: var(--c-on-media); border-color: rgb(255 255 255 / 0.7); }
+.outline-light:hover { background: rgb(255 255 255 / 0.12); border-color: var(--c-on-media); }
+.link {
+  height: auto; padding-inline: 0; background: none; color: var(--c-ink);
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px;
+}
+.link:hover { transform: none; text-decoration-thickness: 2px; }
+
+.icon { display: inline-flex; width: 14px; height: 14px; }
+.icon svg { width: 100%; height: 100%; }
+
+@media (max-width: 767px) {
+  /* toque mínimo de 44px: a área clicável cresce sem mudar o desenho */
+  .btn { position: relative; }
+  .sm::after, .md::after { content: ""; position: absolute; inset: -6px -2px; }
+}

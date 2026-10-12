@@ -55,9 +55,11 @@ Mobile (390): grito do hero ~56px, 5 linhas; corpo continua 16px.
 - Conteúdo dentro dos campos: container de **1152px** (x = 144).
 - Cards de stats: 3 × 373px, gap 16px.
 - Nav: 48px de altura, botões pill de 48px.
-- Seções separadas por 120–200px de ar 🔶; campos coloridos encostados (gap 24px).
+- Seções separadas: ✅ vazio entre blocos de seções vizinhas = **136–255px** a 1440 e **97–220px** a 390 (medido 12/10); campos coloridos encostados (gap 24px).
 
 ## 5. Raios ✅
+
+Raios presentes na página (12/10): 4, 6, 8, 12, 16, 20, 24, 44 e pill (1600px).
 
 | Elemento | Raio |
 |---|---|
@@ -85,7 +87,10 @@ Mobile (390): grito do hero ~56px, 5 linhas; corpo continua 16px.
 | 11 | CTA final | grito centralizado, frase, card branco com input pill + botão, microcopy |
 | 12 | Footer | card escuro raio 20: frase + "Contact us"; "Want the short version?" com pills de IA; 5 colunas; integrações; linha legal |
 
-## 7. Movimento 🔶
+## 7. Movimento
+
+Medido 12/10 ✅: hover de cor `150–200ms cubic-bezier(0.4, 0, 0.2, 1)`; entrada do hero `homeHeroIntroIn 720ms cubic-bezier(0.22, 1, 0.36, 1)`; pulso de status ao vivo `pcPulse/pcRing 2.8s ease-in-out` em loop; transform com mola de 450ms nos cards.
+Estimado 🔶 (só visível com rolagem humana):
 
 - Números dos cards rolam como odômetro.
 - Objetos 3D (balões) flutuam e passam por trás/na frente dos títulos.
