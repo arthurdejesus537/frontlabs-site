@@ -8,6 +8,8 @@ const wrap = (value: number, length: number) => ((value % length) + length) % le
 const fill = (t: string, n: number, total: number, title: string) =>
   t.replace("{n}", String(n)).replace("{total}", String(total)).replace("{title}", title);
 const pad = (n: number) => String(n).padStart(2, "0");
+/* pausa global das animações (MotionToggle, rodada 3) também segura a deriva da órbita */
+const globalPaused = () => document.documentElement.hasAttribute("data-motion-paused");
 
 /**
  * Órbita de etapas (DESIGN §6.11): cards em retrato num arco 3D raso, com reflexo embaixo,
@@ -51,9 +53,9 @@ export function StepOrbit({ data }: { data: StepOrbitContent }) {
     let raf = 0;
     let cards: HTMLElement[] = [];
 
-    /* o fundo de cada card: foto borrada ou o gradiente Horizonte */
+    /* o fundo de cada card: foto borrada ou o gradiente Horizonte ("horizon" ou "living", o Horizonte vivo da rodada 3) */
     const paintFace = (face: HTMLElement, bg: string) => {
-      const value = bg === "horizon" ? "var(--bg-horizonte-4x5)" : `url("${bg}") center / cover`;
+      const value = bg === "horizon" || bg === "living" ? "var(--bg-horizonte-4x5)" : `url("${bg}") center / cover`;
       if (face.dataset.bg !== bg) { face.dataset.bg = bg; face.style.background = value; }
     };
 
@@ -146,7 +148,7 @@ export function StepOrbit({ data }: { data: StepOrbitContent }) {
           position += (target - position) * (1 - Math.exp(-elapsed / 145));
           if (Math.abs(target - position) < 0.0005) { position = target; target = null; }
           render();
-        } else if (!paused && !dragging && !hovering && !focused && time > resumeAt) {
+        } else if (!paused && !globalPaused() && !dragging && !hovering && !focused && time > resumeAt) {
           position += elapsed * 0.000105;
           render();
         }
