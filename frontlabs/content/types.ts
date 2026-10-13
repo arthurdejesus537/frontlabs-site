@@ -236,6 +236,7 @@ export type FinalCtaContent = Base & {
   errorInvalid: string;
   success: string;
   background?: MediaSpec;
+  sendTo?: { email: string; subject: string; body: string };
 };
 
 /* ---------- rodada 2 ---------- */

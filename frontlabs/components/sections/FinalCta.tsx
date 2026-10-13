@@ -11,7 +11,7 @@ const valid = {
   url: (v: string) => /^(https?:\/\/)?([\w-]+\.)+[a-z]{2,}(\/\S*)?$/i.test(v),
 };
 
-/** CTA final (B): título centralizado, frase, card branco com input pill + botão e microcopy. Sem backend: valida e mostra sucesso. */
+/** CTA final (B): título centralizado, frase, card branco com input pill + botão e microcopy. Sem backend: valida, abre o e-mail pronto (sendTo) e mostra sucesso. */
 export function FinalCta({ data = site.finalCta }: { data?: FinalCtaContent }) {
   const id = useId();
   const [value, setValue] = useState("");
@@ -26,6 +26,10 @@ export function FinalCta({ data = site.finalCta }: { data?: FinalCtaContent }) {
     if (!v) return setError(data.errorEmpty);
     if (!valid[data.inputType](v)) return setError(data.errorInvalid);
     setError("");
+    if (data.sendTo) {
+      const { email, subject, body } = data.sendTo;
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + v)}`;
+    }
     setDone(true);
   };
 

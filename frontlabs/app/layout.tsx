@@ -4,7 +4,7 @@ import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Logo } from "@/components/ui/Logo";
-import { site } from "@/content/site";
+import { site, siteUrl } from "@/content/site";
 import "./globals.css";
 
 /* DESIGN.md §3: Inter (variável, com tamanho ótico), Geist Mono nos rótulos, Bricolage só no nome. */
@@ -13,9 +13,11 @@ const mono = Geist_Mono({ subsets: ["latin"], weight: "400", variable: "--font-m
 const brand = Bricolage_Grotesque({ subsets: ["latin"], weight: "variable", axes: ["opsz"], variable: "--font-brand", display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: { default: site.meta.title, template: `%s · Front Labs` },
   description: site.meta.description,
-  robots: { index: false, follow: false },
+  openGraph: { type: "website", siteName: "Front Labs", title: site.meta.title, description: site.meta.description, url: "/" },
+  twitter: { card: "summary_large_image", title: site.meta.title, description: site.meta.description },
 };
 
 /* nav e rodapé são os mesmos em todas as páginas; cada página traz o próprio <main id="conteudo"> */

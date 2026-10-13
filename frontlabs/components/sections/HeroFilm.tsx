@@ -10,7 +10,7 @@ import styles from "./HeroFilm.module.css";
  * Herói com "vídeo" de fundo (Ploy, 1ª dobra): moldura grande, título enorme centralizado,
  * frase + 2 botões embaixo dele, card de anúncio no canto inferior esquerdo (opcional)
  * O vídeo roda sempre, mudo e em loop, sem botão de play/pause (pedido do Arthur, 12/10/2026).
- * Sem vídeo: a imagem com a câmera lenta + grão + véu.
+ * Sem vídeo: a imagem com a câmera lenta + véu.
  */
 export function HeroFilm({ data }: { data: HeroFilmContent }) {
   const videoRef = useRef<HTMLVideoElement>(null);

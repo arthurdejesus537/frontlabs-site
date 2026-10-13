@@ -10,8 +10,7 @@ const HORIZON = "/img/gradiente-horizonte-16x9.jpg";
  * arquivo, cada uma com translate + scale + poucos graus de rotação em loop `alternate`
  * (19–32s, fases diferentes). A de cima borrada, a do meio em soft-light: as manchas "respiram"
  * sem trocar as cores do arquivo (DESIGN: sem color grade). Só transform/opacity animam.
- * Pausa fora da tela; parado com reduced-motion. O grão fica por conta do contêiner
- * ([data-field] / [data-stage] em brand.css), parado por cima.
+ * Pausa fora da tela; parado com reduced-motion. Sem grão (DESIGN §4.3).
  * `dim`: véu de 28% (= Horizonte a 72%) quando há texto branco por cima.
  */
 export function LivingGradient({ dim = false, sizes = "100vw", className }: { dim?: boolean; sizes?: string; className?: string }) {

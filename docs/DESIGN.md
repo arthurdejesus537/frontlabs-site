@@ -2,7 +2,7 @@
 
 Fonte da verdade da identidade visual da FrontLabs. Vale para tudo que é da marca: landing, posts, stories, vídeos, documentos internos e PDFs para clientes. Os sites dos venues seguem o template próprio deles, não este arquivo.
 
-Versão 4 · 10 de outubro de 2026 · baseado no design system v2 do Arthur, revisado com referências da Runway, ElevenLabs, Apple, Ploy, Pensatori e da campanha Just Rest.
+Versão 4 · 10 de outubro de 2026 · revisada em 13 de outubro (grão vira último recurso, 4.3) · baseado no design system v2 do Arthur, revisado com referências da Runway, ElevenLabs, Apple, Ploy, Pensatori e da campanha Just Rest.
 
 Arquivos que acompanham este documento estão no **FrontLabs-Brand-Kit** (seção 14).
 
@@ -111,7 +111,7 @@ O branco puro não some: ele vira superfície de destaque. Um card branco sobre 
 
 **Legado, em aberto.** Nos documentos e na landing, o lugar dos campos foi tomado pelo gradiente Horizonte (4.2.1). Os campos ficam guardados aqui até decidirmos se são recoloridos com a paleta Paisagem ou aposentados.
 
-**Receita: monocromática.** Um matiz por campo, do tom médio em cima ao escuro embaixo, sempre de cima para baixo, com bastante grão. Sem manchas de luz, sem grade, sem bolinhas.
+**Receita: monocromática.** Um matiz por campo, do tom médio em cima ao escuro embaixo, sempre de cima para baixo, limpo, sem grão (4.3). Sem manchas de luz, sem grade, sem bolinhas.
 
 | Campo | Topo | Meio | Base | Apoio claro | Função |
 |---|---|---|---|---|---|
@@ -136,7 +136,7 @@ A paleta das **imagens**: céu azul, mata escura, grama oliva, madeira moca e li
 | `--p-madeira` | `#402F1D` | madeira escura, interiores |
 | `--p-linho` | `#DED5C9` | vestido, toalha, parede clara |
 
-**Gradiente Horizonte.** É o único gradiente da marca, feito só com as cores da paleta, sem foto: manchas suaves misturadas (céu `#1F6F9E` e `#2E86B5` em cima, névoa `#9BB8C4` no meio, mata `#25301F` e `#2A3524` abaixo, grama `#6F7A38` e `#55602A` embaixo, musgo `#3E4C1D` na base), sem faixas duras, com grão fino. O degradê em faixas e a versão a partir de foto borrada foram testados e descartados.
+**Gradiente Horizonte.** É o único gradiente da marca, feito só com as cores da paleta, sem foto: manchas suaves misturadas (céu `#1F6F9E` e `#2E86B5` em cima, névoa `#9BB8C4` no meio, mata `#25301F` e `#2A3524` abaixo, grama `#6F7A38` e `#55602A` embaixo, musgo `#3E4C1D` na base), sem faixas duras, limpo. O degradê em faixas e a versão a partir de foto borrada foram testados e descartados.
 
 - Arquivos prontos: `gradiente-horizonte-16x9.jpg`, `-4x5.jpg`, `-9x16.jpg`.
 - Uso: fundo de apresentação de peças, fundo de stories e posts de texto, palco para mockups e cards. Sobre ele, cards claros ou texto branco.
@@ -147,14 +147,21 @@ A paleta das **imagens**: céu azul, mata escura, grama oliva, madeira moca e li
 
 ### 4.2.2 Fundo borrado do venue
 
-A foto da home do venue, borrada até virar mancha de cor (reduzir para ~120px, desfocar, ampliar, desfocar de novo, +15% de cor, +8% de luz e grão 9). Serve de **palco** atrás do card de preview e de cards de produto, no lugar do cinza liso. Na landing, o herói usa o mesmo fundo com um movimento lento de câmera (ciclo de 22s, escala 1,04–1,08), como se fosse vídeo, e grão por cima.
+A foto da home do venue, borrada até virar mancha de cor (reduzir para ~120px, desfocar, ampliar, desfocar de novo, +15% de cor e +8% de luz, sem grão). Serve de **palco** atrás do card de preview e de cards de produto, no lugar do cinza liso. Na landing, o herói usa o mesmo fundo com um movimento lento de câmera (ciclo de 22s, escala 1,04–1,08), como se fosse vídeo.
 
 - Arquivo de exemplo: `componentes/bt-blur.jpg` (Bella Terra).
 - Sempre com raio 24 e conteúdo em cima. Nunca como fundo de página inteira em documento.
 
-### 4.3 Grão
+### 4.3 Grão: só em último recurso
 
-Todo campo leva grão: ruído monocromático em `overlay` (cerca de 60%) e uma segunda camada em `multiply` (cerca de 22%). Em PDF, usar uma textura de ruído em tile para manter o arquivo leve.
+**Padrão: sem grão.** Fotos, vídeos, o gradiente Horizonte, os campos e os fundos borrados saem limpos. O grão não é parte da estética da marca.
+
+Ele só entra como correção, numa peça específica, quando não houver outro jeito:
+
+- o degradê marca faixas visíveis (banding) e não some exportando em mais bits ou com mais cor;
+- a imagem gerada por IA ou o vídeo comprimido tem um artefato que o grão disfarça melhor do que regerar.
+
+Quando entrar: bem fino, ruído monocromático em `overlay` a no máximo 15%, sem a segunda camada em `multiply`, e só na área que precisa. Anotar na peça por que entrou. Nunca usar grão "para dar textura" ou "cara de filme".
 
 ### 4.4 Onde a cor entra
 
@@ -310,7 +317,7 @@ Três colunas com os círculos 01, 02, 03 ligados por um traço preto de 1px; o 
 
 Carrossel 3D para mostrar etapas ou peças em sequência, adaptado de uma galeria de referência.
 
-- Moldura de raio 24 com o **gradiente Horizonte** escurecendo até um "chão" quase preto embaixo, com grão. Sem estrelas, sem verde-esmeralda: a cor vem do Horizonte.
+- Moldura de raio 24 com o **gradiente Horizonte** escurecendo até um "chão" quase preto embaixo. Sem estrelas, sem verde-esmeralda: a cor vem do Horizonte.
 - Cards em retrato (altura = largura × 1,57, de 135 a 168px), raio 18, num arco 3D raso: o do meio fica reto; os das pontas avançam, sobem e giram um pouco. Cada card é o fundo borrado da etapa (4.2.2) ou o Horizonte, com o número em mono no topo e o nome em Inter 550 embaixo, em branco.
 - Rótulo mono da etapa acima de cada card (`/01 code`). Embaixo, o **reflexo**: o próprio card invertido, apagando até sumir.
 - Rodapé centralizado: contador mono (`03 / 05`), setas em círculo contornado branco, nome e frase da etapa atual, pontos (o ativo vira pílula) e "/drag to explore · pause".
@@ -342,7 +349,7 @@ Só no feed do Instagram e, talvez, no site. **Nunca em documentos, PDFs ou apre
 7. **Luz natural com direção:** sol baixo de lado, contraluz, janela forte. Cores vivas, mas naturais, **dentro da paleta Paisagem** (4.2.1): céu azul, verde de mata e grama, marrom moca de madeira, branco de linho. Evitar cores fora disso (rosa, roxo, neon) a não ser na peça de figurino.
 8. **Ângulo marcante, um por foto:** de baixo, de cima ou muito aberto.
 9. **Espaço livre em cima e embaixo** para a frase dividida.
-10. **Sem efeito de cor.** A foto fica exatamente como é. Nenhum filtro, grade ou tom rosado. Só **grão fino** por cima (ruído monocromático leve), como nas referências da campanha Just Rest.
+10. **Sem efeito de cor e sem grão.** A foto fica exatamente como é: limpa e nítida. Nenhum filtro, grade, tom rosado ou ruído por cima. Grão só em último recurso (4.3).
 11. **Proibido:** cara de banco de imagem, sorriso posado, close em mãos, logos e texto dentro da imagem, porta.
 
 ### 7.3 Geração com IA
@@ -350,11 +357,11 @@ Só no feed do Instagram e, talvez, no site. **Nunca em documentos, PDFs ou apre
 - **Modelo para a versão final:** Nano Banana Pro (fal.ai), cerca de US$ 0,15 por imagem.
 - **Modelo para testar composição:** Nano Banana (cerca de US$ 0,04). Erra mais nos detalhes.
 - **Flux 1.1 Ultra:** descartado, porque deixa as pessoas pequenas e com cara de banco de imagem.
-- **Dica:** usar uma foto da Runway como imagem de referência de estilo no modo edição, pedindo para copiar luz, cor e textura, mas não a cena.
+- **Dica:** usar uma foto da Runway como imagem de referência de estilo no modo edição, pedindo para copiar luz e cor, mas não a cena nem o grão do filme.
 
 **Bloco fixo do prompt** (vai no fim de todos):
 ```
-A frame grab from a high-end TV commercial shot on 35mm film, mid-action, deadpan and quietly surreal. Street casting, natural skin texture with pores and wrinkles, minimal makeup, one bold wardrobe piece. Strong natural light from the side, saturated but natural colors in a palette of clear blue sky, deep green trees and grass, warm mocha-brown wood and off-white linen, gentle halation, Kodak Portra 400 film grain, slightly soft analog look. Generous empty space at the top and bottom of the frame. Photorealistic. No text, no logos on clothing or objects, no watermark.
+A frame grab from a high-end TV commercial, shot on a digital cinema camera with a 35mm lens, mid-action, deadpan and quietly surreal. Street casting, natural skin texture with pores and wrinkles, minimal makeup, one bold wardrobe piece. Strong natural light from the side, saturated but natural colors in a palette of clear blue sky, deep green trees and grass, warm mocha-brown wood and off-white linen. Clean, sharp, noise-free image with no film grain. Generous empty space at the top and bottom of the frame. Photorealistic. No text, no logos on clothing or objects, no watermark.
 ```
 
 **Estrutura:** `[cena: lugar + pessoa + ação + absurdo + objeto] + [ângulo] + [bloco fixo]`.
@@ -370,9 +377,16 @@ A frame grab from a high-end TV commercial shot on 35mm film, mid-action, deadpa
 
 ### 8.1 Perfil
 
+Layout de referência: perfil da ElevenLabs (nome, categoria, uma linha de bio, link). Prévia em `Instagram/00-perfil-preview.png`.
+
 - **Foto:** círculo branco com o lockup `|/ FrontLabs`.
-- **Bio:** "Online stuff, handled. Go run your business." + link.
+- **Usuário:** @front_labss. **Nome:** FrontLabs. **Categoria:** Web Designer.
+- **Bio:** "Online stuff, handled. Go run your business."
+- **Link:** nenhum por enquanto. Entra quando houver domínio próprio (site + Linktree).
 - **Sem destaques** por enquanto.
+- **Grade só com reels** por enquanto: os vídeos prontos sobem como reels e as fotos da marca viram as capas deles. Sem posts estáticos.
+
+**Capa de reel:** 1080 × 1920, foto inteira, texto no formato 1 (frase dividida) ou 2 (lançamento). O grid corta o centro em 3:4 (faixa y 240–1680): todo texto e o lockup ficam entre y 400 e 1520 para não colar na borda nem no ícone de reel. Fontes em `human-output/instagram-fontes/capa-*.html`.
 
 ### 8.2 Formatos (exemplos, ainda não definitivos)
 
@@ -391,7 +405,7 @@ Alternar foto e gráfico na grade, para o perfil não virar um bloco só de foto
 
 ### 8.4 Legendas
 
-Em inglês. Primeira linha repete a frase do post. Duas ou três frases curtas. Fecha com a ação ("Get your free preview. Link in bio.") ou com o preço ("$600 once. No monthly fee.").
+Em inglês. Primeira linha repete a frase do post. Duas ou três frases curtas. Fecha com a ação ("Get your free preview. Link in bio."; enquanto não houver link, "Get your free preview. Send us a DM.") ou com o preço ("$600 once. No monthly fee.").
 
 ### 8.5 Vídeo
 
@@ -530,7 +544,7 @@ Nos documentos e posts, o card vai **sobre o fundo borrado do venue** (raio 24, 
 | 6 | Nomes sobre campo com regra própria (400, apoio em 300 apagado) | Nomes em 550 | Ficavam pesados demais |
 | 7 | Logo versão A | Variações testadas | A original já funciona |
 | 8 | Porta removida da marca | Era candidata a elemento | Não tem a ver com a FrontLabs |
-| 9 | Campos monocromáticos com grão | 6 cores soltas e manchas | Mais sóbrio (hoje em aberto, substituídos pelo Horizonte nas peças) |
+| 9 | Campos monocromáticos (sem grão desde a #31) | 6 cores soltas e manchas | Mais sóbrio (hoje em aberto, substituídos pelo Horizonte nas peças) |
 | 10 | Fundo `#F4F3F1` | Branco puro, depois creme | Menos "documento padrão", sem puxar para o amarelo |
 | 11 | Foto em moldura com raio 24 no site | Foto de fundo inteiro | Lição da Ploy: cara de produto, não de template |
 | 16 | Sem foto em documentos e PDFs | Capa com foto | Foto é do feed e, talvez, do site |
@@ -545,16 +559,19 @@ Nos documentos e posts, o card vai **sobre o fundo borrado do venue** (raio 24, 
 | 15 | Botões chapados preto e branco, sem vidro | Vidro sobre foto | Não agradou no teste v4 |
 | 17 | Paleta Paisagem só para imagens e gradiente | Gradientes do Arthur em teste | Unifica o feed; a interface segue preto e branco |
 | 18 | Gradiente Horizonte como único gradiente | Radiais Night, Dawn, Dusk | Saiu do teste v4 e agradou |
-| 19 | Grão fino na foto | Foto limpa | Textura analógica sem mexer na cor |
+| 19 | Foto limpa, sem grão (revisada pela #31) | Grão fino na foto | O grão fino era a textura analógica; saiu em 13/10 |
 | 25 | Card de preview sobre a foto do venue borrada | Card sobre cinza liso | Mais vida, mesma família da landing |
 | 26 | Gráficos com céu e grama (moca para economia) | Barras preto e cinza | Preto e cinza ficava cru |
 | 27 | Passos da landing como cards com imagem do momento | Lista com círculos | A lista ficava crua |
 | 28 | FAQ em duas colunas com card do Arch e pílula de veredito | Lista simples | Resposta direta e um contato humano |
 | 29 | Barra de navegador só no card de preview | "Janela" em todo conteúdo | Ficou exagerado |
 | 30 | Órbita de etapas no How it works (6.11) | Só as linhas por etapa | Mostra as 5 etapas de uma vez, com movimento; a galeria de referência foi refeita com o Horizonte e os fundos borrados no lugar do verde-esmeralda e das estrelas |
+| 31 | Sem grão; só em último recurso (4.3) | Grão em todo campo, foto, gradiente e fundo borrado | Deixava todas as fotos granuladas demais; a imagem limpa e nítida passa a ser o padrão |
+| 32 | Instagram só com reels, capas feitas com as fotos da marca, perfil no layout da ElevenLabs, sem link até ter domínio (8.1) | 5 posts estáticos + reel | Os vídeos prontos carregam a marca melhor; as fotos ganham uso como capa |
 
 ## 13. Em aberto
 
+- Peças feitas antes da decisão #31 ainda têm grão: os posts de `Instagram/` (o `post.css` aplica grão no Horizonte e nas fotos) e os takes que pediram "film grain" no prompt. O Reel `Vídeos/06-introducing-frontlabs.mp4` fica como está, por decisão do Arthur.
 - Campos Night, Sage e Amber: recolorir com a paleta Paisagem ou aposentar de vez.
 - Desenhar a logo final com a Bricolage e o símbolo (ajuste fino).
 - "Front Labs" ou "FrontLabs" no texto corrido.

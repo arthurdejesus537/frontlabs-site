@@ -11,7 +11,6 @@
   --p-musgo: #36451a; --p-moca: #836a4e; --p-madeira: #402f1d; --p-linho: #ded5c9;
   --bg-horizonte: url("/img/gradiente-horizonte-16x9.jpg") center / cover;
   --bg-horizonte-4x5: url("/img/gradiente-horizonte-4x5.jpg") center / cover;
-  --grain: url("/img/grao.png");
 
   /* ---------- cor (nomes do default) ---------- */
   --c-bg: var(--bg);
@@ -37,7 +36,6 @@
   --c-dark-btn: transparent;      /* contorno, sem fundo translúcido (vidro em pausa) */
   --c-bar: var(--p-ceu);
   --bar-bg: linear-gradient(rgb(10 10 10 / 0.28), rgb(10 10 10 / 0.28)), var(--bg-horizonte); /* Horizonte (§6.6) com véu para AA */
-  --grain-opacity: 0.22;          /* DESIGN §4.3 pede ~60% em overlay; com este grao.png isso apaga o texto. Ver REVISAR */
   --c-bar-ink: #ffffff;
   --c-on-media: #ffffff;
   --c-on-media-text: rgb(255 255 255 / 0.85);
@@ -45,6 +43,7 @@
   --c-on-media-border: #ffffff;   /* contorno branco 1px (§6.1) */
   --c-on-media-hover: rgb(255 255 255 / 0.12);
   --c-veil: rgb(10 10 10 / 0.3);
+  --c-veil-m: rgb(10 10 10 / 0.45);  /* celular: o texto cai sobre a parte clara do vídeo (janela, lustre) */
   --horizon-dim: 0.72;            /* brilho do Horizonte quando há texto branco por cima (AA) */
   --hero-blur: 14px;              /* foto do herói "bem borrada" (§4.2.2) */
   --c-scrim: linear-gradient(180deg, rgb(10 10 10 / 0.12) 0%, rgb(10 10 10 / 0.5) 100%);

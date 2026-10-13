@@ -9,7 +9,7 @@ import styles from "./Stage.module.css";
 const HORIZON = "/img/gradiente-horizonte-16x9.jpg";
 
 /**
- * Palco (DESIGN §4.2.2): fundo borrado, Horizonte ou Horizonte vivo, raio 18–24, grão, e por cima o
+ * Palco (DESIGN §4.2.2): fundo borrado, Horizonte ou Horizonte vivo, raio 18–24, sem grão, e por cima o
  * "momento" desenhado em HTML (código sendo escrito, site em vídeo, domínio no ar, lista de pedidos).
  * Usado nas abas da home e nas linhas de /how-it-works.
  */

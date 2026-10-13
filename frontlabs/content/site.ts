@@ -13,6 +13,11 @@ const CALL_HREF = `mailto:archielewis49@gmail.com?subject=${encodeURIComponent("
 const R = { how: "/how-it-works", get: "/what-you-get", pricing: "/pricing", questions: "/questions" };
 const PREVIEW = "#cta"; // toda página termina no formulário do preview (FinalCta, id "cta")
 
+/** Endereço público do site: NEXT_PUBLIC_SITE_URL quando o domínio estiver ligado; na Vercel, o domínio de produção. */
+export const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000");
+
 const AI_PROMPT = encodeURIComponent("What does Front Labs, the website studio for local businesses, do? How does its free website preview work?");
 
 /** O site do próprio visitante, ilustrativo (FRONTLABS-HOME §1). Nunca um cliente real. */
@@ -568,7 +573,6 @@ export const site: Site = {
       initial: "A",
       bubble: "Something else on your mind?",
       email: EMAIL,
-      emailNote: "[CONFIRMAR e-mail público]",
       button: "Email Arch",
     },
     more: { label: "See all questions", href: R.questions },
@@ -595,7 +599,9 @@ export const site: Site = {
     microcopy: "Free preview · You see it first, then decide",
     errorEmpty: "Add your website so we know what to rebuild.",
     errorInvalid: "That doesn't look like a web address. Try yourbusiness.com",
-    success: "Got it. We'll start on your preview.",
+    success: "Got it. Your email app opened with the request. Hit send and we'll start on your preview.",
+    // sem backend: o envio abre um e-mail pronto para o Arch com o site do visitante
+    sendTo: { email: EMAIL, subject: "Free preview request", body: "Hi Arch, here's my current website: " },
     background: { kind: "gradient", src: "/img/gradiente-horizonte-16x9.jpg", alt: "" },
   },
 
@@ -866,8 +872,7 @@ export const site: Site = {
           initial: "A",
           bubble: "Something else on your mind?",
           email: EMAIL,
-          emailNote: "[CONFIRMAR e-mail público]",
-          button: "Email Arch",
+              button: "Email Arch",
         },
         items: [
           { q: "Do I pay anything before I see the new site?", verdict: "No.", a: "We build your preview first. You see it on a 15-minute call, then decide." },

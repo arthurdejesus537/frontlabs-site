@@ -1,4 +1,4 @@
-/* Campo (Ploy: rosa) → Horizonte com grão, raio 24. Cards 373 / pad 24 / gap 16 (medido). */
+/* Campo (Ploy: rosa) → Horizonte limpo, raio 24. Cards 373 / pad 24 / gap 16 (medido). */
 .field { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--r-field); padding: var(--s-9) var(--gutter) var(--s-8); color: var(--c-on-media); }
 .inner { max-width: var(--live-card-w); margin-inline: auto; }
 .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-6); align-items: end; }

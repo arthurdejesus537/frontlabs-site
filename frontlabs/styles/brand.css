@@ -1,21 +1,7 @@
 /*
- * brand.css — só da Front Labs: grão e "câmera lenta" do fundo borrado (DESIGN §4.2.2 e §4.3).
+ * brand.css — só da Front Labs: "câmera lenta" do fundo borrado (DESIGN §4.2.2). Sem grão (§4.3, decisão #31).
  * Aplicado por seletor de seção, sem mexer nos componentes do default.
  */
-
-/* grão fino por cima de toda moldura com mídia (camada overlay; fica abaixo do conteúdo) */
-[data-section="hero"] > div::after,
-[data-section="hero-film"] > div::after,
-[data-section="live-cards"] [data-field]::after,
-[data-stage]::after,
-[data-section="timeline"] > div::after,
-[data-section="final-cta"] > div::after,
-[data-section="announcement"]::after {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: var(--grain); background-size: 220px;
-  mix-blend-mode: overlay; opacity: var(--grain-opacity);
-}
-[data-section="announcement"] { position: relative; isolation: isolate; }
 
 /* fundo do herói em movimento lento de câmera: ciclo de 22s, escala 1,04–1,08 */
 [data-section="hero"] [data-media] img,
@@ -37,8 +23,6 @@
 [data-section="hero-film"] [data-media] img { animation: none; transform: scale(1.08); }
 }
 
-/* palco sem overflow: hidden (cresce com o card) → o grão acompanha o raio */
-[data-stage]::after { border-radius: inherit; }
 
 /* rodada 3: pausa global das animações (MotionToggle, WCAG 2.2.2) */
 html[data-motion-paused] *, html[data-motion-paused] *::before, html[data-motion-paused] *::after { animation-play-state: paused !important; }

@@ -6,10 +6,6 @@
   background: var(--bg-horizonte); color: var(--c-on-media);
 }
 .floor { position: absolute; inset: 0; z-index: -1; background: var(--orbit-floor); pointer-events: none; }
-.floor::after {
-  content: ""; position: absolute; inset: 0;
-  background: var(--grain); mix-blend-mode: overlay; opacity: var(--grain-opacity);
-}
 
 .heading { position: relative; z-index: 2; padding: var(--s-8) var(--s-5) 0; text-align: center; pointer-events: none; }
 .label { color: var(--c-on-media-text); margin-bottom: var(--s-3); }

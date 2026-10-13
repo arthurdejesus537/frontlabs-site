@@ -9,10 +9,6 @@
   position: relative; isolation: isolate; overflow: hidden; aspect-ratio: 4 / 3;
   display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; border-radius: var(--r-media-lg); background: var(--c-placeholder-dark);
 }
-.stage::after {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: var(--grain); background-size: 220px; mix-blend-mode: overlay; opacity: var(--grain-opacity);
-}
 .bg { object-fit: cover; z-index: -2; }
 .mini { width: 78%; transform: translateY(14%); }
 .mini > * { font-size: var(--t-small); }

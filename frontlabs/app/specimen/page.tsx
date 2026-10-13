@@ -10,7 +10,7 @@ const radii = ["frame", "field", "panel", "card", "card-sm", "media", "pill"];
 const variants = ["primary", "secondary", "outline", "light", "link"] as const;
 const sizes = ["lg", "md", "sm"] as const;
 
-export const metadata = { title: "Specimen" };
+export const metadata = { title: "Specimen", robots: { index: false, follow: false } };
 
 export default function Specimen() {
   return (

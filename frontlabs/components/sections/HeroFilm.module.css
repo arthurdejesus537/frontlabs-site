@@ -32,6 +32,7 @@
 
 @media (max-width: 767px) {
   .frame { min-height: 0; padding: var(--s-8) var(--s-5); }
+  .veil { background: var(--c-veil-m); }
   .lead { font-size: var(--t-body); }
   .ctas { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
   .card { position: static; max-width: none; width: 100%; }

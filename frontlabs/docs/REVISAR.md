@@ -252,3 +252,17 @@ Relatório completo: `qa/frontlabs-r3/revisao-externa.md` (1 grave, 7 médios, 9
 | L7 | Passo 02 rotulado "preview ready" com o site de um venue | **Corrigido**: "a site we built" (igual ao pilar Loved) |
 | L8 | Mídia da aba ativa montada duas vezes (palco + acordeão escondido) | **Mantido**: estrutura da R2 (acordeão no celular). A cópia escondida não toca (o vídeo só toca visível) e não baixa (fontes só perto da tela) |
 | L9 | Results com 2.644px a 390 | Ver M5 |
+
+## 13/10/2026 — retoque final antes de ir pro ar (Arthur)
+
+| O que mudou | Por quê |
+|---|---|
+| Grão removido do site inteiro: `--grain`, `--grain-opacity`, `grao.png` e as camadas `::after` (brand.css, Steps, StepOrbit) | DESIGN.md §4.3 (decisão #31): sem grão por padrão |
+| `foto-cadeiras.jpg` e `foto-noiva-notebook.jpg` refeitas sem grão (Nano Banana Pro, modo edição, mesma cena); `foto-borrada-hero.jpg` e os dois Horizontes limpos com ffmpeg (nlmeans + blur) | O grão estava gravado dentro dos arquivos. Originais em `human-output/image/site-fotos-limpas/` |
+| Site indexável (saiu o `robots: noindex`), `robots.txt`, `sitemap.xml`, Open Graph/Twitter com imagem 1200×630, favicon e apple-icon com o símbolo `\|/` | Vai pro ar no domínio; o favicon era o padrão do Next |
+| Formulário do preview agora abre um e-mail pronto para o Arch com o site digitado (`finalCta.sendTo`) | Antes validava e dizia "Got it" sem mandar nada: o lead se perdia |
+| Saiu a nota "[CONFIRMAR e-mail público]" do card do Arch | Aparecia no site |
+| Véu do herói mais escuro só no celular (`--c-veil-m`) | O texto de apoio caía sobre a janela e o lustre do vídeo |
+| `/specimen` com noindex e fora do robots | Página interna de tokens |
+
+Domínio: definir `NEXT_PUBLIC_SITE_URL=https://dominio` na Vercel (sem isso usa o domínio de produção da Vercel).
